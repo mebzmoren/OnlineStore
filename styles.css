@@ -205,7 +205,7 @@ header .search i {
 .landing-container .intro article  .redirects .links {
   position: relative;
   flex: 50%;
-  min-height: 200px;
+  min-height: 170px;
   border-radius: 5px;
   background-color: var(--grey-color);
   padding: 1em;
@@ -530,7 +530,7 @@ footer .bottom .group h4 {
 .shop-container .products .product-grid {
   margin: 1.5em 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 1em;
   align-items: center;
 }
