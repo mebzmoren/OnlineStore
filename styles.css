@@ -114,13 +114,15 @@ header {
   left: 0;
   right: 0;
   z-index: 1000;
+  background: var(--light-color);
+  border-bottom: 1px solid var(--grey-color);
+}
+
+header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 2em 3.5em;
-  background: var(--light-color);
-  opacity: 0.98;
-  border-bottom: 1px solid var(--grey-color);
 }
 
 header .left {
@@ -135,6 +137,92 @@ header .right {
   justify-content: center;
   align-items: center;
   gap: 4em;
+}
+
+/* Login Hamburger */
+header .login {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 85px;
+  right: 110%;
+  min-width: 100px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--main-color);
+}
+
+header .login a {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  padding: 0.5em 1em;
+  border-radius: 2px;
+}
+
+header.login.active {
+  right: 0;
+}
+
+/* Categories Hamburger */
+header .categories {
+  position: fixed;
+  top: 80px;
+  right: -110%;
+  width: 100%;
+  box-shadow: var(--box-shadow);
+  background-color: var(--light-color);
+  padding: 1em 5.5em;
+  color: var(--dark-color);
+  display: flex;
+  font-size: 1.5rem;
+  gap: 2em;
+}
+
+header .categories.active {
+  right: 0;
+}
+
+header .categories .vertical-line {
+  height: 200px;
+  background-color: var(--grey-color);
+  width: 2px;
+}
+
+header .categories .left {
+  flex: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+header .categories .left .cate-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+header .categories .left .cate-item:hover {
+  color: var(--main-color);
+}
+
+header .categories .left .cate-item h3 {
+  font-weight: 500;
+}
+
+header .categories .right {
+  flex: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 1em;
+}
+
+header .categories .right a {
+  color: var(--dark-color);
+}
+
+header .categories .right a:hover {
+  color: var(--main-color);
 }
 
 .logo {
@@ -170,10 +258,6 @@ header .icons {
   align-items: center;
 }
 
-header .icons a {
-  position: relative;
-}
-
 header .icons a .icon {
   position: relative;
   min-height: 35px;
@@ -203,7 +287,6 @@ header .icons a .icon .item-count {
   justify-content: center;
   align-items: center;
 }
-
 
 header .icons a .icon i {
   font-size: 1.7rem;
@@ -1254,8 +1337,8 @@ footer .bottom .group h4 {
 .checkout-container .order-summary .cost button {
   margin: 2em 0;
   background-color: var(--main-color);
-  padding: 1.5em 1.5em;
   border: 1px solid var(--main-color);
+  padding: 1.5em 1.5em;
   color: var(--text-color);
   border-radius: 40px;
   cursor: pointer;
