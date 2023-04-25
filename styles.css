@@ -90,6 +90,23 @@ hr {
   width: 80%;
 }
 
+/* Breadcrumbs */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.breadcrumbs li {
+  font-size: 1.5rem;
+  color: var(--breadcrumbs-color);
+}
+
+.breadcrumbs li a {
+  color: var(--breadcrumbs-color)
+}
+
+
 /* Header */
 header {
   position: fixed;
@@ -545,7 +562,7 @@ footer .bottom .group h4 {
 .shop-container {
   display: flex;
   margin-top: 6em;
-  padding: 2em 3.5em;
+  padding: 2em 3.5em 0;
   gap: 1em;
 }
 
@@ -688,8 +705,6 @@ footer .bottom .group h4 {
   color: var(--text-color);
 }
 
-
-
 /* Shop Products */
 .shop-container .products {
   flex: 82%;
@@ -704,32 +719,37 @@ footer .bottom .group h4 {
 
 .shop-container .products .header-details .title {
   font-size: 2.2rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
-.shop-container .products .categories-filter li {
+.shop-container .products .header-details .sort {
   display: flex;
   align-items: center;
   gap: 1em;
+
 }
 
-.shop-container .products .header-details button {
+.shop-container .products .header-details .sort button {
   padding: 0.2em 0.8em;
-  border-radius: 5px;
+  border-radius: 2px;
   background-color: transparent;
-  border: 1px solid var(--dark-color);
+  border: none;
   display: flex;
   gap: 1em;
   align-items: center;
   cursor: pointer;
 }
 
-.shop-container .products .header-details button h4 {
+.shop-container .products .header-details .sort button:hover {
+  color: var(--main-color);
+}
+
+.shop-container .products .header-details .sort button h4 {
   font-size: 1.7rem;
   font-weight: 500;
 }
 
-.shop-container .products .header-details button .icon {
+.shop-container .products .header-details .sort button .icon {
   height: 20px;
   width: 20px;
   border-radius: 100%;
@@ -859,22 +879,6 @@ footer .bottom .group h4 {
   display: flex;
   flex-direction: column;
   gap: 1.5em;
-}
-
-/* Product Breadcrumbs */
-.products-container .product .product-details .breadcrumbs {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-}
-
-.products-container .product .product-details .breadcrumbs li {
-  font-size: 1.5rem;
-  color: var(--breadcrumbs-color);
-}
-
-.products-container .product .product-details .breadcrumbs li a {
-  color: var(--breadcrumbs-color)
 }
 
 /* Product Details */
@@ -1015,6 +1019,7 @@ footer .bottom .group h4 {
   background-color: var(--light-color);
 }
 
+/* Product Description */
 .products-container .product .product-details .description {
   width: 90%;
   text-align: justify;
@@ -1055,8 +1060,9 @@ footer .bottom .group h4 {
   color: var(--text-color);
 }
 
+/* Product Extra Details */
 .products-container .product .product-details .extra-details {
-  padding: 1em;
+  padding: 1em 0;
   margin: 2em 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1082,4 +1088,167 @@ footer .bottom .group h4 {
 
 .products-container .product .product-details .extra-details .content-col h3 {
   font-weight: 500;
+}
+
+/* Checkout Page */
+.checkout-container {
+  margin-top: 8em;
+  padding: 2em 3.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.checkout-container form {
+  display: flex;
+  gap: 3em;
+}
+
+/* Delivery Information */
+.checkout-container .checkout-details {
+  flex: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.checkout-container .checkout-details .info .header {
+  border-bottom: 1px solid var(--grey-color);
+  padding: 2em;
+}
+
+.checkout-container .checkout-details .info {
+  background-color: transparent;
+  border: 1px solid var(--grey-color);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8em;
+}
+
+.checkout-container .checkout-details .info .fields {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.checkout-container .checkout-details .info h1 {
+  font-weight: 400;
+}
+
+.checkout-container .checkout-details .info .field {
+  display: flex;
+  gap: 0.8em;
+  flex-direction: column;
+}
+
+.checkout-container .checkout-details .info .field label {
+  font-size: 1.7rem;
+}
+
+.checkout-container .checkout-details .info .field input {
+  padding: 1em;
+  border: 1px solid var(--grey-color);
+}
+
+.checkout-container .checkout-details .info .group {
+  display: flex;
+  gap: 1em;
+}
+
+.checkout-container .checkout-details .info .group .field {
+  flex: 50%;
+}
+/* Payment Method */
+
+/* Order Summary */
+.checkout-container .order-summary {
+  flex: 30%;
+  border: 1px solid var(--grey-color);
+  border-radius: 2px;
+}
+
+.checkout-container .order-summary .header {
+  border-bottom: 1px solid var(--grey-color);
+  padding: 2em;
+}
+
+.checkout-container .order-summary .header h1 {
+  font-weight: 400;
+}
+
+.checkout-container .order-summary .item-col {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.checkout-container .order-summary .item-col .item-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.checkout-container .order-summary .item-col .item-row .img {
+  flex: 24%;
+  background-color: var(--grey-color);
+  border-radius: 2px;
+  height: 110px;
+  width: 100%;
+}
+
+.checkout-container .order-summary .item-col .item-row .details {
+  flex: 76%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.checkout-container .order-summary .item-col .item-row .details .name {
+  font-size: 1.4rem;
+  width: 90%;
+}
+
+.checkout-container .order-summary .item-col .item-row .details .group {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-size: 1.2rem;
+}
+
+.checkout-container .order-summary .item-col .item-row .details .price {
+  font-size: 1.9rem;
+}
+
+.checkout-container .order-summary .cost {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.checkout-container .order-summary .cost .group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.checkout-container .order-summary .cost button {
+  margin: 2em 0;
+  background-color: var(--main-color);
+  padding: 1.5em 1.5em;
+  border: 1px solid var(--main-color);
+  color: var(--text-color);
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.checkout-container .order-summary .cost button:hover {
+  background-color: transparent;
+  color: var(--main-color);
 }
