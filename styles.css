@@ -123,6 +123,20 @@ header {
   border-bottom: 1px solid var(--grey-color);
 }
 
+header .left {
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  gap: 4em;
+}
+
+header .right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4em;
+}
+
 .logo {
   font-size: 2.2rem;
   font-weight: 700;
