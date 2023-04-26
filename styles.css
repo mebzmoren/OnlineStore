@@ -225,6 +225,116 @@ header .categories .right a:hover {
   color: var(--main-color);
 }
 
+/* Shopping Cart Hamburger */
+.shopping-cart {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 85px;
+  right: 2%;
+  max-width: 500px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--light-color);
+  padding: 1em;
+}
+
+.shopping-cart .shopping-cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  padding: 0.8em 0em;
+  border-bottom: 1px solid var(--grey-color);
+}
+
+.shopping-cart .shopping-cart-header .total {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.shopping-cart .shopping-cart-header .title {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.shopping-cart .shopping-cart-header .total h5 {
+  font-weight: 400;
+}
+
+.shopping-cart .shopping-cart-header .total h5:last-child {
+  color: var(--main-color);
+}
+
+.shopping-cart .shopping-cart-items {
+  display: flex;
+  flex-direction: column;
+  padding: 1em 0;
+  gap: 1em;
+}
+
+.shopping-cart .shopping-cart-items .item-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.shopping-cart .shopping-cart-items .item-row .img {
+  min-width: 65px;
+  min-height: 60px;
+  background-color: var(--grey-color);
+}
+
+.shopping-cart .shopping-cart-items .item-row .item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+.shopping-cart .shopping-cart-items .item-row .item-details .item-name {
+  font-size: 1.5rem;
+}
+
+.shopping-cart .shopping-cart-items .item-row .item-details .group {
+  display: flex;
+  gap: 0.8em;
+  font-size: 1.3rem;
+}
+
+.shopping-cart .shopping-cart-items .item-row .item-details .price {
+  color: var(--main-color);
+  font-size: 1.5rem;
+}
+
+.shopping-cart .shopping-cart-items .item-row .item-details .group .details-group {
+  display: flex;
+  gap: 0.3em;
+  color: var(--grey-color-1);
+}
+
+.shopping-cart .actions {
+  margin: 1em 0;
+  display: flex;
+  gap: 1em;
+}
+
+.shopping-cart .actions button {
+  flex: 50%;
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+  padding: 0.5em 0.8em;
+  color: var(--text-color);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.shopping-cart .actions button:hover {
+  background-color: var(--light-color);
+  color: var(--main-color);
+}
+
 .logo {
   font-size: 2.2rem;
   font-weight: 700;
@@ -1201,7 +1311,7 @@ footer .bottom .group h4 {
   gap: 3em;
 }
 
-/* Delivery Information */
+/* Delivery Information & Payment Method*/
 .checkout-container .checkout-details {
   flex: 70%;
   display: flex;
@@ -1257,7 +1367,6 @@ footer .bottom .group h4 {
 .checkout-container .checkout-details .info .group .field {
   flex: 50%;
 }
-/* Payment Method */
 
 /* Order Summary */
 .checkout-container .order-summary {
