@@ -201,12 +201,91 @@
     </div>
   </header>
 
-  <main class="login-container">
+  <!-- Register/Login Form -->
+  <main class="hero login">
     <div class="wrapper">
       <form action="#">
-        <div class="logo"></div>
-        <span class="intro">Welcome to TRIP.</span>
-        <div class="fields"></div>
+        <div class="login-header">
+          <span class="logo">TRIP.</span>
+          <div class="exit">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+        <div class="details">
+          <div class="desc">
+            <span class="title">Sign in</span>
+            <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum exercitationem, libero possimus natus vel soluta.</p>
+          </div>
+          <div class="fields">
+              <div class="field input">
+                <label for="email">Email Address</label>
+                <input id="email" type="email" class="form-control" name="email" required autocomplete="email"
+                    placeholder="Enter Email Address" autofocus>
+              </div>
+              <div class="field input">
+                <label for="password">Password</label>
+                <input id="password" type="password" class="form-control" name="password" required autocomplete="password"
+                    placeholder="Enter Password" autofocus>
+              </div>
+          </div>
+          <div class="redirect">
+            <span class="text">Don't have an account?</span>
+            <a href="#">Register Now</a>
+          </div>
+          <div class="actions">
+            <button type="submit">Sign in</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <main class="hero register">
+    <div class="wrapper">
+      <form action="#">
+        <div class="login-header">
+          <span class="logo">TRIP.</span>
+          <div class="exit">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+        <div class="details">
+          <div class="desc">
+            <span class="title">Register</span>
+            <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum exercitationem, libero possimus natus vel soluta.</p>
+          </div>
+          <div class="fields">
+            <div class="group">
+              <div class="field input">
+                <label for="fname">First Name*</label>
+                <input id="fname" type="fname" class="form-control" name="fname" required autocomplete="fname"
+                placeholder="Enter First Name" autofocus>
+              </div>
+              <div class="field input">
+                <label for="lname">Last Name*</label>
+                <input id="lname" type="lname" class="form-control" name="lname" required autocomplete="lname"
+                placeholder="Enter Last Name" autofocus>
+              </div>
+            </div>
+            <div class="field input">
+              <label for="email">Email Address</label>
+              <input id="email" type="email" class="form-control" name="email" required autocomplete="email"
+                    placeholder="Enter Email Address" autofocus>
+            </div>
+            <div class="field input">
+              <label for="password">Password</label>
+              <input id="password" type="password" class="form-control" name="password" required autocomplete="password"
+                    placeholder="Enter Password" autofocus>
+            </div>
+          </div>
+          <div class="redirect">
+            <span class="text">Already have an account?</span>
+            <a href="#">Sign in</a>
+          </div>
+          <div class="actions">
+            <button type="submit">Register</button>
+          </div>
+        </div>
       </form>
     </div>
   </main>
@@ -250,14 +329,14 @@
             <i class="fa-solid fa-angle-right"></i>
           </li>
         </ul>
-        <div class="hero">
+        <div class="filter">
           <button>
             <h3>Price</h3>
             <i class="fa-solid fa-angle-up"></i>
           </button>
           <input type="text" placeholder="Price">
         </div>
-        <div class="hero">
+        <div class="filter">
           <button>
             <h3>Colors</h3>
             <i class="fa-solid fa-angle-up"></i>
@@ -285,7 +364,7 @@
             </div>
           </div>
         </div>
-        <div class="hero">
+        <div class="filter">
           <button>
             <h3>Size</h3>
             <i class="fa-solid fa-angle-up"></i>

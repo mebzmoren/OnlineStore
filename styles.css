@@ -42,6 +42,7 @@ html {
 }
 
 body {
+  position: relative;
   background-color: var(--light-color);
 }
 
@@ -117,7 +118,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 2;
   background: var(--light-color);
   border-bottom: 1px solid var(--grey-color);
 }
@@ -496,6 +497,138 @@ header .categories .right a:hover {
 .logo {
   font-size: 2.2rem;
   font-weight: 700;
+  color: var(--main-color);
+}
+
+.hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  width: 100%;
+  z-index: 3;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero.login {
+  display: none;
+}
+
+.hero .wrapper {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  max-width: 380px;
+  border-radius: 2px;
+}
+
+.hero .wrapper form {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero .wrapper form .login-header {
+  padding: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--grey-color);
+}
+
+.hero .wrapper form .login-header .exit {
+  background-color: transparent;
+  border: 1px solid var(--grey-color-1);
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all .3s ease;
+}
+
+.hero .wrapper form .login-header .exit:hover {
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
+}
+
+.hero .wrapper form .details {
+  padding: 1em 1.5em 1.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.hero .wrapper form .details .desc {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+
+.hero .wrapper form .details .desc .title {
+  font-size: 1.7rem;
+}
+
+.hero .wrapper form .details .desc .description {
+  font-size: 1.4rem;
+  text-align: justify;
+  color: var(--grey-color-1);
+}
+
+.hero .wrapper form .details .fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+
+.hero .wrapper form .details .fields .field {
+  padding-top: 0.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  font-size: 1.4rem;
+}
+
+.hero .wrapper form .details .fields .group {
+  display: flex;
+  gap: 1em;
+}
+
+.hero .wrapper form .details .fields .field input {
+  padding: 0.7em 0.5em;
+}
+
+.hero .wrapper form .details .redirect {
+  display: flex;
+  justify-content: right;
+  gap: 0.5em;
+  font-size: 1.3rem;
+}
+
+.hero .wrapper form .details .redirect a:hover {
+  text-decoration: underline;
+}
+
+.hero .wrapper form .details .actions {
+  display: flex;
+}
+
+.hero .wrapper form .details .actions button {
+  flex: 100%;
+  margin-top: 1.5em;
+  padding: 0.8em;
+  background-color: var(--main-color);
+  color: var(--text-color);
+  border: 1px solid var(--main-color);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.hero .wrapper form .details .actions button:hover {
+  background-color: transparent;
   color: var(--main-color);
 }
 
@@ -895,13 +1028,13 @@ footer .bottom .group h4 {
   font-weight: 500;
 }
 
-.shop-container .filter .bottom-filter .hero {
+.shop-container .filter .bottom-filter .filter {
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
 
-.shop-container .filter .bottom-filter .hero button {
+.shop-container .filter .bottom-filter .filter button {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -913,19 +1046,19 @@ footer .bottom .group h4 {
   cursor: pointer;
 }
 
-.shop-container .filter .bottom-filter .hero input {
+.shop-container .filter .bottom-filter .filter input {
   margin: 0.5em 1.5em;
   padding: 0.7em 1em; 
 }
 
-.shop-container .filter .bottom-filter .hero .colors {
+.shop-container .filter .bottom-filter .filter .colors {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 1em;
   padding: 1em 2em;
 }
 
-.shop-container .filter .bottom-filter .hero .colors .group {
+.shop-container .filter .bottom-filter .filter .colors .group {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
