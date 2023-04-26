@@ -233,7 +233,7 @@ header .user-pop {
   flex-direction: column;
   gap: 1em;
   top: 85px;
-  right: -110%;
+  right: 2%;
   max-width: 300px;
   box-shadow: var(--box-shadow);
   background-color: var(--light-color);
@@ -515,6 +515,18 @@ header .categories .right a:hover {
 
 .hero.login {
   display: none;
+}
+
+.hero.login .active {
+  display: flex;
+}
+
+.hero.register {
+  display: none;
+}
+
+.hero.register .active {
+  display: flex;
 }
 
 .hero .wrapper {
