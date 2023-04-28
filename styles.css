@@ -233,7 +233,7 @@ header .user-pop {
   flex-direction: column;
   gap: 1em;
   top: 85px;
-  right: 2%;
+  right: -110%;
   max-width: 300px;
   box-shadow: var(--box-shadow);
   background-color: var(--light-color);
@@ -390,7 +390,7 @@ header .categories .right a:hover {
   display: flex;
   flex-direction: column;
   top: 85px;
-  right: -110%;
+  right: 2%;
   max-width: 500px;
   box-shadow: var(--box-shadow);
   background-color: var(--light-color);
