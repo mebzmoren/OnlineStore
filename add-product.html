@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile</title>
-    <!-- CSS Link -->
-    <link rel="stylesheet" href="styles.css" type="text/css">
-    <!-- Font Awesome Link -->
-    <script src="https://kit.fontawesome.com/84e2199ce0.js" crossorigin="anonymous"></script>
+  <title>Add Product</title>
+  <!-- CSS Link -->
+  <link rel="stylesheet" href="styles.css" type="text/css">
+  <!-- Font Awesome Link -->
+  <script src="https://kit.fontawesome.com/84e2199ce0.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
   <!-- Header -->
   <header>
@@ -198,7 +200,7 @@
       </div>
     </div>
   </header>
-  
+
   <!-- Register/Login Form -->
   <main class="hero login">
     <div class="wrapper">
@@ -238,7 +240,7 @@
       </form>
     </div>
   </main>
-  
+
   <main class="hero register">
     <div class="wrapper">
       <form action="#">
@@ -290,48 +292,112 @@
     </div>
   </main>
 
-  <!-- Profile Page -->
-  <main class="profile-container">
-    <div class="profile-details">
-      <div class="profile-pic"></div>
-      <div class="name">
-        <span class="first-name">First Name</span>
-        <span class="last-name">Last name</span>
-      </div>
-      <span class="email">test@gmail.com</span>
-    </div>
-    <div class="profile-actions">
-      <ul class="selectors">
+  <main class="seller-profile">
+    <!-- Seller Sidebar -->
+    <aside class="side-bar">
+      <span class="title">
+        <i class="fa-solid fa-store"></i>
+        <h3 class="name">Order</h3>
+      </span>
+      <ul class="options">
         <li>
-          <span class="title">Liked Products</span>
-          <span class="count">1</span>
+          <a href="#">My Products</a>
+        </li>
+        <li>
+          <a href="#">Add New Product</a>
         </li>
       </ul>
-      <div class="product-grid">
-        <div class="product-col">
-          <div class="top">
-            <div class="img"></div>
-            <div class="like">
-              <i class="fa-regular fa-heart"></i>
+    </aside>
+    <!-- Add Product -->
+    <div class="sell-container">
+      <div class="header-details">
+        <span class="title">Add New Product</span>
+      </div>
+      <div class="product-details">
+        <form action="#">
+          <div class="field input">
+            <label for="image">Image Pic*</label>
+            <input id="image" type="file" class="custom-file-input no-padding" name="image" required autocomplete="image"
+                placeholder="Select A Image" autofocus>
+          </div>
+          <div class="group custom">
+            <div class="field input">
+              <label for="name">Product Name*</label>
+              <input id="name" type="name" class="form-control" name="name" required autocomplete="name"
+                  placeholder="Enter Product Name" autofocus>
+            </div>
+            <div class="field input">
+              <label for="name">Category Name*</label>
+              <select name="category" id="category" required autocomplete="category" autofocus>
+                <option value="1">Shirts</option>
+                <option value="2">Jeans</option>
+                <option value="3">Shoes</option>
+              </select>
             </div>
           </div>
-          <div class="bottom">
-            <div class="product-details">
-              <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. A!</h4>
-              <div class="group">
-                <div class="rating">
-                  <i class="fa-solid fa-star"></i>
-                  <h5>5.0 (# of reviews)</h5>
+          <div class="extra-group">
+            <div class="field input">
+              <label for="color">Color*</label>
+              <div class="colors">
+                <div class="select">
+                  <input type="checkbox">
+                  <span class="red">Red</span>
                 </div>
-                <h2 class="price">$575</h2>
+                <div class="select">
+                  <input type="checkbox">
+                  <span class="red">Blue</span>
+                </div>
+                <div class="select">
+                  <input type="checkbox">
+                  <span class="red">Yellow</span>
+                </div>
+                <div class="select">
+                  <input type="checkbox">
+                  <span class="red">Green</span>
+                </div>
+                <div class="select">
+                  <input type="checkbox">
+                  <span class="red">White</span>
+                </div>
+              </div>
+            </div>
+            <div class="field input">
+              <label for="size">Size*</label>
+              <div class="sizes">
+                <div class="select">
+                  <input type="checkbox">
+                  <span class="xtra-small">XS</span>
+                </div>
+                <div class="select">
+                  <input type="checkbox">
+                  <span class="small">S</span>
+                </div>
+                <div class="select">
+                  <input type="checkbox">
+                  <span class="medium">M</span>
+                </div>
+                <div class="select">
+                  <input type="checkbox">
+                  <span class="large">L</span>
+                </div>
+                <div class="select">
+                  <input type="checkbox">
+                  <span class="xtra-large">XL</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+          <div class="field input">
+            <label for="description">Product Description*</label>
+            <textarea required autocomplete name="description" id="description" cols="30" rows="10"></textarea>
+          </div>
+          <div class="actions">
+            <button type="submit">Add Product</button>
+          </div>
+        </form>
       </div>
     </div>
   </main>
-
   <div class="divider">
     <p>
       YAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNIIIIIIIIIIIIIIIIIIIIIOOOOOOOOOOOOOOOOOOYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
@@ -395,8 +461,10 @@
       </div>
     </section>
   </footer>
-  
+
   <!-- JS Link -->
   <script src="script.js"></script>
+
 </body>
+
 </html>
