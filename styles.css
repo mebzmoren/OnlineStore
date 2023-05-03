@@ -195,7 +195,7 @@ header .icons {
   align-items: center;
 }
 
-header .icons a .icon {
+header .icons .icon {
   position: relative;
   min-height: 35px;
   min-width: 35px;
@@ -205,13 +205,14 @@ header .icons a .icon {
   background-color: transparent;
   color: var(--main-color);
   align-items: center;
+  cursor: pointer;
 }
 
-header .icons a:hover .icon {
+header .icons .icon:hover {
   background-color: var(--hover-color);
 }
 
-header .icons a .icon .item-count {
+header .icons .icon .item-count {
   position: absolute;
   top: 0;
   right: 2px;
@@ -225,7 +226,7 @@ header .icons a .icon .item-count {
   align-items: center;
 }
 
-header .icons a .icon i {
+header .icons .icon i {
   font-size: 1.7rem;
 }
 
@@ -251,23 +252,24 @@ header .search i {
 }
 
 /* User Hamburger */
-header .user-pop {
+.user-pop {
   position: fixed;
   display: flex;
   flex-direction: column;
   gap: 1em;
   top: 85px;
   right: -110%;
+  z-index: 2;
   max-width: 350px;
   border: 1px solid var(--grey-color-1);
   background-color: var(--light-color);
 }
 
-header.user-pop.active {
+.user-pop.active {
   right: 0;
 }
 
-header .user-pop .user-header {
+.user-pop .user-header {
   padding: 1em;
   display: flex;
   justify-content: right;
@@ -294,7 +296,7 @@ header .user-pop .user-header {
   color: var(--main-color);
 }
 
-header .user-pop .user-content {
+.user-pop .user-content {
   padding: 2em;
   display: flex;
   gap: 1.5em;
@@ -304,21 +306,21 @@ header .user-pop .user-content {
   text-align: center;
 }
 
-header .user-pop .user-content  p {
+.user-pop .user-content  p {
   font-size: 1.2rem;
 }
 
-header .user-pop .user-content img {
+.user-pop .user-content img {
   min-height: 100px;
   width: 60%;
 }
 
-header .user-pop .user-content .actions {
+.user-pop .user-content .actions {
   display: flex;
   gap: 1em;
 }
 
-header .user-pop .user-content .actions button {
+.user-pop .user-content .actions button {
   padding: 0.5em 1em;
   background-color: var(--main-color);
   border: 1px solid var(--main-color);
@@ -328,24 +330,24 @@ header .user-pop .user-content .actions button {
   transition: all .3s ease;
 }
 
-header .user-pop .user-content .actions button:hover {
+.user-pop .user-content .actions button:hover {
   color: var(--main-color);
   background-color: var(--light-color);
 }
 
-header .user-pop .user-content .actions button:last-child {
+.user-pop .user-content .actions button:last-child {
   background-color: var(--light-color);
   color: var(--main-color);
 }
 
-header .user-pop .user-content .actions button:last-child:hover {
+.user-pop .user-content .actions button:last-child:hover {
   color: var(--text-color);
   background-color: var(--main-color);
 }
 
 
 /* Categories Hamburger */
-header .categories {
+.categories {
   position: fixed;
   top: 80px;
   right: -110%;
@@ -359,24 +361,24 @@ header .categories {
   gap: 2em;
 }
 
-header .categories.active {
+.categories.active {
   right: 0;
 }
 
-header .categories .vertical-line {
+.categories .vertical-line {
   height: 200px;
   background-color: var(--grey-color);
   width: 2px;
 }
 
-header .categories .left {
+.categories .left {
   flex: 10%;
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
 
-header .categories .left .cate-item {
+.categories .left .cate-item {
   display: flex;
   align-items: center;
   gap: 2em;
@@ -384,15 +386,15 @@ header .categories .left .cate-item {
   cursor: pointer;
 }
 
-header .categories .left .cate-item:hover {
+.categories .left .cate-item:hover {
   color: var(--main-color);
 }
 
-header .categories .left .cate-item h3 {
+.categories .left .cate-item h3 {
   font-weight: 500;
 }
 
-header .categories .right {
+.categories .right {
   padding: 0.5em;
   flex: 90%;
   display: grid;
@@ -400,11 +402,11 @@ header .categories .right {
   gap: 1em;
 }
 
-header .categories .right a {
+.categories .right a {
   color: var(--dark-color);
 }
 
-header .categories .right a:hover {
+.categories .right a:hover {
   color: var(--main-color);
 }
 
@@ -1170,25 +1172,25 @@ footer .bottom .group h4 {
   margin: 2em 1em;
 }
 
-.shop-container .products .header-details {
+.products .header-details {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.shop-container .products .header-details .title {
+.products .header-details .title {
   font-size: 2.2rem;
   font-weight: 400;
 }
 
-.shop-container .products .header-details .sort {
+.products .header-details .sort {
   display: flex;
   align-items: center;
   gap: 1em;
 
 }
 
-.shop-container .products .header-details .sort button {
+.products .header-details .sort button {
   padding: 0.2em 0.8em;
   border-radius: 2px;
   background-color: transparent;
@@ -1199,22 +1201,23 @@ footer .bottom .group h4 {
   cursor: pointer;
 }
 
-.shop-container .products .header-details .sort button:hover {
+.products .header-details .sort button:hover {
   color: var(--main-color);
 }
 
-.shop-container .products .header-details .sort button h4 {
+.products .header-details .sort button h4 {
   font-size: 1.7rem;
   font-weight: 500;
 }
 
-.shop-container .products .header-details .sort button .icon {
+.products .header-details .sort button .icon {
   height: 20px;
   width: 20px;
   border-radius: 100%;
   background-color: var(--dark-color);
 }
 
+/* Product Grid */
 .product-grid {
   margin: 1.5em 0;
   display: grid;
@@ -2257,4 +2260,18 @@ footer .bottom .group h4 {
 .rating-grid .user-rating .rating-details .description {
   font-size: 1.3rem;
   font-weight: 400;
+}
+
+/* List Products */
+.sell-container.list {
+  margin-top: 1em 0;
+  border: none;
+}
+
+.sell-container.list .header-details {
+  border-bottom: none;
+}
+
+.sell-container.list .product-col .like {
+  display: none;
 }
