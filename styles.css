@@ -22,7 +22,7 @@
   --grey-color: #d4d4d4;
   --grey-color-1: #929292;
   --breadcrumbs-color: #929292;
-  --rating-color: #FDCC0D;
+  --rating-color: #FF9529;
   --btn-color: #b8b8b8;
   --green-color: 	#32CD32;
   --main-color: #5E17EB;
@@ -135,7 +135,6 @@ hr {
 .breadcrumbs li a:hover {
   color: var(--main-color);
 }
-
 
 /* Header */
 header {
@@ -275,7 +274,7 @@ header .user-pop .user-header {
   border-bottom: 1px solid var(--grey-color-1);
 }
 
-header .user-pop .user-header .exit {
+.exit {
   background-color: transparent;
   border: 1px solid var(--grey-color-1);
   padding: 0.5em 0.8em;
@@ -287,11 +286,11 @@ header .user-pop .user-header .exit {
   transition: all .3s ease;
 }
 
-header .user-pop .user-header .exit:hover {
+.exit:hover {
   border: 1px solid var(--main-color);
 }
 
-header .user-pop .user-header .exit:hover i {
+.exit:hover i {
   color: var(--main-color);
 }
 
@@ -1358,7 +1357,7 @@ footer .bottom .group h4 {
 /* Products Page */
 .products-container {
   margin-top: 6em;
-  padding: 2em 3.5em;
+  padding: 2em 3em 0;
 }
 
 .products-container .product {
@@ -1998,4 +1997,264 @@ footer .bottom .group h4 {
 .seller-profile form .actions button:hover {
   background-color: var(--light-color);
   color: var(--dark-color);
+}
+
+/* Pop up rating */
+.hero.rating {
+  display: none;
+}
+
+.hero.rating.active {
+  display: flex;
+}
+
+.rating .wrapper {
+  max-width: 440px;
+}
+
+.rating form {
+  display: flex;
+  gap: 1em;
+}
+
+.rating .rating-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--grey-color);
+  padding: 1em;
+}
+
+.rating .rating-header .title {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.rating .rating-header .fa-xmark {
+  font-size: 1.7rem;
+}
+
+.rating .rating-description {
+  padding: 1em 1.5em;
+}
+
+.rating .rating-desc {
+  font-size: 1.5rem;
+  color: var(--rating-color);
+}
+
+.rating .rating-select {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5em;
+}
+
+.rating .rating-select .title {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.rating .rating-select .rate {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+}
+
+.rating .rating-select .rate .fa-star {
+  color: var(--grey-color-1);
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.rating .rating-select .rate .fa-star:hover {
+  color: var(--rating-color);
+}
+
+.rating .rating-header .rating-desc {
+  font-size: 1.7rem;
+  color: var(--rating-color);
+}
+.rating .field {
+  margin: 1em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+.rating .field label {
+  font-size: 1.5rem;
+}
+
+.rating .field input {
+  padding: 1em;
+}
+
+.rating .field textarea {
+  resize: none;
+  min-height: 120px;
+  padding: 1em;
+}
+
+.rating .actions {
+  display: flex;
+  justify-content: right;
+}
+
+.rating .actions button {
+  padding: 0.5em 1em;
+  cursor: pointer;
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+  color: var(--text-color);
+  transition: all .3s ease;
+}
+
+.rating .actions button:hover {
+  background-color: var(--light-color);
+  color: var(--main-color);
+}
+
+/* Rating System */
+.product-rating {
+  margin: 3em 8.5% 0;
+}
+
+.product-rating .rating-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-rating .rating-header .title {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.product-rating .rating-header .title-group {
+  font-size: 1.5rem;
+}
+
+.product-rating .rating-header .rating-total {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+.product-rating .rating-header .rating-total .total {
+  font-size: 6.5rem;
+  color: var(--rating-color);
+}
+
+.product-rating .rating-header .rating-total .group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.product-rating .rating-header .rating-total .group .stars {
+  display: flex;
+  gap: 1em;
+}
+
+.product-rating .rating-header .rating-total .group .stars .fa-star {
+  font-size: 1.9rem;
+  color: var(--rating-color);
+}
+
+.product-rating .rating-header .rating-total .group .review-total {
+  font-size: 1.8rem;
+  color: var(--grey-color-1);
+}
+
+/* Review Rating Grid */
+.rating-grid {
+  margin: 1em 0 2em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1em;
+}
+
+.rating-grid .user-rating {
+  background-color:  var(--light-color);
+  border-radius: 2px;
+  border: 1px solid var(--grey-color-1);
+  box-shadow: var(--box-shadow);
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.rating-grid .user-rating .heading-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rating-grid .user-rating .heading-details .left {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.rating-grid .user-rating .heading-details .left .user-icon {
+  background-color: var(--grey-color-1);
+  min-width: 42px;
+  min-height: 42px;
+  border-radius: 100%;
+}
+
+.rating-grid .user-rating .heading-details .left .group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+}
+
+.rating-grid .user-rating .heading-details .left .group .name {
+  font-size: 1.5rem;
+}
+
+.rating-grid .user-rating .heading-details .left .group .timestamp {
+  font-size: 1.3rem;
+  color: var(--grey-color-1);
+}
+
+.rating-grid .user-rating .heading-details .rate-group {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.rating-grid .user-rating .heading-details .rate-group .stars {
+  display: flex;
+  gap: 0.5em;
+}
+
+.rating-grid .user-rating .heading-details .rate-group .stars .fa-star {
+  font-size: 1.3rem;
+  color: var(--rating-color);
+}
+
+.rating-grid .user-rating .heading-details .rate-group .num {
+  font-size: 1.5rem;
+  color: var(--rating-color);
+}
+
+.rating-grid .user-rating .rating-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5em;
+}
+
+.rating-grid .user-rating .rating-details .title {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.rating-grid .user-rating .rating-details .description {
+  font-size: 1.3rem;
+  font-weight: 400;
 }
