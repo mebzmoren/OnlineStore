@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="styles.css" type="text/css">
     <!-- Font Awesome Link -->
     <script src="https://kit.fontawesome.com/84e2199ce0.js" crossorigin="anonymous"></script>
-    <!-- JS Link -->
-    <script src="script.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -29,9 +27,7 @@
             <a href="index.html">Become A Seller</a>
           </li>
           <div class="sep">/</div>
-          <li>
-            <a href="index.html">Categories</a>
-          </li>
+          <li id="cate-btn">Categories</li>
           <div class="sep">/</div>
           <li>
             <a href="index.html">Shop</a>
@@ -67,7 +63,7 @@
   <!-- User Hamburger -->
   <div class="user-pop">
     <div class="user-header">
-      <button class="exit">
+      <button class="exit" id="exit-btn">
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>
@@ -75,8 +71,8 @@
       <img src="assets/images/frontend/cart.svg" alt="">
       <p>It looks you haven't started yet. Start shopping with us!</p>
       <div class="actions">
-        <button class="login" id="login_btn">Become a Member</button>
-        <button class="register">Become a Seller</button>
+        <button class="login" id="member-btn">Become a Member</button>
+        <button class="register" id="seller-btn">Become a Seller</button>
       </div>
     </div>
   </div>
@@ -671,6 +667,6 @@
     </section>
   </footer>
   <!-- JS Link -->
-  <script src="script.js" type="text/javascript"></script>
+  <script src="script.js"></script>
 </body>
 </html>

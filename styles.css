@@ -176,6 +176,11 @@ header .nav {
 
 header .nav li {
   list-style: none;
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--grey-color-1);
+  transition: all .3s ease;
+  cursor: pointer;
 }
 
 header .nav li a {
@@ -263,10 +268,11 @@ header .search i {
   max-width: 350px;
   border: 1px solid var(--grey-color-1);
   background-color: var(--light-color);
+  transition: all .6s ease;
 }
 
 .user-pop.active {
-  right: 0;
+  right: 2%;
 }
 
 .user-pop .user-header {
@@ -352,6 +358,7 @@ header .search i {
   top: 80px;
   right: -110%;
   width: 100%;
+  z-index: 2;
   box-shadow: var(--box-shadow);
   background-color: var(--light-color);
   padding: 1em 5.5em;
@@ -372,7 +379,7 @@ header .search i {
 }
 
 .categories .left {
-  flex: 10%;
+  flex: 15%;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -396,7 +403,7 @@ header .search i {
 
 .categories .right {
   padding: 0.5em;
-  flex: 90%;
+  flex: 85%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 1em;
@@ -543,7 +550,7 @@ header .search i {
   display: none;
 }
 
-.hero.login .active {
+.login .active {
   display: flex;
 }
 
@@ -551,7 +558,7 @@ header .search i {
   display: none;
 }
 
-.hero.register .active {
+.register .active {
   display: flex;
 }
 
@@ -559,7 +566,7 @@ header .search i {
   display: none;
 }
 
-.hero.seller .active {
+.seller .active {
   display: flex;
 }
 
@@ -1338,13 +1345,14 @@ footer .bottom .group h4 {
 
 .products .pagination .page-select .select {
   font-size: 1.5rem;
-  background-color: var(--grey-color);
+  background-color: var(--light-color);
   padding: 0.5em 0.9em;
   border-radius: 2px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid var(--dark-color);
 }
 
 .products .pagination .page-select .select:hover {
@@ -1809,6 +1817,10 @@ footer .bottom .group h4 {
   gap: 3em;
   border-bottom: 1px solid var(--grey-color-1);
   padding: 1.5em 0;
+}
+
+.profile-actions .selectors li:hover span {
+  color: var(--main-color);
 }
 
 .profile-actions .selectors li {
