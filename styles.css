@@ -181,6 +181,17 @@ header .nav li {
   color: var(--grey-color-1);
   transition: all .3s ease;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+header .nav li i {
+  font-size: 1.2rem;
+}
+
+.toggle-color.active {
+  color: var(--main-color);
 }
 
 header .nav li a {
@@ -373,6 +384,7 @@ header .search i {
 }
 
 .categories .vertical-line {
+  display: none;
   height: 200px;
   background-color: var(--grey-color);
   width: 2px;
@@ -380,7 +392,7 @@ header .search i {
 
 .categories .left {
   flex: 15%;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 1em;
 }
@@ -546,27 +558,19 @@ header .search i {
   align-items: center;
 }
 
-.hero.login {
+.hero {
   display: none;
 }
 
-.login .active {
+.login.active {
   display: flex;
 }
 
-.hero.register {
-  display: none;
-}
-
-.register .active {
+.register.active {
   display: flex;
 }
 
-.hero.seller {
-  display: none;
-}
-
-.seller .active {
+.seller.active {
   display: flex;
 }
 
@@ -1042,6 +1046,14 @@ footer .bottom .group h4 {
   border-bottom: none;
 }
 
+.shop-container .filter .price-filter {
+  display: flex;
+}
+
+.shop-container .filter .price-filter.active {
+  display: none;
+}
+
 .shop-container .filter .header-filter {
   border-bottom: 1px solid var(--grey-color);
   display: flex;
@@ -1110,6 +1122,10 @@ footer .bottom .group h4 {
   padding: 1em 2em;
 }
 
+.shop-container .filter .bottom-filter .filter .colors.active {
+  display: none;
+}
+
 .shop-container .filter .bottom-filter .filter .colors .group {
   display: flex;
   flex-direction: column;
@@ -1157,6 +1173,10 @@ footer .bottom .group h4 {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1em;
   padding: 1em 2em;
+}
+
+.shop-container .filter .bottom-filter .sizes.active {
+  display: none;
 }
 
 .shop-container .filter .bottom-filter .sizes .select {

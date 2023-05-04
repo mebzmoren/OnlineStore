@@ -27,7 +27,10 @@
             <a href="index.html">Become A Seller</a>
           </li>
           <div class="sep">/</div>
-          <li id="cate-btn">Categories</li>
+          <li id="cate-btn" class="toggle-color">
+            <span class="name">Categories</span>
+            <i class="fa-solid" id="cate-toggle"></i>
+          </li>
           <div class="sep">/</div>
           <li>
             <a href="index.html">Shop</a>
@@ -71,8 +74,8 @@
       <img src="assets/images/frontend/cart.svg" alt="">
       <p>It looks you haven't started yet. Start shopping with us!</p>
       <div class="actions">
-        <button class="login" id="member-btn">Become a Member</button>
-        <button class="register" id="seller-btn">Become a Seller</button>
+        <button class="member" id="member-btn">Become a Member</button>
+        <button class="seller" id="seller-btn">Become a Seller</button>
       </div>
     </div>
   </div>
@@ -199,12 +202,12 @@
   </div>
   
   <!-- Register/Login Form -->
-  <main class="hero login">
+  <main class="login hero">
     <div class="wrapper">
       <form action="#">
         <div class="login-header">
           <span class="logo">TRIP.</span>
-          <div class="exit">
+          <div class="exit" id="member-exit">
             <i class="fa-solid fa-xmark"></i>
           </div>
         </div>
@@ -238,12 +241,12 @@
     </div>
   </main>
   
-  <main class="hero register">
+  <main class="register hero">
     <div class="wrapper">
       <form action="#">
         <div class="login-header">
           <span class="logo">TRIP.</span>
-          <div class="exit">
+          <div class="exit" id="register-exit">
             <i class="fa-solid fa-xmark"></i>
           </div>
         </div>
@@ -289,12 +292,12 @@
     </div>
   </main>
 
-  <main class="hero seller">
+  <main class="seller hero">
     <div class="wrapper">
       <form action="#">
         <div class="login-header">
           <span class="logo">TRIP.</span>
-          <div class="exit">
+          <div class="exit" id="seller-exit">
             <i class="fa-solid fa-xmark"></i>
           </div>
         </div>
@@ -368,18 +371,18 @@
           </li>
         </ul>
         <div class="filter">
-          <button>
+          <button id="price-btn">
             <h3>Price</h3>
-            <i class="fa-solid fa-angle-up"></i>
+            <i class="fa-solid fa-angle-down" id="price-toggle"></i>
           </button>
-          <input type="text" placeholder="Price">
+          <input type="text" placeholder="Price" class="price-filter">
         </div>
         <div class="filter">
-          <button>
+          <button id="color-btn">
             <h3>Colors</h3>
-            <i class="fa-solid fa-angle-up"></i>
+            <i class="fa-solid fa-angle-down" id="color-toggle"></i>
           </button>
-          <div class="colors">
+          <div class="colors color-filter">
             <div class="group">
               <button class="select red"></button>
               <h4>Red</h4>
@@ -403,11 +406,11 @@
           </div>
         </div>
         <div class="filter">
-          <button>
+          <button id="size-btn">
             <h3>Size</h3>
-            <i class="fa-solid fa-angle-up"></i>
+            <i class="fa-solid fa-angle-down" id="size-toggle"></i>
           </button>
-          <div class="sizes">
+          <div class="sizes size-filter">
             <button class="select">
               <h4>XXS</h4>
             </button>
@@ -588,16 +591,10 @@
       </div>
       <div class="pagination">
         <ul class="page-select">
-          <li class="select">
-            <i class="fa-solid fa-angle-left"></i>
-          </li>
           <li class="select">1</li>
           <li class="select">2</li>
           <li class="select">3</li>
           <li class="select">4</li>
-          <li class="select">
-            <i class="fa-solid fa-angle-right"></i>
-          </li>
         </ul>
       </div>
     </section>
