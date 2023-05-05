@@ -52,7 +52,7 @@
           <div class="icon" id="acc-btn">
             <i class="fa-regular fa-user"></i>
           </div>
-          <div class="icon">
+          <div class="icon" id="shop-btn">
             <i class="fa-solid fa-cart-shopping"></i>
             <div class="item-count">
               <h4>0</h4>
@@ -129,7 +129,7 @@
   <!-- Shopping Cart Hamburger -->
   <div class="shopping-cart">
     <div class="shopping-cart-header">
-      <span class="title">Shopping Cart</span>
+      <span class="title">Buy Orders</span>
       <div class="total">
         <h5>Total:</h5>
         <h5>$575.00</h5>
@@ -150,7 +150,10 @@
               <span class="value">Black</span>
             </span>
           </div>
-          <span class="price">$115.00</span>
+          <div class="cancel-group">
+            <span class="price">$115.00</span>
+            <button class="cancel">Cancel Order</button>
+          </div>
         </div>
       </div>
       <div class="item-row">
@@ -167,7 +170,10 @@
               <span class="value">Black</span>
             </span>
           </div>
-          <span class="price">$115.00</span>
+          <div class="cancel-group">
+            <span class="price">$115.00</span>
+            <button class="cancel">Cancel Order</button>
+          </div>
         </div>
       </div>
       <div class="item-row">
@@ -184,13 +190,16 @@
               <span class="value">Black</span>
             </span>
           </div>
-          <span class="price">$115.00</span>
+          <div class="cancel-group">
+            <span class="price">$115.00</span>
+            <button class="cancel">Cancel Order</button>
+          </div>
         </div>
       </div>
     </div>
     <div class="actions">
-      <button>Back</button>
-      <button>Place Order</button>
+      <button id="order-exit">Back</button>
+      <!-- <button>Place Order</button> -->
     </div>
   </div>
   
@@ -328,11 +337,11 @@
   <main class="shop-container">
     <!-- Shop Filter -->
     <section class="filter">
-      <div class="header-filter">
+      <div class="header-filter" id="filter-btn">
         <h4>Filters</h4>
         <i class="fa-solid fa-filter"></i>
       </div>
-      <div class="bottom-filter">
+      <div class="bottom-filter" id="filters">
         <ul class="categories-filter">
           <li>
             <h4>Category 1</h4>

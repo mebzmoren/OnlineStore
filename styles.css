@@ -279,7 +279,7 @@ header .search i {
   max-width: 350px;
   border: 1px solid var(--grey-color-1);
   background-color: var(--light-color);
-  transition: all .6s ease;
+  transition: all .3s ease;
 }
 
 .user-pop.active {
@@ -436,10 +436,16 @@ header .search i {
   flex-direction: column;
   top: 85px;
   right: -110%;
+  z-index: 2;
   max-width: 500px;
-  box-shadow: var(--box-shadow);
+  border: 1px solid var(--grey-color-1);
   background-color: var(--light-color);
   padding: 1em;
+  transition: all .3s ease;
+}
+
+.shopping-cart.active {
+  right: 2%;
 }
 
 .shopping-cart .shopping-cart-header {
@@ -448,7 +454,7 @@ header .search i {
   align-items: center;
   font-size: 1.5rem;
   padding: 0.8em 0em;
-  border-bottom: 1px solid var(--grey-color);
+  border-bottom: 1px solid var(--grey-color-1);
 }
 
 .shopping-cart .shopping-cart-header .total {
@@ -515,6 +521,18 @@ header .search i {
   display: flex;
   gap: 0.3em;
   color: var(--grey-color-1);
+}
+
+.shopping-cart .shopping-cart-items .item-row .item-details .cancel-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.shopping-cart .shopping-cart-items .item-row .item-details .cancel-group button {
+  border: none;
+  background-color: var(--light-color);
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .shopping-cart .actions {
@@ -1049,6 +1067,11 @@ footer .bottom .group h4 {
   border: 1px solid var(--grey-color);
   border-top: none;
   border-bottom: none;
+  transition: all .3s ease;
+}
+
+.filter.active {
+  flex: 2%;
 }
 
 .shop-container .filter .price-filter {
@@ -1064,8 +1087,13 @@ footer .bottom .group h4 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
   padding: 1em 1.5em;
   font-size: 1.5rem;
+}
+
+.shop-container .filter .header-filter .fa-filter {
+  cursor: pointer;
 }
 
 .shop-container .filter .categories-filter {
@@ -1091,6 +1119,10 @@ footer .bottom .group h4 {
   display: flex;
   flex-direction: column;
   gap: 1em;
+}
+
+.shop-container .filter .bottom-filter.active {
+  display: none;
 }
 
 .shop-container .filter .bottom-filter h4 {
