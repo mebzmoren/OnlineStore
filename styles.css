@@ -566,6 +566,11 @@ header .search i {
   display: flex;
 }
 
+.seller.active {
+  display: flex;
+}
+
+
 .register.active {
   display: flex;
 }
@@ -2035,11 +2040,11 @@ footer .bottom .group h4 {
 }
 
 /* Pop up rating */
-.hero.rating {
+.rating {
   display: none;
 }
 
-.hero.rating.active {
+.rating.active {
   display: flex;
 }
 
@@ -2171,6 +2176,12 @@ footer .bottom .group h4 {
 
 .product-rating .rating-header .title-group {
   font-size: 1.5rem;
+}
+
+.product-rating .rating-header .title-group .sub-header {
+  color: var(--rating-color);
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .product-rating .rating-header .rating-total {

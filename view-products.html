@@ -25,8 +25,9 @@
             <a href="index.html">Become A Seller</a>
           </li>
           <div class="sep">/</div>
-          <li>
-            <a href="index.html">Categories</a>
+          <li id="cate-btn" class="toggle-color">
+            <span class="name">Categories</span>
+            <i class="fa-solid fa-angle-up" id="cate-toggle"></i>
           </li>
           <div class="sep">/</div>
           <li>
@@ -63,7 +64,7 @@
   <!-- User Hamburger -->
   <div class="user-pop">
     <div class="user-header">
-      <button class="exit">
+      <button class="exit" id="exit-btn">
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>
@@ -71,8 +72,8 @@
       <img src="assets/images/frontend/cart.svg" alt="">
       <p>It looks you haven't started yet. Start shopping with us!</p>
       <div class="actions">
-        <button class="login" id="login_btn">Become a Member</button>
-        <button class="register">Become a Seller</button>
+        <button class="member" id="member-btn">Become a Member</button>
+        <button class="seller" id="seller-btn">Become a Seller</button>
       </div>
     </div>
   </div>
@@ -103,30 +104,23 @@
     </div>
     <div class="vertical-line"></div>
     <div class="right">
-      <a href="#">Sub Category 1</a>
-      <a href="#">Sub Category 2</a>
-      <a href="#">Sub Category 3</a>
-      <a href="#">Sub Category 4</a>
-      <a href="#">Sub Category 5</a>
-      <a href="#">Sub Category 6</a>
-      <a href="#">Sub Category 7</a>
-      <a href="#">Sub Category 8</a>
-      <a href="#">Sub Category 9</a>
-      <a href="#">Sub Category 10</a>
-      <a href="#">Sub Category 11</a>
-      <a href="#">Sub Category 12</a>
-      <a href="#">Sub Category 13</a>
-      <a href="#">Sub Category 14</a>
-      <a href="#">Sub Category 15</a>
-      <a href="#">Sub Category 16</a>
-      <a href="#">Sub Category 17</a>
-      <a href="#">Sub Category 18</a>
-      <a href="#">Sub Category 19</a>
-      <a href="#">Sub Category 20</a>
-      <a href="#">Sub Category 21</a>
-      <a href="#">Sub Category 22</a>
-      <a href="#">Sub Category 23</a>
-      <a href="#">Sub Category 24</a>
+      <a href="#">Category 1</a>
+      <a href="#">Category 2</a>
+      <a href="#">Category 3</a>
+      <a href="#">Category 4</a>
+      <a href="#">Category 5</a>
+      <a href="#">Category 6</a>
+      <a href="#">Category 7</a>
+      <a href="#">Category 8</a>
+      <a href="#">Category 9</a>
+      <a href="#">Category 10</a>
+      <a href="#">Category 11</a>
+      <a href="#">Category 12</a>
+      <a href="#">Category 13</a>
+      <a href="#">Category 14</a>
+      <a href="#">Category 15</a>
+      <a href="#">Category 16</a>
+      <a href="#">Category 17</a>
     </div>
   </div>
   
@@ -199,12 +193,12 @@
   </div>
   
   <!-- Register/Login Form -->
-  <main class="hero login">
+  <main class="login hero">
     <div class="wrapper">
       <form action="#">
         <div class="login-header">
           <span class="logo">TRIP.</span>
-          <div class="exit">
+          <div class="exit" id="member-exit">
             <i class="fa-solid fa-xmark"></i>
           </div>
         </div>
@@ -238,12 +232,12 @@
     </div>
   </main>
   
-  <main class="hero register">
+  <main class="register hero">
     <div class="wrapper">
       <form action="#">
         <div class="login-header">
           <span class="logo">TRIP.</span>
-          <div class="exit">
+          <div class="exit" id="register-exit">
             <i class="fa-solid fa-xmark"></i>
           </div>
         </div>
@@ -289,12 +283,12 @@
     </div>
   </main>
   
-  <main class="hero seller">
+  <main class="seller hero">
     <div class="wrapper">
       <form action="#">
         <div class="login-header">
           <span class="logo">TRIP.</span>
-          <div class="exit">
+          <div class="exit" id="seller-exit">
             <i class="fa-solid fa-xmark"></i>
           </div>
         </div>
@@ -329,13 +323,13 @@
   </main>
 
   <!-- Pop-up Rating -->
-  <div class="hero rating">
+  <div class="rating hero">
     <div class="wrapper">
       <form action="#">
         <div class="rating-header">
           <span class="title">Rate Product</span>
           <div class="exit">
-            <i class="fa-solid fa-xmark"></i>
+            <i class="fa-solid fa-xmark" id="rating-exit"></i>
           </div>
         </div>
         <div class="rating-description">
@@ -486,7 +480,7 @@
     <div class="rating-header">
       <div class="title-group">
         <div class="title">Product Reviews</div>
-        <span class="sub-header">Check out what other's think of the product...</span>
+        <span class="sub-header" id="rating-btn">Write a Review</span>
       </div>
       <div class="rating-total">
         <span class="total">5.0</span>
