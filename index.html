@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TRIP.</title>
-    <!-- CSS Link -->
-    <link rel="stylesheet" href="styles.css" type="text/css">
-    <!-- Font Awesome Link -->
-    <script src="https://kit.fontawesome.com/84e2199ce0.js" crossorigin="anonymous"></script>
+  <!-- CSS Link -->
+  <link rel="stylesheet" href="styles.css" type="text/css">
+  <!-- Font Awesome Link -->
+  <script src="https://kit.fontawesome.com/84e2199ce0.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
   <!-- Header -->
   <header>
@@ -21,21 +23,13 @@
             <a href="index.html">Home</a>
           </li>
           <div class="sep">/</div>
-          <li>
-            <a href="index.html">Become A Seller</a>
-          </li>
-          <div class="sep">/</div>
           <li id="cate-btn" class="toggle-color">
             <span class="name">Categories</span>
             <i class="fa-solid fa-angle-up" id="cate-toggle"></i>
           </li>
           <div class="sep">/</div>
           <li>
-            <a href="index.html">Shop</a>
-          </li>
-          <div class="sep">/</div>
-          <li>
-            <a href="index.html">Support</a>
+            <a href="shop.html">Shop</a>
           </li>
         </ul>
       </div>
@@ -50,7 +44,7 @@
           <div class="icon" id="acc-btn">
             <i class="fa-regular fa-user"></i>
           </div>
-          <div class="icon">
+          <div class="icon" id="shop-btn">
             <i class="fa-solid fa-cart-shopping"></i>
             <div class="item-count">
               <h4>0</h4>
@@ -60,7 +54,7 @@
       </div>
     </div>
   </header>
-  
+
   <!-- User Hamburger -->
   <div class="user-pop">
     <div class="user-header">
@@ -69,15 +63,15 @@
       </button>
     </div>
     <div class="user-content">
-      <img src="assets/images/frontend/cart.svg" alt="">
+      <img src="assets/images/cart.svg" alt="">
       <p>It looks you haven't started yet. Start shopping with us!</p>
       <div class="actions">
         <button class="member" id="member-btn">Become a Member</button>
-        <button class="seller" id="seller-btn">Become a Seller</button>
+        <button id="seller-btn">Become a Seller</button>
       </div>
     </div>
   </div>
-  
+
   <!-- Categories Hamburger -->
   <div class="categories">
     <div class="left">
@@ -123,11 +117,11 @@
       <a href="#">Category 17</a>
     </div>
   </div>
-  
+
   <!-- Shopping Cart Hamburger -->
   <div class="shopping-cart">
     <div class="shopping-cart-header">
-      <span class="title">Shopping Cart</span>
+      <span class="title">Buy Orders</span>
       <div class="total">
         <h5>Total:</h5>
         <h5>$575.00</h5>
@@ -148,7 +142,10 @@
               <span class="value">Black</span>
             </span>
           </div>
-          <span class="price">$115.00</span>
+          <div class="cancel-group">
+            <span class="price">$115.00</span>
+            <button class="cancel">Cancel Order</button>
+          </div>
         </div>
       </div>
       <div class="item-row">
@@ -165,7 +162,10 @@
               <span class="value">Black</span>
             </span>
           </div>
-          <span class="price">$115.00</span>
+          <div class="cancel-group">
+            <span class="price">$115.00</span>
+            <button class="cancel">Cancel Order</button>
+          </div>
         </div>
       </div>
       <div class="item-row">
@@ -182,23 +182,26 @@
               <span class="value">Black</span>
             </span>
           </div>
-          <span class="price">$115.00</span>
+          <div class="cancel-group">
+            <span class="price">$115.00</span>
+            <button class="cancel">Cancel Order</button>
+          </div>
         </div>
       </div>
     </div>
     <div class="actions">
-      <button>Back</button>
-      <button>Place Order</button>
+      <button id="order-exit">Back</button>
+      <!-- <button>Place Order</button> -->
     </div>
   </div>
-  
-  <!-- Register/Login Form -->
+
+  <!-- Login Form -->
   <main class="login hero">
     <div class="wrapper">
       <form action="#">
         <div class="login-header">
           <span class="logo">TRIP.</span>
-          <div class="exit" id="member-exit">
+          <div class="exit" id="login-exit">
             <i class="fa-solid fa-xmark"></i>
           </div>
         </div>
@@ -222,7 +225,7 @@
           </div>
           <div class="redirect">
             <span class="text">Don't have an account?</span>
-            <a href="#">Register Now</a>
+            <span id="register-btn">Register</span>
           </div>
           <div class="actions">
             <button type="submit">Sign in</button>
@@ -231,7 +234,8 @@
       </form>
     </div>
   </main>
-  
+
+  <!-- Register Form -->
   <main class="register hero">
     <div class="wrapper">
       <form action="#">
@@ -243,7 +247,7 @@
         </div>
         <div class="details">
           <div class="desc">
-            <span class="title">Register</span>
+            <span class="title">Becoming a Member</span>
             <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum exercitationem,
               libero possimus natus vel soluta.</p>
           </div>
@@ -273,7 +277,7 @@
           </div>
           <div class="redirect">
             <span class="text">Already have an account?</span>
-            <a href="#">Sign in</a>
+            <span class="sign-in" id="signin-btn">Sign in</span>
           </div>
           <div class="actions">
             <button type="submit">Register</button>
@@ -282,7 +286,8 @@
       </form>
     </div>
   </main>
-  
+
+  <!-- Seller Form -->
   <main class="seller hero">
     <div class="wrapper">
       <form action="#">
@@ -312,7 +317,7 @@
           </div>
           <div class="redirect">
             <span class="text">Already have an account?</span>
-            <a href="#">Sign in</a>
+            <span class="sign-in" id="seller-redirect-btn">Sign in</span>
           </div>
           <div class="actions">
             <button type="submit">Register</button>
@@ -321,7 +326,7 @@
       </form>
     </div>
   </main>
-  
+
   <!-- Landing Page -->
   <main class="landing-container">
     <!-- Intro -->
@@ -329,7 +334,8 @@
       <article>
         <div class="top">
           <h1>LOREM IPSUM <br> DOLOR SIT AMET <br> CONSECTETUR</h1>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, <br> beatae alias at optio atque pariatur officia corporis officiis!</p>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, <br> beatae alias at optio atque pariatur
+            officia corporis officiis!</p>
         </div>
         <div class="redirects">
           <a href="#" class="links">
@@ -360,7 +366,9 @@
     </section>
     <!-- About -->
     <section class="about">
-      <p><b>TRIP</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dicta, nobis molestiae nesciunt totam recusandae ea dolores fugit atque eos placeat inventore libero illum explicabo repudiandae, a enim alias. Assumenda quos unde debitis pariatur provident quas repudiandae quibusdam, perferendis fugit.</p>
+      <p><b>TRIP</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dicta, nobis molestiae nesciunt totam
+        recusandae ea dolores fugit atque eos placeat inventore libero illum explicabo repudiandae, a enim alias.
+        Assumenda quos unde debitis pariatur provident quas repudiandae quibusdam, perferendis fugit.</p>
     </section>
 
     <!-- Homepage Categories -->
@@ -392,7 +400,9 @@
     </section>
   </main>
   <div class="divider">
-    <p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
+    <p>
+      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    </p>
   </div>
   <!-- Footer -->
   <footer>
@@ -452,8 +462,8 @@
       </div>
     </section>
   </footer>
-
-  <!-- JS Link -->
-  <script src="script.js"></script>
+  <!-- Main Js Link -->
+  <script src="assets/javascript/main.js"></script>
 </body>
+
 </html>

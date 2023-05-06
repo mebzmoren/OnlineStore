@@ -190,7 +190,7 @@ header .nav li i {
   font-size: 1.2rem;
 }
 
-.toggle-color.active {
+#cate-btn.active {
   color: var(--main-color);
 }
 
@@ -574,6 +574,7 @@ header .search i {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all .3s ease;
 }
 
 .hero {
@@ -587,7 +588,6 @@ header .search i {
 .seller.active {
   display: flex;
 }
-
 
 .register.active {
   display: flex;
@@ -710,6 +710,12 @@ header .search i {
 .hero .wrapper form .details .actions button:hover {
   background-color: transparent;
   color: var(--main-color);
+}
+
+.hero .redirect span:last-child {
+  color: var(--main-color);
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* Landing Page */
@@ -1071,7 +1077,7 @@ footer .bottom .group h4 {
 }
 
 .filter.active {
-  flex: 2%;
+  flex: 3.5%;
 }
 
 .shop-container .filter .price-filter {
@@ -1082,7 +1088,8 @@ footer .bottom .group h4 {
   display: none;
 }
 
-.shop-container .filter .header-filter {
+.header-filter {
+  position: relative;
   border-bottom: 1px solid var(--grey-color);
   display: flex;
   justify-content: space-between;
@@ -1090,6 +1097,10 @@ footer .bottom .group h4 {
   cursor: pointer;
   padding: 1em 1.5em;
   font-size: 1.5rem;
+}
+
+.header-filter.active {
+  justify-content: center;
 }
 
 .shop-container .filter .header-filter .fa-filter {
@@ -1115,13 +1126,21 @@ footer .bottom .group h4 {
   cursor: pointer;
 }
 
-.shop-container .filter .bottom-filter {
+.header-filter-name {
+  display: flex;
+}
+
+.header-filter-name.active {
+  display: none;
+}
+
+.bottom-filter {
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
 
-.shop-container .filter .bottom-filter.active {
+.bottom-filter.active {
   display: none;
 }
 
@@ -1231,9 +1250,13 @@ footer .bottom .group h4 {
 }
 
 /* Shop Products */
-.shop-container .products {
-  flex: 82%;
+.products {
+  flex: 85%;
   margin: 2em 1em;
+}
+
+.products.active {
+  flex: 96.5%;
 }
 
 .products .header-details {
@@ -1285,9 +1308,13 @@ footer .bottom .group h4 {
 .product-grid {
   margin: 1.5em 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 1em;
   align-items: center;
+}
+
+.grid-main.active {
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .product-grid .product-col {

@@ -10,17 +10,20 @@ const priceButton = document.querySelector('#price-btn');
 const colorButton = document.querySelector('#color-btn');
 const sizeButton = document.querySelector('#size-btn');
 const filterButton = document.querySelector('#filter-btn');
+const redirectLogInButton = document.querySelector('#signin-btn');
+const redirectRegisterButton = document.querySelector('#register-btn');
+const redirectSellerButton = document.querySelector('#seller-redirect-btn');
 
 // Exit Buttons
-const memberExitButton = document.querySelector('#member-exit');
+const loginExitButton = document.querySelector('#login-exit');
 const registerExitButton = document.querySelector('#register-exit');
 const sellerExitButton = document.querySelector('#seller-exit');
 const ratingExitButton = document.querySelector('#rating-exit');
 const orderExitButton = document.querySelector('#order-exit');
 
 // Modals
-const loginModal = document.querySelector('.user-pop');
-const memberModal = document.querySelector('.login');
+const loginPopModal = document.querySelector('.user-pop');
+const loginModal = document.querySelector('.login');
 const sellerModal = document.querySelector('.seller');
 const registerModal = document.querySelector('.register');
 const shopModal = document.querySelector('.shopping-cart');
@@ -30,7 +33,13 @@ const priceModal = document.querySelector('.price-filter');
 const colorModal = document.querySelector('.colors');
 const sizeModal = document.querySelector('.sizes');
 const filterModal = document.querySelector('.filter');
+
+// Blocks
+const filterName = document.querySelector('.header-filter-name');
 const filters = document.querySelector('.bottom-filter');
+const shopMain = document.querySelector('.products');
+const filterHeader = document.querySelector('.header-filter');
+const productMainGrid = document.querySelector('.grid-main');
 
 // Toggles
 const toggleColor = document.querySelector('toggle-color');
@@ -42,7 +51,12 @@ const categoriesToggle = document.querySelector('#cate-toggle');
 // Filters
 filterButton.addEventListener('click', () => {
   filterModal.classList.toggle('active');
+  filterHeader.classList.toggle('active');
   filterButton.classList.toggle('active');
+  filterName.classList.toggle('active');
+  filters.classList.toggle('active');
+  shopMain.classList.toggle('active');
+  productMainGrid.classList.toggle('active');
 })
 
 priceButton.addEventListener('click', () => {
@@ -62,11 +76,11 @@ sizeButton.addEventListener('click', () => {
 
 // Exit Buttons
 exitButton.addEventListener('click', () => {
-  loginModal.classList.remove('active');
+  loginPopModal.classList.remove('active');
 });
 
-memberExitButton.addEventListener('click', () => {
-  memberModal.classList.remove('active');
+loginExitButton.addEventListener('click', () => {
+  loginModal.classList.remove('active');
 });
 
 sellerExitButton.addEventListener('click', () => {
@@ -90,26 +104,27 @@ orderExitButton.addEventListener('click', () => {
 categoriesButton.addEventListener('click', () => {
   categoriesToggle.classList.toggle('fa-angle-up');
   categoriesToggle.classList.toggle('fa-angle-down');
-  shopModal.classList.remove('active');
-  loginModal.classList.remove('active');
-  memberModal.classList.remove('active');
-  sellerModal.classList.remove('active');
+  categoriesButton.classList.toggle('active');
   categoriesModal.classList.toggle('active');
+  shopModal.classList.remove('active');
+  loginPopModal.classList.remove('active');
+  registerModal.classList.remove('active');
+  sellerModal.classList.remove('active');
   toggleColor.classList.toggle('active');
 });
 
 shopButton.addEventListener('click', () => {
   shopModal.classList.toggle('active');
-  loginModal.classList.remove('active');
-  memberModal.classList.remove('active');
+  loginPopModal.classList.remove('active');
+  registerModal.classList.remove('active');
   sellerModal.classList.remove('active');
   categoriesModal.classList.remove('active');
   ratingModal.classList.remove('active');
 });
 
 accountButton.addEventListener('click', () => {
-  loginModal.classList.toggle('active');
-  memberModal.classList.remove('active');
+  loginPopModal.classList.toggle('active');
+  registerModal.classList.remove('active');
   sellerModal.classList.remove('active');
   categoriesModal.classList.remove('active');
   ratingModal.classList.remove('active');
@@ -117,9 +132,38 @@ accountButton.addEventListener('click', () => {
 });
 
 memberButton.addEventListener('click', () => {
-  loginModal.classList.remove('active');
-  memberModal.classList.toggle('active');
+  loginPopModal.classList.remove('active');
+  registerModal.classList.toggle('active');
   sellerModal.classList.remove('active');
+  categoriesModal.classList.remove('active');
+  ratingModal.classList.remove('active');
+  shopModal.classList.remove('active');
+});
+
+redirectRegisterButton.addEventListener('click', () => {
+  loginModal.classList.remove('active');
+  loginPopModal.classList.remove('active');
+  registerModal.classList.toggle('active');
+  sellerModal.classList.remove('active');
+  categoriesModal.classList.remove('active');
+  ratingModal.classList.remove('active');
+  shopModal.classList.remove('active');
+});
+
+redirectLogInButton.addEventListener('click', () => {
+  loginModal.classList.toggle('active');
+  loginPopModal.classList.remove('active');
+  registerModal.classList.remove('active');
+  sellerModal.classList.remove('active');
+  categoriesModal.classList.remove('active');
+  ratingModal.classList.remove('active');
+  shopModal.classList.remove('active');
+});
+
+redirectSellerButton.addEventListener('click', () => {
+  sellerModal.classList.remove('active');
+  loginPopModal.classList.remove('active');
+  registerModal.classList.toggle('active');
   categoriesModal.classList.remove('active');
   ratingModal.classList.remove('active');
   shopModal.classList.remove('active');
@@ -127,8 +171,8 @@ memberButton.addEventListener('click', () => {
 
 sellerButton.addEventListener('click', () => {
   sellerModal.classList.toggle('active');
-  loginModal.classList.remove('active');
-  memberModal.classList.remove('active');
+  loginPopModal.classList.remove('active');
+  registerModal.classList.remove('active');
   categoriesModal.classList.remove('active');
   ratingModal.classList.remove('active');
   shopModal.classList.remove('active');
@@ -136,8 +180,8 @@ sellerButton.addEventListener('click', () => {
 
 ratingButton.addEventListener('click', () => {
   sellerModal.classList.remove('active');
-  loginModal.classList.remove('active');
-  memberModal.classList.remove('active');
+  loginPopModal.classList.remove('active');
+  registerModal.classList.remove('active');
   categoriesModal.classList.remove('active');
   ratingModal.classList.toggle('active');
   shopModal.classList.remove('active');

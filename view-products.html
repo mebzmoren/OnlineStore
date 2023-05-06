@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products Page</title>
-    <!-- CSS Link -->
-    <link rel="stylesheet" href="styles.css" type="text/css">
-    <!-- Font Awesome Link -->
-    <script src="https://kit.fontawesome.com/84e2199ce0.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products Page</title>
+  <!-- CSS Link -->
+  <link rel="stylesheet" href="styles.css" type="text/css">
+  <!-- Font Awesome Link -->
+  <script src="https://kit.fontawesome.com/84e2199ce0.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
   <!-- Header -->
   <header>
@@ -21,21 +23,13 @@
             <a href="index.html">Home</a>
           </li>
           <div class="sep">/</div>
-          <li>
-            <a href="index.html">Become A Seller</a>
-          </li>
-          <div class="sep">/</div>
           <li id="cate-btn" class="toggle-color">
             <span class="name">Categories</span>
             <i class="fa-solid fa-angle-up" id="cate-toggle"></i>
           </li>
           <div class="sep">/</div>
           <li>
-            <a href="index.html">Shop</a>
-          </li>
-          <div class="sep">/</div>
-          <li>
-            <a href="index.html">Support</a>
+            <a href="shop.html">Shop</a>
           </li>
         </ul>
       </div>
@@ -50,7 +44,7 @@
           <div class="icon" id="acc-btn">
             <i class="fa-regular fa-user"></i>
           </div>
-          <div class="icon">
+          <div class="icon" id="shop-btn">
             <i class="fa-solid fa-cart-shopping"></i>
             <div class="item-count">
               <h4>0</h4>
@@ -60,7 +54,7 @@
       </div>
     </div>
   </header>
-  
+
   <!-- User Hamburger -->
   <div class="user-pop">
     <div class="user-header">
@@ -69,15 +63,15 @@
       </button>
     </div>
     <div class="user-content">
-      <img src="assets/images/frontend/cart.svg" alt="">
+      <img src="assets/images/cart.svg" alt="">
       <p>It looks you haven't started yet. Start shopping with us!</p>
       <div class="actions">
         <button class="member" id="member-btn">Become a Member</button>
-        <button class="seller" id="seller-btn">Become a Seller</button>
+        <button id="seller-btn">Become a Seller</button>
       </div>
     </div>
   </div>
-  
+
   <!-- Categories Hamburger -->
   <div class="categories">
     <div class="left">
@@ -123,11 +117,11 @@
       <a href="#">Category 17</a>
     </div>
   </div>
-  
+
   <!-- Shopping Cart Hamburger -->
   <div class="shopping-cart">
     <div class="shopping-cart-header">
-      <span class="title">Shopping Cart</span>
+      <span class="title">Buy Orders</span>
       <div class="total">
         <h5>Total:</h5>
         <h5>$575.00</h5>
@@ -148,7 +142,10 @@
               <span class="value">Black</span>
             </span>
           </div>
-          <span class="price">$115.00</span>
+          <div class="cancel-group">
+            <span class="price">$115.00</span>
+            <button class="cancel">Cancel Order</button>
+          </div>
         </div>
       </div>
       <div class="item-row">
@@ -165,7 +162,10 @@
               <span class="value">Black</span>
             </span>
           </div>
-          <span class="price">$115.00</span>
+          <div class="cancel-group">
+            <span class="price">$115.00</span>
+            <button class="cancel">Cancel Order</button>
+          </div>
         </div>
       </div>
       <div class="item-row">
@@ -182,23 +182,26 @@
               <span class="value">Black</span>
             </span>
           </div>
-          <span class="price">$115.00</span>
+          <div class="cancel-group">
+            <span class="price">$115.00</span>
+            <button class="cancel">Cancel Order</button>
+          </div>
         </div>
       </div>
     </div>
     <div class="actions">
-      <button>Back</button>
-      <button>Place Order</button>
+      <button id="order-exit">Back</button>
+      <!-- <button>Place Order</button> -->
     </div>
   </div>
-  
-  <!-- Register/Login Form -->
+
+  <!-- Login Form -->
   <main class="login hero">
     <div class="wrapper">
       <form action="#">
         <div class="login-header">
           <span class="logo">TRIP.</span>
-          <div class="exit" id="member-exit">
+          <div class="exit" id="login-exit">
             <i class="fa-solid fa-xmark"></i>
           </div>
         </div>
@@ -222,7 +225,7 @@
           </div>
           <div class="redirect">
             <span class="text">Don't have an account?</span>
-            <a href="#">Register Now</a>
+            <span id="register-btn">Register</span>
           </div>
           <div class="actions">
             <button type="submit">Sign in</button>
@@ -231,7 +234,8 @@
       </form>
     </div>
   </main>
-  
+
+  <!-- Register Form -->
   <main class="register hero">
     <div class="wrapper">
       <form action="#">
@@ -243,7 +247,7 @@
         </div>
         <div class="details">
           <div class="desc">
-            <span class="title">Register</span>
+            <span class="title">Becoming a Member</span>
             <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum exercitationem,
               libero possimus natus vel soluta.</p>
           </div>
@@ -273,7 +277,7 @@
           </div>
           <div class="redirect">
             <span class="text">Already have an account?</span>
-            <a href="#">Sign in</a>
+            <span class="sign-in" id="signin-btn">Sign in</span>
           </div>
           <div class="actions">
             <button type="submit">Register</button>
@@ -282,7 +286,8 @@
       </form>
     </div>
   </main>
-  
+
+  <!-- Seller Form -->
   <main class="seller hero">
     <div class="wrapper">
       <form action="#">
@@ -312,7 +317,7 @@
           </div>
           <div class="redirect">
             <span class="text">Already have an account?</span>
-            <a href="#">Sign in</a>
+            <span class="sign-in" id="seller-redirect-btn">Sign in</span>
           </div>
           <div class="actions">
             <button type="submit">Register</button>
@@ -328,8 +333,8 @@
       <form action="#">
         <div class="rating-header">
           <span class="title">Rate Product</span>
-          <div class="exit">
-            <i class="fa-solid fa-xmark" id="rating-exit"></i>
+          <div class="exit" id="rating-exit">
+            <i class="fa-solid fa-xmark"></i>
           </div>
         </div>
         <div class="rating-description">
@@ -350,128 +355,130 @@
           </div>
           <div class="field description">
             <label for="message">Review Message</label>
-            <textarea name="message" id="message" autofocus required autocomplete="message" placeholder="Enter Review Message"></textarea>
+            <textarea name="message" id="message" autofocus required autocomplete="message"
+              placeholder="Enter Review Message"></textarea>
           </div>
           <div class="actions">
             <button type="submit">Save</button>
           </div>
         </div>
-        </div>
-      </form>
     </div>
+    </form>
+  </div>
   </div>
 
   <!-- Products Page -->
   <main class="products-container">
     <div class="product">
-        <aside class="product-pic">
-            <div class="img">PIC</div>
-        </aside>
-        <article class="product-details">
-            <!-- Breadcrumbs -->
-            <ul class="breadcrumbs">
-                <li>
-                    <a href="">Home</a>
-                </li>
-                <li class="fa-solid fa-angle-right seperator"></li>
-                <li>
-                    <a href="">Products</a>
-                </li>
-            </ul>
-            <!-- Product Details -->
-            <div class="details">
-                <h2 class="product-title">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, sed!
-                </h2>
-                <div class="group">
-                    <div class="rating">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                        </div>
-                        <h4 class="value">5.0</h4>
-                    </div>
-                    <h4 class="reviews">2437 Reviews</h4>
-                    <h4 class="sold">4523 Sold</h4>
-                </div>
-                <div class="price">
-                    <div class="discount">no discount</div>
-                    <span>$575.00</span>
-                </div>
-                <hr>
+      <aside class="product-pic">
+        <div class="img">PIC</div>
+      </aside>
+      <article class="product-details">
+        <!-- Breadcrumbs -->
+        <ul class="breadcrumbs">
+          <li>
+            <a href="">Home</a>
+          </li>
+          <li class="fa-solid fa-angle-right seperator"></li>
+          <li>
+            <a href="">Products</a>
+          </li>
+        </ul>
+        <!-- Product Details -->
+        <div class="details">
+          <h2 class="product-title">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, sed!
+          </h2>
+          <div class="group">
+            <div class="rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+              <h4 class="value">5.0</h4>
             </div>
-            <!-- Product Options -->
-            <div class="options">
-                <div class="group">
-                    <h3>Select Size</h3>
-                    <div class="sizes">
-                        <button class="size-select">XXS</button>
-                        <button class="size-select">XS</button>
-                        <button class="size-select">S</button>
-                        <button class="size-select">M</button>
-                        <button class="size-select">L</button>
-                        <button class="size-select">XL</button>
-                        <button class="size-select">XXL</button>
+            <h4 class="reviews">2437 Reviews</h4>
+            <h4 class="sold">4523 Sold</h4>
+          </div>
+          <div class="price">
+            <div class="discount">no discount</div>
+            <span>$575.00</span>
+          </div>
+          <hr>
+        </div>
+        <!-- Product Options -->
+        <div class="options">
+          <div class="group">
+            <h3>Select Size</h3>
+            <div class="sizes">
+              <button class="size-select">XXS</button>
+              <button class="size-select">XS</button>
+              <button class="size-select">S</button>
+              <button class="size-select">M</button>
+              <button class="size-select">L</button>
+              <button class="size-select">XL</button>
+              <button class="size-select">XXL</button>
 
-                    </div>
-                </div>
-                <div class="group">
-                    <h3>Select Color</h3>
-                    <div class="colors">
-                        <button class="select red">
-                            <div class="color"></div>
-                        </button>
-                        <button class="select blue">
-                            <div class="color"></div>
-                        </button>
-                        <button class="select yellow">
-                            <div class="color"></div>
-                        </button>
-                        <button class="select green">
-                            <div class="color"></div>
-                        </button>
-                        <button class="select white">
-                            <div class="color"></div>
-                        </button>
-                    </div>
-                </div>
             </div>
-            <!-- Product Description -->
-            <div class="description">
-                <h3>Description</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quibusdam iste ratione sed, eum pariatur dolore, id laborum tenetur dignissimos ex libero iusto explicabo enim.</p>
+          </div>
+          <div class="group">
+            <h3>Select Color</h3>
+            <div class="colors">
+              <button class="select red">
+                <div class="color"></div>
+              </button>
+              <button class="select blue">
+                <div class="color"></div>
+              </button>
+              <button class="select yellow">
+                <div class="color"></div>
+              </button>
+              <button class="select green">
+                <div class="color"></div>
+              </button>
+              <button class="select white">
+                <div class="color"></div>
+              </button>
             </div>
-            
-            <!-- Product Extra Details -->
-            <div class="extra-details">
-                <div class="content-col">
-                    <div class="icon">
-                        <i class="fa-regular fa-credit-card"></i>
-                    </div>
-                    <h3>Secure Payment</h3>
-                </div>
-                <div class="content-col">
-                    <div class="icon">
-                        <i class="fa-solid fa-truck"></i>
-                    </div>
-                    <h3>Free Shipping</h3>
-                </div>
-                <div class="content-col">
-                    <div class="icon">
-                        <i class="fa-solid fa-tags"></i>
-                    </div>
-                    <h3>Size & Fit</h3>
-                </div>
+          </div>
+        </div>
+        <!-- Product Description -->
+        <div class="description">
+          <h3>Description</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quibusdam iste ratione sed, eum
+            pariatur dolore, id laborum tenetur dignissimos ex libero iusto explicabo enim.</p>
+        </div>
+
+        <!-- Product Extra Details -->
+        <div class="extra-details">
+          <div class="content-col">
+            <div class="icon">
+              <i class="fa-regular fa-credit-card"></i>
             </div>
-            <!-- Product Actions -->
-            <div class="actions">
-                <button>Buy Now</button>
-                <button>Add to Cart</button>
+            <h3>Secure Payment</h3>
+          </div>
+          <div class="content-col">
+            <div class="icon">
+              <i class="fa-solid fa-truck"></i>
             </div>
-        </article>
+            <h3>Free Shipping</h3>
+          </div>
+          <div class="content-col">
+            <div class="icon">
+              <i class="fa-solid fa-tags"></i>
+            </div>
+            <h3>Size & Fit</h3>
+          </div>
+        </div>
+        <!-- Product Actions -->
+        <div class="actions">
+          <button>Buy Now</button>
+          <button>Add to Cart</button>
+        </div>
+      </article>
     </div>
   </main>
 
@@ -522,7 +529,8 @@
         </div>
         <div class="rating-details">
           <span class="title">Review Title Placeholder<span>
-          <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaque minima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
+              <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaque
+                minima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
         </div>
       </div>
       <div class="user-rating">
@@ -549,7 +557,8 @@
         </div>
         <div class="rating-details">
           <span class="title">Review Title Placeholder<span>
-          <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaque minima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
+              <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaque
+                minima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
         </div>
       </div>
       <div class="user-rating">
@@ -576,7 +585,8 @@
         </div>
         <div class="rating-details">
           <span class="title">Review Title Placeholder<span>
-          <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaque minima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
+              <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaque
+                minima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
         </div>
       </div>
       <div class="user-rating">
@@ -603,7 +613,8 @@
         </div>
         <div class="rating-details">
           <span class="title">Review Title Placeholder<span>
-          <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaque minima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
+              <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaque
+                minima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
         </div>
       </div>
       <div class="user-rating">
@@ -630,7 +641,8 @@
         </div>
         <div class="rating-details">
           <span class="title">Review Title Placeholder<span>
-          <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaque minima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
+              <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaque
+                minima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
         </div>
       </div>
       <div class="user-rating">
@@ -657,7 +669,8 @@
         </div>
         <div class="rating-details">
           <span class="title">Review Title Placeholder<span>
-          <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaque minima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
+              <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaque
+                minima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
         </div>
       </div>
     </div>
@@ -726,7 +739,10 @@
       </div>
     </section>
   </footer>
-  <!-- JS Link -->
-  <script src="script.js"></script>
+  <!-- Main JS Link -->
+  <script src="assets/javascript/main.js"></script>
+  <!-- Rating JS Link -->
+  <script src="assets/javascript/rating.js"></script>
 </body>
+
 </html>
