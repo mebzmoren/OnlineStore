@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop</title>
-    <!-- CSS Link -->
-    <link rel="stylesheet" href="styles.css" type="text/css">
-    <!-- Font Awesome Link -->
-    <script src="https://kit.fontawesome.com/84e2199ce0.js" crossorigin="anonymous"></script>
+  <!-- CSS Link -->
+  <link rel="stylesheet" href="styles.css" type="text/css">
+  <!-- Font Awesome Link -->
+  <script src="https://kit.fontawesome.com/84e2199ce0.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -23,21 +23,13 @@
             <a href="index.html">Home</a>
           </li>
           <div class="sep">/</div>
-          <li>
-            <a href="index.html">Become A Seller</a>
-          </li>
-          <div class="sep">/</div>
           <li id="cate-btn" class="toggle-color">
             <span class="name">Categories</span>
             <i class="fa-solid fa-angle-up" id="cate-toggle"></i>
           </li>
           <div class="sep">/</div>
           <li>
-            <a href="index.html">Shop</a>
-          </li>
-          <div class="sep">/</div>
-          <li>
-            <a href="index.html">Support</a>
+            <a href="shop.html">Shop</a>
           </li>
         </ul>
       </div>
@@ -71,11 +63,11 @@
       </button>
     </div>
     <div class="user-content">
-      <img src="assets/images/frontend/cart.svg" alt="">
+      <img src="assets/images/cart.svg" alt="">
       <p>It looks you haven't started yet. Start shopping with us!</p>
       <div class="actions">
         <button class="member" id="member-btn">Become a Member</button>
-        <button class="seller" id="seller-btn">Become a Seller</button>
+        <button id="seller-btn">Become a Seller</button>
       </div>
     </div>
   </div>
@@ -144,7 +136,7 @@
             <div class="details-group">
               <span class="detail-name">Size:</span>
               <span class="value">XL</span>
-                </div>
+            </div>
             <span class="details-group">
               <span class="detail-name">Color:</span>
               <span class="value">Black</span>
@@ -202,14 +194,14 @@
       <!-- <button>Place Order</button> -->
     </div>
   </div>
-  
-  <!-- Register/Login Form -->
+
+  <!-- Login Form -->
   <main class="login hero">
     <div class="wrapper">
       <form action="#">
         <div class="login-header">
           <span class="logo">TRIP.</span>
-          <div class="exit" id="member-exit">
+          <div class="exit" id="login-exit">
             <i class="fa-solid fa-xmark"></i>
           </div>
         </div>
@@ -233,7 +225,7 @@
           </div>
           <div class="redirect">
             <span class="text">Don't have an account?</span>
-            <a href="#">Register Now</a>
+            <span id="register-btn">Register</span>
           </div>
           <div class="actions">
             <button type="submit">Sign in</button>
@@ -242,7 +234,8 @@
       </form>
     </div>
   </main>
-  
+
+  <!-- Register Form -->
   <main class="register hero">
     <div class="wrapper">
       <form action="#">
@@ -254,7 +247,7 @@
         </div>
         <div class="details">
           <div class="desc">
-            <span class="title">Register</span>
+            <span class="title">Becoming a Member</span>
             <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum exercitationem,
               libero possimus natus vel soluta.</p>
           </div>
@@ -284,7 +277,7 @@
           </div>
           <div class="redirect">
             <span class="text">Already have an account?</span>
-            <a href="#">Sign in</a>
+            <span class="sign-in" id="signin-btn">Sign in</span>
           </div>
           <div class="actions">
             <button type="submit">Register</button>
@@ -294,13 +287,14 @@
     </div>
   </main>
 
+  <!-- Seller Form -->
   <main class="seller hero">
     <div class="wrapper">
       <form action="#">
         <div class="login-header">
           <span class="logo">TRIP.</span>
           <div class="exit" id="seller-exit">
-            <i class="fa-solid fa-xmark" id="rating-exit"></i>
+            <i class="fa-solid fa-xmark"></i>
           </div>
         </div>
         <div class="details">
@@ -323,7 +317,7 @@
           </div>
           <div class="redirect">
             <span class="text">Already have an account?</span>
-            <a href="#">Sign in</a>
+            <span class="sign-in" id="seller-redirect-btn">Sign in</span>
           </div>
           <div class="actions">
             <button type="submit">Register</button>
@@ -332,13 +326,13 @@
       </form>
     </div>
   </main>
-  
+
   <!-- Shop -->
   <main class="shop-container">
     <!-- Shop Filter -->
     <section class="filter">
       <div class="header-filter" id="filter-btn">
-        <h4>Filters</h4>
+        <h4 class="header-filter-name">Filters</h4>
         <i class="fa-solid fa-filter"></i>
       </div>
       <div class="bottom-filter" id="filters">
@@ -449,7 +443,7 @@
         </div>
       </div>
       <!-- Product Grid -->
-      <div class="product-grid">
+      <div class="product-grid grid-main">
         <div class="product-col">
           <div class="top">
             <div class="img"></div>
@@ -666,6 +660,9 @@
     </section>
   </footer>
   <!-- JS Link -->
-  <script src="script.js"></script>
+  <script src="assets/javascript/main.js"></script>
+  <!-- Shop Js Link -->
+  <script src="assets/javascript/shop.js"></script>
 </body>
+
 </html>
