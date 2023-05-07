@@ -18,7 +18,6 @@
     include_once 'modals.php';
   ?> 
 
-
   <!-- Landing Page -->
   <main class="landing-container">
     <!-- Intro -->
