@@ -47,6 +47,4 @@ colorButton.addEventListener('click', () => {
 sizeButton.addEventListener('click', () => {
   sizeToggle.classList.toggle('fa-angle-up');
   sizeModal.classList.toggle('active');
-});
-
-// Popup Modals
+}); 

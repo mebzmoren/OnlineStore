@@ -67,7 +67,6 @@ shopButton.addEventListener('click', () => {
   registerModal.classList.remove('active');
   sellerModal.classList.remove('active');
   categoriesModal.classList.remove('active');
-  ratingModal.classList.remove('active');
 });
 
 accountButton.addEventListener('click', () => {
@@ -75,7 +74,6 @@ accountButton.addEventListener('click', () => {
   registerModal.classList.remove('active');
   sellerModal.classList.remove('active');
   categoriesModal.classList.remove('active');
-  ratingModal.classList.remove('active');
   shopModal.classList.remove('active');
 });
 
@@ -84,7 +82,6 @@ memberButton.addEventListener('click', () => {
   registerModal.classList.toggle('active');
   sellerModal.classList.remove('active');
   categoriesModal.classList.remove('active');
-  ratingModal.classList.remove('active');
   shopModal.classList.remove('active');
 });
 
@@ -94,7 +91,6 @@ redirectRegisterButton.addEventListener('click', () => {
   registerModal.classList.toggle('active');
   sellerModal.classList.remove('active');
   categoriesModal.classList.remove('active');
-  ratingModal.classList.remove('active');
   shopModal.classList.remove('active');
 });
 
@@ -104,16 +100,15 @@ redirectLogInButton.addEventListener('click', () => {
   registerModal.classList.remove('active');
   sellerModal.classList.remove('active');
   categoriesModal.classList.remove('active');
-  ratingModal.classList.remove('active');
   shopModal.classList.remove('active');
 });
 
 redirectSellerButton.addEventListener('click', () => {
-  sellerModal.classList.remove('active');
+  loginModal.classList.toggle('active');
   loginPopModal.classList.remove('active');
-  registerModal.classList.toggle('active');
+  registerModal.classList.remove('active');
+  sellerModal.classList.remove('active');
   categoriesModal.classList.remove('active');
-  ratingModal.classList.remove('active');
   shopModal.classList.remove('active');
 });
 
@@ -122,6 +117,5 @@ sellerButton.addEventListener('click', () => {
   loginPopModal.classList.remove('active');
   registerModal.classList.remove('active');
   categoriesModal.classList.remove('active');
-  ratingModal.classList.remove('active');
   shopModal.classList.remove('active');
 });

@@ -1,59 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TRIP.</title>
-  <!-- CSS Link -->
-  <link rel="stylesheet" href="styles.css" type="text/css">
-  <!-- Font Awesome Link -->
-  <script src="https://kit.fontawesome.com/84e2199ce0.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <div class="left">
-        <a href="index.html" class="logo">TRIP</a>
-        <ul class="nav">
-          <li>
-            <a href="index.html">Home</a>
-          </li>
-          <div class="sep">/</div>
-          <li id="cate-btn" class="toggle-color">
-            <span class="name">Categories</span>
-            <i class="fa-solid fa-angle-up" id="cate-toggle"></i>
-          </li>
-          <div class="sep">/</div>
-          <li>
-            <a href="shop.html">Shop</a>
-          </li>
-        </ul>
-      </div>
-      <div class="right">
-        <form class="search">
-          <input type="search" name="search" placeholder="Search Product">
-          <button type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
-        <div class="icons">
-          <div class="icon" id="acc-btn">
-            <i class="fa-regular fa-user"></i>
-          </div>
-          <div class="icon" id="shop-btn">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <div class="item-count">
-              <h4>0</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
 
   <!-- User Hamburger -->
   <div class="user-pop">
@@ -238,7 +182,7 @@
   <!-- Register Form -->
   <main class="register hero">
     <div class="wrapper">
-      <form action="#">
+      <form action="shop.php" method="post">
         <div class="login-header">
           <span class="logo">TRIP.</span>
           <div class="exit" id="register-exit">
@@ -252,27 +196,25 @@
               libero possimus natus vel soluta.</p>
           </div>
           <div class="fields">
-            <div class="group">
-              <div class="field input">
-                <label for="fname">First Name*</label>
-                <input id="fname" type="fname" class="form-control" name="fname" required autocomplete="fname"
-                  placeholder="Enter First Name" autofocus>
-              </div>
-              <div class="field input">
-                <label for="lname">Last Name*</label>
-                <input id="lname" type="lname" class="form-control" name="lname" required autocomplete="lname"
-                  placeholder="Enter Last Name" autofocus>
-              </div>
+            <div class="field input">
+              <label for="username">Username*</label>
+              <input id="username" type="username" class="form-control" name="username" required autocomplete="email"
+                placeholder="Enter Username" autofocus>
             </div>
             <div class="field input">
-              <label for="email">Email Address</label>
+              <label for="email">Email Address*</label>
               <input id="email" type="email" class="form-control" name="email" required autocomplete="email"
                 placeholder="Enter Email Address" autofocus>
             </div>
             <div class="field input">
-              <label for="password">Password</label>
+              <label for="password">Password*</label>
               <input id="password" type="password" class="form-control" name="password" required autocomplete="password"
                 placeholder="Enter Password" autofocus>
+            </div>
+            <div class="field input">
+              <label for="pwdrepeat">Confirm Password*</label>
+              <input id="pwdrepeat" type="pwdrepeat" class="form-control" name="pwdrepeat" required autocomplete="pwdrepeated"
+                placeholder="Re-Enter Password" autofocus>
             </div>
           </div>
           <div class="redirect">
@@ -310,9 +252,19 @@
                 placeholder="Username" autofocus>
             </div>
             <div class="field input">
+              <label for="email">Email Address*</label>
+              <input id="email" type="email" class="form-control" name="email" required autocomplete="email"
+                placeholder="Enter Email Address" autofocus>
+            </div>
+            <div class="field input">
               <label for="password">Password*</label>
               <input id="password" type="password" class="form-control" name="password" required autocomplete="password"
                 placeholder="Enter Password" autofocus>
+            </div>
+            <div class="field input">
+              <label for="pwdrepeat">Confirm Password*</label>
+              <input id="pwdrepeat" type="pwdrepeat" class="form-control" name="pwdrepeat" required autocomplete="pwdrepeated"
+                placeholder="Re-Enter Password" autofocus>
             </div>
           </div>
           <div class="redirect">
@@ -326,144 +278,3 @@
       </form>
     </div>
   </main>
-
-  <!-- Landing Page -->
-  <main class="landing-container">
-    <!-- Intro -->
-    <section class="intro">
-      <article>
-        <div class="top">
-          <h1>LOREM IPSUM <br> DOLOR SIT AMET <br> CONSECTETUR</h1>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere, <br> beatae alias at optio atque pariatur
-            officia corporis officiis!</p>
-        </div>
-        <div class="redirects">
-          <a href="#" class="links">
-            <h1>Jackets</h1>
-          </a>
-          <a href="#" class="links">
-            <h1>Accessories</h1>
-          </a>
-        </div>
-      </article>
-      <aside>
-        <!-- <img src="assets/images/sam_2_edit.jpg" alt=""> -->
-        <div class="links">
-          <a href="#">
-            <h4>Learn More</h4>
-            <div class="icon">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-          </a>
-          <a href="#">
-            <h4>Explore</h4>
-            <div class="icon">
-              <i class="fa-solid fa-location-arrow"></i>
-            </div>
-          </a>
-        </div>
-      </aside>
-    </section>
-    <!-- About -->
-    <section class="about">
-      <p><b>TRIP</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dicta, nobis molestiae nesciunt totam
-        recusandae ea dolores fugit atque eos placeat inventore libero illum explicabo repudiandae, a enim alias.
-        Assumenda quos unde debitis pariatur provident quas repudiandae quibusdam, perferendis fugit.</p>
-    </section>
-
-    <!-- Homepage Categories -->
-    <section class="home-categories">
-      <p>Lorem ipsum dolor, sit amet consectetur <br> adipisicing elit. Quisquam?</p>
-      <a href="#">Click Here</a>
-    </section>
-
-    <!-- Shop By Categories -->
-    <section class="shop-categories">
-      <div class="header-details">
-        <h2>Shop By Categories</h2>
-        <a href="#" class="">
-          <h3>See More</h3>
-        </a>
-      </div>
-      <div class="gallery">
-        <a href="#" class="content-col">Category 1</a>
-        <a href="#" class="content-col">Category 2</a>
-        <a href="#" class="content-col">Category 3</a>
-        <a href="#" class="content-col">Category 4</a>
-        <a href="#" class="content-col">Category 5</a>
-        <a href="#" class="content-col">Category 6</a>
-        <a href="#" class="content-col">Category 7</a>
-        <a href="#" class="content-col">Category 8</a>
-        <a href="#" class="content-col">Category 9</a>
-        <a href="#" class="content-col">Category 10</a>
-      </div>
-    </section>
-  </main>
-  <div class="divider">
-    <p>
-      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-    </p>
-  </div>
-  <!-- Footer -->
-  <footer>
-    <section class="top">
-      <div class="group">
-        <div class="logo">TRIP</div>
-        <div class="social">
-          <a href="#" class="icon">
-            <i class="fa-brands fa-facebook"></i>
-          </a>
-          <a href="#" class="icon">
-            <i class="fa-brands fa-square-github"></i>
-          </a>
-          <a href="#" class="icon">
-            <i class="fa-brands fa-square-twitter"></i>
-          </a>
-          <a href="#" class="icon">
-            <i class="fa-brands fa-youtube"></i>
-          </a>
-        </div>
-      </div>
-      <div class="links">
-        <ul class="links-col">
-          <li class="title">Title</li>
-          <li><a href="#">Link 1</a></li>
-          <li><a href="#">Link 2</a></li>
-          <li><a href="#">Link 3</a></li>
-          <li><a href="#">Link 4</a></li>
-          <li><a href="#">Link 5</a></li>
-          <li><a href="#">Link 6</a></li>
-          <li><a href="#">Link 7</a></li>
-        </ul>
-        <ul class="links-col">
-          <li class="title">Title</li>
-          <li><a href="#">Link 1</a></li>
-          <li><a href="#">Link 2</a></li>
-          <li><a href="#">Link 3</a></li>
-          <li><a href="#">Link 4</a></li>
-          <li><a href="#">Link 5</a></li>
-        </ul>
-        <ul class="links-col">
-          <li class="title">Title</li>
-          <li><a href="#">Link 1</a></li>
-          <li><a href="#">Link 2</a></li>
-          <li><a href="#">Link 3</a></li>
-          <li><a href="#">Link 4</a></li>
-          <li><a href="#">Link 5</a></li>
-          <li><a href="#">Link 6</a></li>
-        </ul>
-      </div>
-    </section>
-    <section class="bottom">
-      <h3>Get shopping with TRIP</h3>
-      <div class="group">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, perspiciatis?</p>
-        <h4>@ 2023 TRIP Ltd. All rights reserved.</h4>
-      </div>
-    </section>
-  </footer>
-  <!-- Main Js Link -->
-  <script src="assets/javascript/main.js"></script>
-</body>
-
-</html>
