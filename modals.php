@@ -213,7 +213,7 @@
             </div>
             <div class="field input">
               <label for="pwdrepeat">Confirm Password*</label>
-              <input id="pwdrepeat" type="pwdrepeat" class="form-control" name="pwdrepeat" required autocomplete="pwdrepeated"
+              <input id="pwdrepeat" type="confirmPassword" class="form-control" name="pwdrepeat" required autocomplete="pwdrepeated"
                 placeholder="Re-Enter Password" autofocus>
             </div>
           </div>
