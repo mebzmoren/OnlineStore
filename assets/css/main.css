@@ -267,7 +267,7 @@ header .search i {
   display: none;
 }
 
-/* User Hamburger */
+/* Guest Hamburger */
 .user-pop {
   position: fixed;
   display: flex;
@@ -282,7 +282,11 @@ header .search i {
   transition: all .3s ease;
 }
 
-.user-pop.active {
+.guest.active {
+  right: 2%;
+}
+
+.logged.active {
   right: 2%;
 }
 

@@ -26,7 +26,10 @@
           </button>
         </form>
         <div class="icons">
-          <div class="icon" id="acc-btn">
+          <?php
+            if(isset($_SESSION["id"])) {
+          ?>
+          <div class="icon" id="logged-btn">
             <i class="fa-regular fa-user"></i>
           </div>
           <div class="icon" id="shop-btn">
@@ -35,7 +38,45 @@
               <h4>0</h4>
             </div>
           </div>
+          <?php
+            } else {
+          ?>
+            <div class="icon" id="guest-btn">
+              <i class="fa-regular fa-user"></i>
+            </div>
+          <?php
+            }
+          ?>
         </div>
       </div>
     </div>
   </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="icon" id="logged-btn" style="display:none;">
+            <i class="fa-regular fa-user"></i>
+          </div>
+          <div class="icon" id="shop-btn" style="display:none;">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <div class="item-count">
+              <h4>0</h4>
+            </div>
+          </div>
+          <div  style="display:none;"class="icon" id="guest-btn">
+            <i class="fa-regular fa-user"></i>
+          </div>

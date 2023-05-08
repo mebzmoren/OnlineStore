@@ -1,7 +1,7 @@
 // Icon Buttons
-const accountButton = document.querySelector('#acc-btn');
+const guestButton = document.querySelector('#guest-btn');
+const loggedButton = document.querySelector('#logged-btn');
 const shopButton = document.querySelector('#shop-btn');
-const exitButton = document.querySelector('#exit-btn');
 const memberButton = document.querySelector('#member-btn');
 const sellerButton = document.querySelector('#seller-btn');
 const categoriesButton = document.querySelector('#cate-btn');
@@ -14,9 +14,12 @@ const loginExitButton = document.querySelector('#login-exit');
 const registerExitButton = document.querySelector('#register-exit');
 const sellerExitButton = document.querySelector('#seller-exit');
 const orderExitButton = document.querySelector('#order-exit');
+const guestExitButton = document.querySelector('#guest-exit-btn');
+const loggedExitButton = document.querySelector('#logged-exit-btn');
 
 // Modals
-const loginPopModal = document.querySelector('.user-pop');
+const guestPopModal = document.querySelector('.guest');
+const loggedPopModal = document.querySelector('.logged');
 const loginModal = document.querySelector('.login');
 const sellerModal = document.querySelector('.seller');
 const registerModal = document.querySelector('.register');
@@ -28,8 +31,12 @@ const toggleColor = document.querySelector('toggle-color');
 const categoriesToggle = document.querySelector('#cate-toggle');
 
 // Exit Buttons
-exitButton.addEventListener('click', () => {
-  loginPopModal.classList.remove('active');
+guestExitButton.addEventListener('click', () => {
+  guestPopModal.classList.remove('active');
+});
+
+loggedExitButton.addEventListener('click', () => {
+  loggedPopModal.classList.remove('active');
 });
 
 loginExitButton.addEventListener('click', () => {
@@ -55,7 +62,7 @@ categoriesButton.addEventListener('click', () => {
   categoriesButton.classList.toggle('active');
   categoriesModal.classList.toggle('active');
   shopModal.classList.remove('active');
-  loginPopModal.classList.remove('active');
+  guestPopModal.classList.remove('active');
   registerModal.classList.remove('active');
   sellerModal.classList.remove('active');
   toggleColor.classList.toggle('active');
@@ -63,14 +70,22 @@ categoriesButton.addEventListener('click', () => {
 
 shopButton.addEventListener('click', () => {
   shopModal.classList.toggle('active');
-  loginPopModal.classList.remove('active');
+  guestPopModal.classList.remove('active');
   registerModal.classList.remove('active');
   sellerModal.classList.remove('active');
   categoriesModal.classList.remove('active');
 });
 
-accountButton.addEventListener('click', () => {
-  loginPopModal.classList.toggle('active');
+guestButton.addEventListener('click', () => {
+  guestPopModal.classList.toggle('active');
+  registerModal.classList.remove('active');
+  sellerModal.classList.remove('active');
+  categoriesModal.classList.remove('active');
+  shopModal.classList.remove('active');
+});
+
+loggedButton.addEventListener('click', () => {
+  loggedPopModal.classList.toggle('active');
   registerModal.classList.remove('active');
   sellerModal.classList.remove('active');
   categoriesModal.classList.remove('active');
@@ -78,7 +93,7 @@ accountButton.addEventListener('click', () => {
 });
 
 memberButton.addEventListener('click', () => {
-  loginPopModal.classList.remove('active');
+  guestPopModal.classList.remove('active');
   registerModal.classList.toggle('active');
   sellerModal.classList.remove('active');
   categoriesModal.classList.remove('active');
@@ -87,7 +102,7 @@ memberButton.addEventListener('click', () => {
 
 redirectRegisterButton.addEventListener('click', () => {
   loginModal.classList.remove('active');
-  loginPopModal.classList.remove('active');
+  guestPopModal.classList.remove('active');
   registerModal.classList.toggle('active');
   sellerModal.classList.remove('active');
   categoriesModal.classList.remove('active');
@@ -96,7 +111,7 @@ redirectRegisterButton.addEventListener('click', () => {
 
 redirectLogInButton.addEventListener('click', () => {
   loginModal.classList.toggle('active');
-  loginPopModal.classList.remove('active');
+  guestPopModal.classList.remove('active');
   registerModal.classList.remove('active');
   sellerModal.classList.remove('active');
   categoriesModal.classList.remove('active');
@@ -105,7 +120,7 @@ redirectLogInButton.addEventListener('click', () => {
 
 redirectSellerButton.addEventListener('click', () => {
   loginModal.classList.toggle('active');
-  loginPopModal.classList.remove('active');
+  guestPopModal.classList.remove('active');
   registerModal.classList.remove('active');
   sellerModal.classList.remove('active');
   categoriesModal.classList.remove('active');
@@ -114,7 +129,7 @@ redirectSellerButton.addEventListener('click', () => {
 
 sellerButton.addEventListener('click', () => {
   sellerModal.classList.toggle('active');
-  loginPopModal.classList.remove('active');
+  guestPopModal.classList.remove('active');
   registerModal.classList.remove('active');
   categoriesModal.classList.remove('active');
   shopModal.classList.remove('active');

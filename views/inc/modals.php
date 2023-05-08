@@ -1,8 +1,7 @@
-
-  <!-- User Hamburger -->
-  <div class="user-pop">
+  <!-- Guest Hamburger -->
+  <div class="guest user-pop">
     <div class="user-header">
-      <button class="exit" id="exit-btn">
+      <button class="exit" id="guest-exit-btn">
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>
@@ -12,6 +11,21 @@
       <div class="actions">
         <button class="member" id="member-btn">Become a Member</button>
         <button id="seller-btn">Become a Seller</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logged Hamburger -->
+  <div class="logged user-pop">
+    <div class="user-header">
+      <button class="exit" id="logged-exit-btn">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="user-content">
+      <div class="actions">
+        <button>Profile</button>
+        <button>Logout</button>
       </div>
     </div>
   </div>
@@ -142,7 +156,7 @@
   <!-- Login Form -->
   <main class="login hero">
     <div class="wrapper">
-      <form action="#">
+      <form action="includes\login-include.php" method="post">
         <div class="login-header">
           <span class="logo">TRIP.</span>
           <div class="exit" id="login-exit">
@@ -172,7 +186,7 @@
             <span id="register-btn">Register</span>
           </div>
           <div class="actions">
-            <button type="submit">Sign in</button>
+            <button name="submit" type="submit">Sign in</button>
           </div>
         </div>
       </form>
@@ -182,7 +196,10 @@
   <!-- Register Form -->
   <main class="register hero">
     <div class="wrapper">
-      <form action="shop.php" method="post">
+      <?php if(isset($_GET['error'])): ?>
+        <p><?php echo $_GET['error']; ?></p>
+      <?php endif; ?>
+      <form action="includes\register-include.php" method="post">
         <div class="login-header">
           <span class="logo">TRIP.</span>
           <div class="exit" id="register-exit">
@@ -198,7 +215,7 @@
           <div class="fields">
             <div class="field input">
               <label for="username">Username*</label>
-              <input id="username" type="username" class="form-control" name="username" required autocomplete="email"
+              <input id="username" type="username" class="form-control" name="username" required autocomplete="username"
                 placeholder="Enter Username" autofocus>
             </div>
             <div class="field input">
@@ -212,8 +229,8 @@
                 placeholder="Enter Password" autofocus>
             </div>
             <div class="field input">
-              <label for="pwdrepeat">Confirm Password*</label>
-              <input id="pwdrepeat" type="confirmPassword" class="form-control" name="pwdrepeat" required autocomplete="pwdrepeated"
+              <label for="confirmPassword">Confirm Password*</label>
+              <input id="confirmPassword" type="password" class="form-control" name="confirmPassword" required autocomplete="confirmPassword"
                 placeholder="Re-Enter Password" autofocus>
             </div>
           </div>
@@ -222,7 +239,7 @@
             <span class="sign-in" id="signin-btn">Sign in</span>
           </div>
           <div class="actions">
-            <button type="submit">Register</button>
+            <button name="submit" type="submit">Register</button>
           </div>
         </div>
       </form>
@@ -232,7 +249,7 @@
   <!-- Seller Form -->
   <main class="seller hero">
     <div class="wrapper">
-      <form action="#">
+      <form action="includes/signup.inc.php" method="post">
         <div class="login-header">
           <span class="logo">TRIP.</span>
           <div class="exit" id="seller-exit">
@@ -262,8 +279,8 @@
                 placeholder="Enter Password" autofocus>
             </div>
             <div class="field input">
-              <label for="pwdrepeat">Confirm Password*</label>
-              <input id="pwdrepeat" type="pwdrepeat" class="form-control" name="pwdrepeat" required autocomplete="pwdrepeated"
+              <label for="confirmPassword">Confirm Password*</label>
+              <input id="confirmPassword" type="password" class="form-control" name="confirmPassword" required autocomplete="pwdrepeated"
                 placeholder="Re-Enter Password" autofocus>
             </div>
           </div>
@@ -272,7 +289,7 @@
             <span class="sign-in" id="seller-redirect-btn">Sign in</span>
           </div>
           <div class="actions">
-            <button type="submit">Register</button>
+            <button name="submit" type="submit">Register</button>
           </div>
         </div>
       </form>
