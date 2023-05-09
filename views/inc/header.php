@@ -27,7 +27,7 @@
         </form>
         <div class="icons">
           <?php
-            if(isset($_SESSION["id"])) {
+            if(isset($_SESSION['member_name'])) {
           ?>
           <div class="icon" id="logged-btn">
             <i class="fa-regular fa-user"></i>
@@ -37,6 +37,12 @@
             <div class="item-count">
               <h4>0</h4>
             </div>
+          </div>
+          <?php
+            } elseif(isset($_SESSION['seller_name'])) {
+          ?>
+          <div class="icon" id="seller-btn">
+            <i class="fa-regular fa-user"></i>
           </div>
           <?php
             } else {

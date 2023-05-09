@@ -1,6 +1,7 @@
 // Icon Buttons
 const guestButton = document.querySelector('#guest-btn');
 const loggedButton = document.querySelector('#logged-btn');
+const sellerButton = document.querySelector('#seller-btn');
 const shopButton = document.querySelector('#shop-btn');
 const categoriesButton = document.querySelector('#cate-btn');
 
@@ -8,10 +9,12 @@ const categoriesButton = document.querySelector('#cate-btn');
 const orderExitButton = document.querySelector('#order-exit');
 const guestExitButton = document.querySelector('#guest-exit-btn');
 const loggedExitButton = document.querySelector('#logged-exit-btn');
+const sellerExitButton = document.querySelector('#seller-exit-btn');
 
 // Modals
 const guestPopModal = document.querySelector('.guest');
 const loggedPopModal = document.querySelector('.logged');
+const sellerPopModal = document.querySelector('.seller');
 const categoriesModal = document.querySelector('.categories');
 const shopModal = document.querySelector('.shopping-cart');
 
@@ -57,6 +60,12 @@ guestButton.addEventListener('click', () => {
 
 loggedButton.addEventListener('click', () => {
   loggedPopModal.classList.toggle('active');
+  categoriesModal.classList.remove('active');
+  shopModal.classList.remove('active');
+});
+
+sellerButton.addEventListener('click', () => {
+  sellerPopModal.classList.toggle('active');
   categoriesModal.classList.remove('active');
   shopModal.classList.remove('active');
 });

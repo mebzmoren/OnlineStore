@@ -24,8 +24,23 @@
     </div>
     <div class="user-content">
       <div class="actions">
-        <button>Profile</button>
-        <button>Logout</button>
+        <a href="#">Member Profile</a>
+        <a href="core/logout.php">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seller Hamburger -->
+  <div class="seller user-pop">
+    <div class="user-header">
+      <button class="exit" id="seller-exit-btn">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="user-content">
+      <div class="actions">
+        <a href="#">Seller Profile</a>
+        <a href="core/logout.php">Logout</a>
       </div>
     </div>
   </div>

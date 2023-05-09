@@ -290,6 +290,11 @@ header .search i {
   right: 2%;
 }
 
+.seller.active {
+  right: 2%;
+}
+
+
 .user-pop .user-header {
   padding: 1em;
   display: flex;

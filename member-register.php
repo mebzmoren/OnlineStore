@@ -1,8 +1,8 @@
 <?php
+  session_start();
+  include 'core/database.php';
   $title = 'Member Register';
   $contentView = 'views/_member-register.php';
-
-  include 'core/database.php';
   
   if(isset($_POST['submit'])) {
     $username =  $_POST['username'];

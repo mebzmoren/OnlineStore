@@ -11,6 +11,7 @@
   <script src="https://kit.fontawesome.com/84e2199ce0.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
   <?php include('views/inc/header.php')?>
   <?php include('views/inc/modals.php')?>
   <?php include($contentView)?>

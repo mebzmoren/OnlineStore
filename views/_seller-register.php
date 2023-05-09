@@ -1,7 +1,7 @@
   <!-- Seller Form -->
   <main class="seller hero">
     <div class="wrapper">
-      <form action="includes/signup.inc.php" method="post">
+      <form action="#" method="post">
         <div class="login-header">
           <span class="logo">TRIP.</span>
           <div class="exit" id="seller-exit">
@@ -14,10 +14,15 @@
             <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum exercitationem,
               libero possimus natus vel soluta.</p>
           </div>
+          <?php
+            if(isset($error)) {
+              echo '<span class="error-msg"> Error: ' . $error . '</span>';
+            }
+          ?>
           <div class="fields">
             <div class="field input">
               <label for="username">Username*</label>
-              <input id="username" type="email" class="form-control" name="username" required autocomplete="username"
+              <input id="username" type="username" class="form-control" name="username" required autocomplete="username"
                 placeholder="Username" autofocus>
             </div>
             <div class="field input">
