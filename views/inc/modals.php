@@ -71,23 +71,21 @@
     </div>
     <div class="vertical-line"></div>
     <div class="right">
-      <a href="#">Category 1</a>
-      <a href="#">Category 2</a>
-      <a href="#">Category 3</a>
-      <a href="#">Category 4</a>
-      <a href="#">Category 5</a>
-      <a href="#">Category 6</a>
-      <a href="#">Category 7</a>
-      <a href="#">Category 8</a>
-      <a href="#">Category 9</a>
-      <a href="#">Category 10</a>
-      <a href="#">Category 11</a>
-      <a href="#">Category 12</a>
-      <a href="#">Category 13</a>
-      <a href="#">Category 14</a>
-      <a href="#">Category 15</a>
-      <a href="#">Category 16</a>
-      <a href="#">Category 17</a>
+      <?php
+        $category = getTable("category");
+
+        if(mysqli_num_rows($category) > 0) {
+          foreach ($category as $item) {
+            ?>
+              <a href="#">
+                <?php echo $item['name']; ?>
+              </a>
+            <?php
+          }
+        } else {
+          echo "There are no categories found.";
+        }
+      ?>
     </div>
   </div>
 

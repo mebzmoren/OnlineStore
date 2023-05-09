@@ -1,6 +1,7 @@
 <?php
   session_start();
   include 'core/database.php';
+
   if(isset($_POST['submit'])) {
     $username =  $_POST['username'];
     $email = $_POST['email'];
@@ -22,7 +23,6 @@
       header('location:member-login.php?success=user_created');
     }
   }
-  
   $title = 'Member Register';
   $contentView = 'views/_member-register.php';
   include('views/master.php');

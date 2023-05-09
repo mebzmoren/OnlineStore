@@ -1,3 +1,8 @@
+<?php
+  include 'core/functions.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

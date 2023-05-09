@@ -50,9 +50,19 @@
             <div class="field input">
               <label for="category">Category Name*</label>
               <select name="category" id="category" required autocomplete="category" autofocus>
-                <option value="Shirts">Shirts</option>
-                <option value="Jeans">Jeans</option>
-                <option value="Shoes">Shoes</option>
+                <?php 
+                  $category = getTable("category");
+
+                  if(mysqli_num_rows($category) > 0) {
+                    foreach ($category as $item) {
+                      ?>
+                        <option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
+                      <?php
+                    }
+                  } else {
+                    echo "There are no categories found.";
+                  }
+                ?>
               </select>
             </div>
           </div>
