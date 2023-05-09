@@ -35,6 +35,11 @@
               <input id="confirmPassword" type="password" class="form-control" name="confirmPassword" required autocomplete="pwdrepeated"
                 placeholder="Re-Enter Password" autofocus>
             </div>
+            <div class="field input type" style="display:none;">
+              <label for="user_type">User Type*</label>
+              <input id="user_type" type="text" class="form-control" name="user_type" required autocomplete="user_type" value="seller"
+                placeholder="Re-Enter Password" autofocus>
+            </div>
           </div>
           <div class="redirect">
             <span class="text">Already have an account?</span>

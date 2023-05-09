@@ -1,10 +1,7 @@
   <!-- Register Form -->
   <main class="hero">
     <div class="wrapper">
-      <?php if(isset($_GET['error'])): ?>
-        <p><?php echo $_GET['error']; ?></p>
-      <?php endif; ?>
-      <form action="includes\register-include.php" method="post">
+      <form action="#" method="post">
         <div class="login-header">
           <span class="logo">TRIP.</span>
           <div class="exit" id="register-exit">
@@ -17,6 +14,11 @@
             <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum exercitationem,
               libero possimus natus vel soluta.</p>
           </div>
+          <?php
+            if(isset($error)) {
+              echo '<span class="error-msg"> Error: ' . $error . '</span>';
+            }
+          ?>
           <div class="fields">
             <div class="field input">
               <label for="username">Username*</label>
@@ -36,6 +38,11 @@
             <div class="field input">
               <label for="confirmPassword">Confirm Password*</label>
               <input id="confirmPassword" type="password" class="form-control" name="confirmPassword" required autocomplete="confirmPassword"
+                placeholder="Re-Enter Password" autofocus>
+            </div>
+            <div class="field input type" style="display:none;">
+              <label for="user_type">User Type*</label>
+              <input id="user_type" type="text" class="form-control" name="user_type" required autocomplete="user_type" value="member"
                 placeholder="Re-Enter Password" autofocus>
             </div>
           </div>

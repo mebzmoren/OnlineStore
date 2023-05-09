@@ -341,27 +341,28 @@ header .search i {
   gap: 1em;
 }
 
-.user-pop .user-content .actions button {
+.user-pop .user-content .actions a {
   padding: 0.5em 1em;
   background-color: var(--main-color);
   border: 1px solid var(--main-color);
   color: var(--text-color);
   border-radius: 2px;
+  font-size: 1.3rem;
   cursor: pointer;
   transition: all .3s ease;
 }
 
-.user-pop .user-content .actions button:hover {
+.user-pop .user-content .actions a:hover {
   color: var(--main-color);
   background-color: var(--light-color);
 }
 
-.user-pop .user-content .actions button:last-child {
+.user-pop .user-content .actions a:last-child {
   background-color: var(--light-color);
   color: var(--main-color);
 }
 
-.user-pop .user-content .actions button:last-child:hover {
+.user-pop .user-content .actions a:last-child:hover {
   color: var(--text-color);
   background-color: var(--main-color);
 }
@@ -567,9 +568,35 @@ header .search i {
   color: var(--main-color);
 }
 
+.hero {
+  margin-top: 10em;
+  margin-bottom: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero .error-msg {
+  display: block;
+  border-radius: 2px;
+  font-size: 1.3rem;
+  padding: 1em;
+  background-color: var(--red-color);
+  color: white;
+}
+
+.hero .success-msg {
+  display: block;
+  border-radius: 2px;
+  font-size: 1.3rem;
+  padding: 1em;
+  background-color: var(--green-color);
+  color: white;
+}
+
 .hero .wrapper {
   background-color: #fff;
-  box-shadow: var(--box-shadow);
+  border: 1px solid var(--grey-color-1);
   max-width: 380px;
   border-radius: 2px;
 }
@@ -582,8 +609,8 @@ header .search i {
 .hero .wrapper form .login-header {
   padding: 1.5em;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   border-bottom: 1px solid var(--grey-color);
 }
 
@@ -591,7 +618,7 @@ header .search i {
   background-color: transparent;
   border: 1px solid var(--grey-color-1);
   padding: 1em;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -644,6 +671,10 @@ header .search i {
 .hero .wrapper form .details .fields .group {
   display: flex;
   gap: 1em;
+}
+
+.hero .wrapper form .type {
+  display: none;
 }
 
 .hero .wrapper form .details .fields .field input {
