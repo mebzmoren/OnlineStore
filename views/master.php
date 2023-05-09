@@ -19,5 +19,7 @@
 
   <!-- JS Link -->
   <script src="assets/javascript/main.js"></script>
+  <script src="assets/javascript/shop.js"></script>
+  <script src="assets/javascript/rating.js"></script>
 </body>
 </html>

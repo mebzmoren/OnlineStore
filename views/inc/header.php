@@ -1,4 +1,4 @@
-  <!-- Header -->
+  Header
   <header>
     <div class="container">
       <div class="left">
@@ -25,35 +25,64 @@
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </form>
-        <div class="icons">
-          <?php
-            if(isset($_SESSION['member_name'])) {
-          ?>
-          <div class="icon" id="logged-btn">
-            <i class="fa-regular fa-user"></i>
-          </div>
-          <div class="icon" id="shop-btn">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <div class="item-count">
-              <h4>0</h4>
+        <?php
+          if(isset($_SESSION['member_name'])) {
+        ?>
+          <div class="icons">
+            <?php
+              if(isset($_SESSION['member_name'])) {
+            ?>
+            <div class="icon" id="logged-btn">
+              <i class="fa-regular fa-user"></i>
             </div>
+            <div class="icon" id="shop-btn">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <div class="item-count">
+                <h4>0</h4>
+              </div>
+            </div>
+            <?php
+              } else {
+            ?>
+              <div class="icon" id="guest-btn">
+                <i class="fa-regular fa-user"></i>
+              </div>
+            <?php
+              }
+            ?>
           </div>
-          <?php
-            } elseif(isset($_SESSION['seller_name'])) {
-          ?>
-          <div class="icon" id="seller-btn">
-            <i class="fa-regular fa-user"></i>
+        <?php
+          }
+          elseif(isset($_SESSION['seller_name'])) {
+        ?>
+          <div class="icons">
+            <?php
+              if(isset($_SESSION['seller_name'])) {
+            ?>
+            <div class="icon" id="seller-btn">
+              <i class="fa-regular fa-user"></i>
+            </div>
+            <?php
+              } else {
+            ?>
+              <div class="icon" id="guest-btn">
+                <i class="fa-regular fa-user"></i>
+              </div>
+            <?php
+              }
+            ?>
           </div>
-          <?php
-            } else {
-          ?>
+        <?php
+          } else {
+        ?>
+          <div class="icons">
             <div class="icon" id="guest-btn">
               <i class="fa-regular fa-user"></i>
             </div>
-          <?php
-            }
-          ?>
-        </div>
+          </div>
+        <?php
+          }
+        ?>
       </div>
     </div>
   </header>
@@ -74,7 +103,10 @@
 
 
 
-            <div class="icon" id="logged-btn" style="display:none;">
+          <div class="icon" id="logged-btn" style="display:none;">
+            <i class="fa-regular fa-user"></i>
+          </div>
+          <div class="icon" id="seller-btn" style="display:none;">
             <i class="fa-regular fa-user"></i>
           </div>
           <div class="icon" id="shop-btn" style="display:none;">
@@ -83,6 +115,6 @@
               <h4>0</h4>
             </div>
           </div>
-          <div  style="display:none;"class="icon" id="guest-btn">
+          <div style="display:none;"class="icon" id="guest-btn">
             <i class="fa-regular fa-user"></i>
           </div>

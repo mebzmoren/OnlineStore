@@ -31,6 +31,10 @@ loggedExitButton.addEventListener('click', () => {
   loggedPopModal.classList.remove('active');
 });
 
+sellerExitButton.addEventListener('click', () => {
+  sellerPopModal.classList.remove('active');
+});
+
 orderExitButton.addEventListener('click', () => {
   shopModal.classList.remove('active');
 });
@@ -49,6 +53,7 @@ categoriesButton.addEventListener('click', () => {
 shopButton.addEventListener('click', () => {
   shopModal.classList.toggle('active');
   guestPopModal.classList.remove('active');
+  loggedPopModal.classList.remove('active');
   categoriesModal.classList.remove('active');
 });
 

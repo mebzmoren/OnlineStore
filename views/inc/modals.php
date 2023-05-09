@@ -25,7 +25,7 @@
     <div class="user-content">
       <div class="actions">
         <a href="#">Member Profile</a>
-        <a href="core/logout.php">Logout</a>
+        <a href="core/member-logout.php">Logout</a>
       </div>
     </div>
   </div>
@@ -40,7 +40,7 @@
     <div class="user-content">
       <div class="actions">
         <a href="#">Seller Profile</a>
-        <a href="core/logout.php">Logout</a>
+        <a href="core/seller-logout.php">Logout</a>
       </div>
     </div>
   </div>

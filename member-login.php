@@ -13,25 +13,16 @@
     $result = mysqli_query($conn, $sql_stmt);
     
     if(mysqli_num_rows($result) > 0) {
-      
       $array = mysqli_fetch_array($result);
-
-      if($array['user_type'] == 'member') {
-        $_SESSION['member_name'] = $array['username'];
-        header('location:shop.php');
-      } elseif ($array['user_type'] == 'seller') {
-        $_SESSION['seller_name'] == $array['username'];
-        header('location:add-product.php');
-      } else {
-        $error = 'User type not found.';
-      }
+      $_SESSION['member_name'] = $array['username'];
+      header('location:shop.php?success=member-logged');
     } else {
       $error = 'Incorrect user credentials.';
     } 
   }
   
   $title = 'Login';
-  $contentView = 'views/_login.php';
+  $contentView = 'views/_member-login.php';
   include('views/master.php');
 ?>
 

@@ -427,7 +427,7 @@ header .search i {
   padding: 0.5em;
   flex: 85%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 1em;
 }
 
@@ -581,7 +581,7 @@ header .search i {
   align-items: center;
 }
 
-.hero .error-msg {
+.error-msg {
   display: block;
   border-radius: 2px;
   font-size: 1.3rem;
@@ -590,7 +590,7 @@ header .search i {
   color: white;
 }
 
-.hero .success-msg {
+.success-msg {
   display: block;
   border-radius: 2px;
   font-size: 1.3rem;

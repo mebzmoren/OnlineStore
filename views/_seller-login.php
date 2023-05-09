@@ -10,7 +10,7 @@
         </div>
         <div class="details">
           <div class="desc">
-            <span class="title">Sign in</span>
+            <span class="title">Seller Log In</span>
             <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum exercitationem,
               libero possimus natus vel soluta.</p>
           </div>
@@ -33,7 +33,7 @@
           </div>
           <div class="redirect">
             <span class="text">Don't have an account?</span>
-            <a href="member-register.php">Register</a>
+            <a href="seller-register.php">Register</a>
           </div>
           <div class="actions">
             <button name="submit" type="submit">Sign in</button>
