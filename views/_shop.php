@@ -130,8 +130,10 @@
               </div>
               <div class="bottom">
                 <div class="product-details">
-                  <h4><?php echo $item["name"]; ?></h4>
-                  <div class="group">
+                  <div class="title">
+                    <h4><?php echo $item["name"]; ?></h4>
+                  </div>
+                  <div class="rating-group">
                     <div class="rating">
                       <i class="fa-solid fa-star"></i>
                       <h5>5.0 (# of reviews)</h5>

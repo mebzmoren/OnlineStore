@@ -1,6 +1,6 @@
 <?php
 include 'core/functions.php';
-$category_id = $category["id"];
+// $category_id = $category["id"];
 ?>
 
 

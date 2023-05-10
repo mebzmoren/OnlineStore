@@ -1360,7 +1360,7 @@ footer .bottom .group h4 {
   position: absolute;
   top: 15px;
   left: 15px;
-  background-color: var(--light-color);
+  box-shadow: var(--box-shadow);
   border-radius: 100%;
   min-width: 32px;
   min-height: 32px;
@@ -1381,12 +1381,9 @@ footer .bottom .group h4 {
 .product-grid .product-col .bottom {
   flex: 45%;
   position: relative;
-  gap: 1em;
-}
-
-.product-grid .bottom .group {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .product-grid .product-details {
@@ -1400,6 +1397,12 @@ footer .bottom .group h4 {
 .product-grid .product-details h4 {
   font-size: 1.5rem;
   text-align: justify;
+  width: 100%;
+}
+
+.product-grid .product-details .title {
+  display: block;
+  width: 100%;
 }
 
 .product-grid .product-details .rating {
@@ -1419,10 +1422,11 @@ footer .bottom .group h4 {
   font-size: 1.4rem;
   font-weight: 400;}
 
-.product-grid .product-details .group {
+.product-grid .bottom .product-details .rating-group {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 2em;
 }
 
 .product-grid .product-details .price {
