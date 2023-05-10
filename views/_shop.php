@@ -115,146 +115,38 @@
       </div>
       <!-- Product Grid -->
       <div class="product-grid grid-main">
-        <div class="product-col">
-          <div class="top">
-            <div class="img"></div>
-            <div class="like">
-              <i class="fa-regular fa-heart"></i>
-            </div>
-          </div>
-          <div class="bottom">
-            <div class="product-details">
-              <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. A!</h4>
-              <div class="group">
-                <div class="rating">
-                  <i class="fa-solid fa-star"></i>
-                  <h5>5.0 (# of reviews)</h5>
+        <?php
+        $products = getTable("product");
+
+        if (mysqli_num_rows($products) > 0) {
+          foreach ($products as $item) {
+        ?>
+            <div class="product-col">
+              <div class="top">
+                <img src="assets/uploads/<?php echo $item["image"]; ?>" alt="<?php echo $item["name"]; ?>" class="img">
+                <div class="like">
+                  <i class="fa-regular fa-heart"></i>
                 </div>
-                <h2 class="price">$575</h2>
+              </div>
+              <div class="bottom">
+                <div class="product-details">
+                  <h4><?php echo $item["name"]; ?></h4>
+                  <div class="group">
+                    <div class="rating">
+                      <i class="fa-solid fa-star"></i>
+                      <h5>5.0 (# of reviews)</h5>
+                    </div>
+                    <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="product-col">
-          <div class="top">
-            <div class="img"></div>
-            <div class="like">
-              <i class="fa-regular fa-heart"></i>
-            </div>
-          </div>
-          <div class="bottom">
-            <div class="product-details">
-              <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. A!</h4>
-              <div class="group">
-                <div class="rating">
-                  <i class="fa-solid fa-star"></i>
-                  <h5>5.0 (# of reviews)</h5>
-                </div>
-                <h2 class="price">$575</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="product-col">
-          <div class="top">
-            <div class="img"></div>
-            <div class="like">
-              <i class="fa-regular fa-heart"></i>
-            </div>
-          </div>
-          <div class="bottom">
-            <div class="product-details">
-              <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. A!</h4>
-              <div class="group">
-                <div class="rating">
-                  <i class="fa-solid fa-star"></i>
-                  <h5>5.0 (# of reviews)</h5>
-                </div>
-                <h2 class="price">$575</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="product-col">
-          <div class="top">
-            <div class="img"></div>
-            <div class="like">
-              <i class="fa-regular fa-heart"></i>
-            </div>
-          </div>
-          <div class="bottom">
-            <div class="product-details">
-              <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. A!</h4>
-              <div class="group">
-                <div class="rating">
-                  <i class="fa-solid fa-star"></i>
-                  <h5>5.0 (# of reviews)</h5>
-                </div>
-                <h2 class="price">$575</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="product-col">
-          <div class="top">
-            <div class="img"></div>
-            <div class="like">
-              <i class="fa-regular fa-heart"></i>
-            </div>
-          </div>
-          <div class="bottom">
-            <div class="product-details">
-              <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. A!</h4>
-              <div class="group">
-                <div class="rating">
-                  <i class="fa-solid fa-star"></i>
-                  <h5>5.0 (# of reviews)</h5>
-                </div>
-                <h2 class="price">$575</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="product-col">
-          <div class="top">
-            <div class="img"></div>
-            <div class="like">
-              <i class="fa-regular fa-heart"></i>
-            </div>
-          </div>
-          <div class="bottom">
-            <div class="product-details">
-              <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. A!</h4>
-              <div class="group">
-                <div class="rating">
-                  <i class="fa-solid fa-star"></i>
-                  <h5>5.0 (# of reviews)</h5>
-                </div>
-                <h2 class="price">$575</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="product-col">
-          <div class="top">
-            <div class="img"></div>
-            <div class="like">
-              <i class="fa-regular fa-heart"></i>
-            </div>
-          </div>
-          <div class="bottom">
-            <div class="product-details">
-              <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. A!</h4>
-              <div class="group">
-                <div class="rating">
-                  <i class="fa-solid fa-star"></i>
-                  <h5>5.0 (# of reviews)</h5>
-                </div>
-                <h2 class="price">$575</h2>
-              </div>
-            </div>
-          </div>
-        </div>
+        <?php
+          }
+        } else {
+          echo "There are no products found.";
+        }
+        ?>
       </div>
       <div class="pagination">
         <ul class="page-select">

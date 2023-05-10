@@ -1333,6 +1333,7 @@ footer .bottom .group h4 {
   min-height: 320px;
   gap: 0.5em;
   cursor: pointer;
+  align-items: center;
 }
 
 .product-grid .product-col:hover {
@@ -1350,7 +1351,8 @@ footer .bottom .group h4 {
 
 .product-grid .product-col .top .img {
   border-radius: 12px;
-  min-height: 245px;
+  height: 275px;
+  object-fit: cover;
   background-color: var(--grey-color);
 }
 
@@ -1380,6 +1382,11 @@ footer .bottom .group h4 {
   flex: 45%;
   position: relative;
   gap: 1em;
+}
+
+.product-grid .bottom .group {
+  display: flex;
+  justify-content: space-between;
 }
 
 .product-grid .product-details {

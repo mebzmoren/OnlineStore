@@ -11,4 +11,3 @@
     $mysql_stmt = "SELECT * FROM product WHERE category_id='$category_id'";
     return mysqli_query($conn, $mysql_stmt);
   }
-?>
