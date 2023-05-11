@@ -7,10 +7,10 @@
       </span>
       <ul class="options">
         <li>
-          <a href="#">My Products</a>
+          <a href="seller-products.php">My Products</a>
         </li>
         <li>
-          <a href="#">Add New Product</a>
+          <a href="add-product.php" class="active">Add New Product</a>
         </li>
       </ul>
     </aside>

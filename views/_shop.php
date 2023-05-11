@@ -107,7 +107,7 @@
     <!-- Shop Products -->
     <section class="products">
       <div class="header-details">
-        <h2 class="title">Product Name Placeholder</h2>
+        <h2 class="title">Shop Products</h2>
         <div class="sort">
           <button>New</button>
           <button>Popular</button>
@@ -136,7 +136,7 @@
                   <div class="rating-group">
                     <div class="rating">
                       <i class="fa-solid fa-star"></i>
-                      <h5>5.0 (# of reviews)</h5>
+                      <h5>5.0 (#)</h5>
                     </div>
                     <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
                   </div>

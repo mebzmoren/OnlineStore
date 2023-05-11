@@ -1071,7 +1071,7 @@ footer .bottom .group h4 {
 /* Shop */
 .shop-container {
   display: flex;
-  margin-top: 5em;
+  margin-top: 4.5em;
   padding: 2em 3.5em 0;
   gap: 1em;
 }
@@ -1333,7 +1333,7 @@ footer .bottom .group h4 {
   transition: all .3s ease;
   display: flex;
   flex-direction: column;
-  min-height: 320px;
+  max-width: 350px;
   gap: 0.5em;
   cursor: pointer;
   align-items: center;
@@ -1354,6 +1354,7 @@ footer .bottom .group h4 {
 
 .product-grid .product-col .top .img {
   border-radius: 12px;
+  max-width: 100%;
   object-fit: cover;
   background-color: var(--grey-color);
 }
@@ -1362,7 +1363,7 @@ footer .bottom .group h4 {
   position: absolute;
   top: 15px;
   left: 15px;
-  background-color: var(--grey-color-1);
+  background-color: var(--grey-color);
   border-radius: 100%;
   min-width: 32px;
   min-height: 32px;
@@ -1385,7 +1386,6 @@ footer .bottom .group h4 {
   position: relative;
   display: flex;
   justify-content: space-between;
-  width: 100%;
 }
 
 .product-grid .product-details {
@@ -1428,7 +1428,7 @@ footer .bottom .group h4 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2em;
+  gap: 4em;
 }
 
 .product-grid .product-details .price {
@@ -1521,6 +1521,7 @@ footer .bottom .group h4 {
 
 .products-container .product .product-details .details .group .rating {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 0.8em;
   color: var(--rating-color);

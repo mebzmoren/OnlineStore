@@ -39,7 +39,7 @@
     </div>
     <div class="user-content">
       <div class="actions">
-        <a href="#">Seller Profile</a>
+        <a href="seller-products.php">Seller Profile</a>
         <a href="core/seller-logout.php">Logout</a>
       </div>
     </div>
