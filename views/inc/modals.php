@@ -77,7 +77,7 @@
       if (mysqli_num_rows($category) > 0) {
         foreach ($category as $item) {
       ?>
-          <a href="shop-category.php?category=<?php echo $item['name']; ?>">
+          <a href="shop-category.php?category=<?= $item['id']; ?>">
             <?php echo $item['name']; ?>
           </a>
       <?php

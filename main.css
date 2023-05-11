@@ -1333,7 +1333,7 @@ footer .bottom .group h4 {
   transition: all .3s ease;
   display: flex;
   flex-direction: column;
-  max-width: 350px;
+  max-width: 240px;
   gap: 0.5em;
   cursor: pointer;
   align-items: center;
@@ -2395,11 +2395,10 @@ footer .bottom .group h4 {
 /* Seller Products */
 .sell-container.list {
   margin-top: 1em 0;
-  border: none;
 }
 
 .sell-container.list .header-details {
-  border-bottom: none;
+  margin: none;
 }
 
 .sell-container.list .product-col .like {

@@ -46,7 +46,7 @@
                   <div class="rating-group">
                     <div class="rating">
                       <i class="fa-solid fa-star"></i>
-                      <h5>5.0 (# of reviews)</h5>
+                      <h5>5.0 (#)</h5>
                     </div>
                     <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
                   </div>

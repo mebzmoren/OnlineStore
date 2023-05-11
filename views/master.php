@@ -1,7 +1,12 @@
 <?php
 include 'core/functions.php';
 $seller_id = $_SESSION['seller_id'];
-// $category_id =
+
+if(isset($_GET['category'])) {
+  $category_id = $_GET['category'];
+} 
+
+// echo '<script>alert("CHECK: ' . $category_id .'")</script>';
 // echo '<script>alert("CHECK: ' . $seller_id .'")</script>';
 ?>
 
