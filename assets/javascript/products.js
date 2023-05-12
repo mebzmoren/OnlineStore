@@ -26,3 +26,4 @@ buyButton.addEventListener('click', () => {
   buyModal.classList.toggle('active');
 }); 
 
+

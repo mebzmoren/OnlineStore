@@ -114,6 +114,12 @@ hr {
   display: flex;
 }
 
+.modal-pop form {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
 .modal-pop .wrapper .sub-header {
   display: flex;
   align-items: center;
@@ -1833,7 +1839,7 @@ footer .bottom .group h4 {
 }
 
 /* Product Options */
-.products-container .product .product-details .options {
+/* .products-container .product .product-details .options {
   display: flex;
   flex-direction: column;
   gap: 2em;
@@ -1881,10 +1887,6 @@ footer .bottom .group h4 {
   color: var(--main-color);
 }
 
-/*.products-container .product .product-details .options .group .radio__label:not(:last-of-type) {
-  border-right: 1px solid var(--main-color-1);
-} */
-
 .products-container .product .product-details .options .group .color .radio-label {
   padding: 1em;
   border-radius: 100%;
@@ -1910,6 +1912,61 @@ footer .bottom .group h4 {
 }
 
 .products-container .product .product-details .options .group .color .radio-label.white {
+  background-color: var(--light-color);
+} */
+
+/* Product Options */
+.products-container .product .product-details .product-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.products-container .product .product-details .product-options .row-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+.products-container .product .product-details .product-options .row-col .title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.products-container .product .product-details .product-options .row-col .group {
+  display: flex;
+  gap: 1em;
+}
+
+.products-container .product .product-details .product-options .row-col .group .icon {
+  border: 1px solid var(--grey-color);
+  padding: 0.5em 1em;
+  font-size: 1.7rem;
+}
+
+.products-container .product .product-details .product-options .row-col.color .icon {
+  border-radius: 100%;
+  padding: 1em;
+  border: 2px solid var(--grey-color-1);
+}
+
+.products-container .product .product-details .product-options .row-col.color .icon.red {
+  background-color: var(--red-color);
+}
+
+.products-container .product .product-details .product-options .row-col.color .icon.blue {
+  background-color: var(--blue-color);
+}
+
+.products-container .product .product-details .product-options .row-col.color .icon.yellow {
+  background-color: var(--yellow-color);
+}
+
+.products-container .product .product-details .product-options .row-col.color .icon.green {
+  background-color: var(--green-color);
+}
+
+.products-container .product .product-details .product-options .row-col.color .icon.white {
   background-color: var(--light-color);
 }
 

@@ -56,7 +56,6 @@
         </ul>
         <!-- Product Details -->
         <div class="details">
-          <form action="#">
             <h2 class="product-title">
               <?php echo $product['name'] ?>
             </h2>
@@ -79,44 +78,32 @@
               <span>$<?php echo $product['price'] ?></span>
             </div>
             <hr>
-          </div>
+          </div>  
+
           <!-- Product Options -->
-          <div class="options">
-            <div class="group">
-              <h3>Select Size</h3>
-              <div class="sizes">
-                <div class="radio">
-                  <input class="radio-input" checked type="radio" value="xtra-small" name="sizes[]" id="size1">
-                  <label class="radio-label"for="size1">XS</label>
-                  <input class="radio-input" type="radio" value="small" name="sizes[]" id="size2">
-                  <label class="radio-label"for="size2">S</label>
-                  <input class="radio-input" type="radio" value="medium" name="sizes[]" id="size3">
-                  <label class="radio-label"for="size3">M</label>
-                  <input class="radio-input" type="radio" value="large" name="sizes[]" id="size4">
-                  <label class="radio-label"for="size4">L</label>
-                  <input class="radio-input" type="radio" value="xtra-large" name="sizes[]" id="size5">
-                  <label class="radio-label"for="size5">XL</label>
-                </div>
+          <div class="product-options">
+            <div class="row-col">
+              <span class="title">Sizes Available</span>
+              <div class="group">
+                <span class="icon">XS</span>
+                <span class="icon">S</span>
+                <span class="icon">M</span>
+                <span class="icon">L</span>
+                <span class="icon">XL</span>
               </div>
             </div>
-            <div class="group">
-              <h3>Select Color</h3>
-              <div class="colors">
-                <div class="color radio">
-                  <input class="radio-input" checked type="radio" value="red" name="colors[]" id="color1">
-                  <label class="radio-label red"for="color1"></label>
-                  <input class="radio-input" type="radio" value="blue" name="colors[]" id="color2">
-                  <label class="radio-label blue"for="color2"></label>
-                  <input class="radio-input" type="radio" value="green" name="colors[]" id="color3">
-                  <label class="radio-label green"for="color3"></label>
-                  <input class="radio-input" type="radio" value="yellow" name="colors[]" id="color4">
-                  <label class="radio-label yellow"for="color4"></label>
-                  <input class="radio-input" type="radio" value="white" name="colors[]" id="color5">
-                  <label class="radio-label white"for="color5"></label>
-                </div>
+            <div class="row-col color">
+              <span class="title">Colors Available</span>
+              <div class="group">
+                <span class="icon red"></span>
+                <span class="icon blue"></span>
+                <span class="icon yellow"></span>
+                <span class="icon green"></span>
+                <span class="icon white"></span>
               </div>
             </div>
           </div>
+
           <!-- Product Description -->
           <div class="description">
             <h3>Description</h3>
@@ -149,101 +136,7 @@
           <div class="actions">
             <button id="buy-btn">Buy Now</button>
           </div>
-
-          <!-- Modal Pop Up -->
-          <div class="modal-pop">
-            <div class="wrapper">
-              <div class="modal-header">
-                <div class="left">
-                  <span class="title">Confirm Product Order</span>
-                  <span class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae illum nisi itaque cupiditate dignissimos.</span>
-                </div>
-                <div class="right">
-                  <img src="assets/images/shopping_bags.svg" alt="Buy Order Picture">
-                </div>
-              </div>
-              <!-- Product Buy Details -->
-              <div class="product-content">
-                <div class="selected">
-                  <div class="sub-header">
-                    <span class="sub-title">Product Selected</span>
-                    <div class="horizontal-line"></div>
-                  </div>
-                  <div class="product-buy-details">
-                    <div class="left">
-                      <img src="assets/uploads/<?php echo $product['image'] ?>" class="img"></img>
-                    </div>
-                    <div class="right">
-                      <span class="price"><?php echo '$'. $product['price'] ?></span>
-                      <div class="product-group" style="display: flex;">
-                        <span class="product-name"><?php echo $product['name']?></span>
-                        <span class="quantity">x</span>
-                        <span class="quantity">01</span>
-                      </div>
-                      <div class="buy-details">
-                        <div class="content-col">
-                          <span class="title">Color Selected</span>
-                          <span class="name">Red</span>
-                        </div>
-                        <div class="content-col">
-                          <span class="title">Size Selected</span>
-                          <span class="name">XL</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Buy Product Delivery Information -->
-              <div class="delivery-information">
-                <div class="sub-header">
-                  <span class="sub-title">Delivery Information</span>
-                  <div class="horizontal-line"></div>
-                </div>
-                <div class="fields">
-                  <div class="field input">
-                    <label for="address">Address*</label>
-                    <input id="address" type="address" class="form-control" name="address" required autocomplete="address" placeholder="Enter Address" autofocus>
-                  </div>
-                  <div class="group">
-                    <div class="field input">
-                      <label for="city">City/Town*</label>
-                      <input id="city" type="city" class="form-control" name="city" required autocomplete="city" placeholder="Enter City/Town" autofocus>
-                    </div>
-                    <div class="field input">
-                      <label for="pnum">Phone Number*</label>
-                      <input id="pnum" type="fname" class="form-copnum" name="fname" required autocomplete="pnum" placeholder="Enter Phone Number" autofocus>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Buy Product Payment Method -->
-              <div class="delivery-information">
-                <div class="sub-header">
-                  <span class="sub-title">Payment Method</span>
-                  <div class="horizontal-line"></div>
-                </div>
-                <div class="fields">
-                  <div class="group">
-                    <div class="field input">
-                      <label for="city">Select Payment Type*</label>
-                      <input id="city" type="city" class="form-control" name="city" required autocomplete="city" placeholder="Select Payment Type" autofocus>
-                    </div>
-                    <div class="field input">
-                      <label for="zip">Input Payment Type</label>
-                      <input id="zip" type="zip" class="form-control" name="zip" autocomplete="zip" placeholder="Enter Zip Code" autofocus>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Buy Product Actions -->
-              <div class="buy-actions">
-                <button name="buy-product" type="submit">Buy Order</button>
-                <button id="buy-exit">Discard Changes</button>
-              </div>
-            </div>
-          </div>
-        </form>
+        </div>
       </article>
     </div>
   </main>
@@ -442,3 +335,42 @@
     </div>
   </div>
   <script src="assets/javascript/products.js"></script>
+
+
+           <!-- Product Options -->
+          <!-- <div class="options">
+            <div class="group">
+              <h3>Select Size</h3>
+              <div class="sizes">
+                <div class="radio">
+                  <input class="radio-input" type="radio" value="xtra-small" name="sizes" id="size1">
+                  <label class="radio-label" for="size1">XS</label>
+                  <input class="radio-input" type="radio" value="small" name="sizes" id="size2">
+                  <label class="radio-label" for="size2">S</label>
+                  <input class="radio-input" type="radio" value="medium" name="sizes" id="size3">
+                  <label class="radio-label" for="size3">M</label>
+                  <input class="radio-input" type="radio" value="large" name="sizes" id="size4">
+                  <label class="radio-label" for="size4">L</label>
+                  <input class="radio-input" type="radio" value="xtra-large" name="sizes" id="size5">
+                  <label class="radio-label" for="size5">XL</label>
+                </div>
+              </div>
+            </div>
+            <div class="group">
+              <h3>Select Color</h3>
+              <div class="colors">
+                <div class="color radio">
+                  <input class="radio-input" type="radio" value="red" name="colors" id="color1">
+                  <label class="radio-label red" for="color1"></label>
+                  <input class="radio-input" type="radio" value="blue" name="colors" id="color2">
+                  <label class="radio-label blue" for="color2"></label>
+                  <input class="radio-input" type="radio" value="green" name="colors" id="color3">
+                  <label class="radio-label green" for="color3"></label>
+                  <input class="radio-input" type="radio" value="yellow" name="colors" id="color4">
+                  <label class="radio-label yellow" for="color4"></label>
+                  <input class="radio-input" type="radio" value="white" name="colors" id="color5">
+                  <label class="radio-label white" for="color5"></label>
+                </div>
+              </div>
+            </div>
+          </div> -->
