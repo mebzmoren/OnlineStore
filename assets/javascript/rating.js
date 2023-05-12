@@ -3,7 +3,7 @@ const ratingButton = document.querySelector('#rating-btn');
 const ratingExitButton = document.querySelector('#rating-exit');
 
 // Modals
-const ratingModal = document.querySelector('.rating');
+const ratingModal = document.querySelector('.rating-pop');
 
 // Pop up Modals
 ratingButton.addEventListener('click', () => {

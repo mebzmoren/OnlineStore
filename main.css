@@ -2153,50 +2153,64 @@ footer .bottom .group h4 {
 }
 
 /* Pop up rating */
-.rating {
+.rating-pop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
   display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  min-height: 100vh;
+
 }
 
-.rating.active {
+.rating-pop.active {
   display: flex;
 }
 
-.rating .wrapper {
+.rating-pop .wrapper {
   max-width: 440px;
+  background-color: var(--light-color);
+  border: 1px solid var(--grey-color);
 }
 
-.rating form {
+.rating-pop form {
   display: flex;
+  flex-direction: column;
   gap: 1em;
 }
 
-.rating .rating-header {
+.rating-pop .rating-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid var(--grey-color);
+  border-bottom: 1px solid var(--grey-color);
   padding: 1em;
 }
 
-.rating .rating-header .title {
+.rating-pop .rating-header .title {
   font-size: 2rem;
   font-weight: 500;
 }
 
-.rating .rating-header .fa-xmark {
+.rating-pop .rating-header .fa-xmark {
   font-size: 1.7rem;
 }
 
-.rating .rating-description {
+.rating-pop .rating-description {
   padding: 1em 1.5em;
 }
 
-.rating .rating-desc {
+.rating-pop .rating-desc {
   font-size: 1.5rem;
   color: var(--rating-color);
 }
 
-.rating .rating-select {
+.rating-pop .rating-select {
   padding: 1em;
   display: flex;
   flex-direction: column;
@@ -2205,59 +2219,59 @@ footer .bottom .group h4 {
   gap: 1.5em;
 }
 
-.rating .rating-select .title {
+.rating-pop .rating-select .title {
   font-size: 1.8rem;
   font-weight: 500;
 }
 
-.rating .rating-select .rate {
+.rating-pop .rating-select .rate {
   display: flex;
   gap: 1em;
   align-items: center;
   justify-content: center;
 }
 
-.rating .rating-select .rate .fa-star {
+.rating-pop .rating-select .rate .fa-star {
   color: var(--grey-color-1);
   font-size: 2.5rem;
   cursor: pointer;
 }
 
-.rating .rating-select .rate .fa-star:hover {
+.rating-pop .rating-select .rate .fa-star:hover {
   color: var(--rating-color);
 }
 
-.rating .rating-header .rating-desc {
+.rating-pop .rating-header .rating-desc {
   font-size: 1.7rem;
   color: var(--rating-color);
 }
-.rating .field {
+.rating-pop .field {
   margin: 1em 0;
   display: flex;
   flex-direction: column;
   gap: 0.8em;
 }
 
-.rating .field label {
+.rating-pop .field label {
   font-size: 1.5rem;
 }
 
-.rating .field input {
+.rating-pop .field input {
   padding: 1em;
 }
 
-.rating .field textarea {
+.rating-pop .field textarea {
   resize: none;
   min-height: 120px;
   padding: 1em;
 }
 
-.rating .actions {
+.rating-pop .actions {
   display: flex;
   justify-content: right;
 }
 
-.rating .actions button {
+.rating-pop .actions button {
   padding: 0.5em 1em;
   cursor: pointer;
   background-color: var(--main-color);
@@ -2266,7 +2280,7 @@ footer .bottom .group h4 {
   transition: all .3s ease;
 }
 
-.rating .actions button:hover {
+.rating-pop .actions button:hover {
   background-color: var(--light-color);
   color: var(--main-color);
 }

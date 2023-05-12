@@ -1,5 +1,5 @@
   <!-- Pop-up Rating -->
-  <div class="rating hero">
+  <div class="rating-pop">
     <div class="wrapper">
       <form action="#">
         <div class="rating-header">
@@ -26,16 +26,15 @@
           </div>
           <div class="field description">
             <label for="message">Review Message</label>
-            <textarea name="message" id="message" autofocus required autocomplete="message"
-              placeholder="Enter Review Message"></textarea>
+            <textarea name="message" id="message" autofocus required autocomplete="message" placeholder="Enter Review Message"></textarea>
           </div>
           <div class="actions">
             <button type="submit">Save</button>
           </div>
         </div>
-      </div>
-    </form>
     </div>
+    </form>
+  </div>
   </div>
 
   <!-- Product Page -->
@@ -58,7 +57,7 @@
         <!-- Product Details -->
         <div class="details">
           <h2 class="product-title">
-            <?php echo $product['name']?>
+            <?php echo $product['name'] ?>
           </h2>
           <div class="group">
             <div class="rating" style="display: flex; flex-direction: row;">
