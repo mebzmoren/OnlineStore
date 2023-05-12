@@ -1,13 +1,21 @@
 <?php
-include 'core/functions.php';
-$seller_id = $_SESSION['seller_id'];
+  $seller_id = $_SESSION['seller_id'];
+  
+  if(isset($_GET['category'])) {
+    $category_id = $_GET['category'];
+  } 
 
-if(isset($_GET['category'])) {
-  $category_id = $_GET['category'];
-} 
+  if (isset($_GET['product'])) {
+    $product_name = $_GET['product'];
+    $table_data = getTableByName('product', $product_name);
+    $product = mysqli_fetch_array($table_data);
+    // echo '<script>alert("CHECK: ' . $product .'")</script>';
+  }
 
 // echo '<script>alert("CHECK: ' . $category_id .'")</script>';
 // echo '<script>alert("CHECK: ' . $seller_id .'")</script>';
+// echo '<script>alert("CHECK: ' . $product_name .'")</script>';
+
 ?>
 
 

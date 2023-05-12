@@ -17,4 +17,10 @@
     $mysql_stmt = "SELECT * FROM product WHERE seller_id='$seller_id'";
     return mysqli_query($conn, $mysql_stmt);
   }
+
+  function getTableByName($table, $product_name) {
+    global $conn;
+    $mysql_stmt = "SELECT * FROM $table WHERE name='$product_name'";
+    return mysqli_query($conn, $mysql_stmt);
+  }
 ?>

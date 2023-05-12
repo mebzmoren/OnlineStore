@@ -7,10 +7,6 @@ const ratingModal = document.querySelector('.rating');
 
 // Pop up Modals
 ratingButton.addEventListener('click', () => {
-  sellerModal.classList.remove('active');
-  loginPopModal.classList.remove('active');
-  registerModal.classList.remove('active');
-  categoriesModal.classList.remove('active');
   ratingModal.classList.toggle('active');
 });
 

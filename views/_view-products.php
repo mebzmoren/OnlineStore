@@ -38,36 +38,36 @@
     </div>
   </div>
 
-  <!-- Products Page -->
-  <main class="products-container">
+  <!-- Product Page -->
+  <main class="products-container" stlye="margin-top: 4em;">
     <div class="product">
       <aside class="product-pic">
-        <div class="img">PIC</div>
+        <img src="assets/uploads/<?php echo $product['image'] ?>" class="img"></img>
       </aside>
       <article class="product-details">
         <!-- Breadcrumbs -->
         <ul class="breadcrumbs">
           <li>
-            <a href="">Home</a>
+            <a href="index.php">Home</a>
           </li>
           <li class="fa-solid fa-angle-right seperator"></li>
           <li>
-            <a href="">Products</a>
+            <a href="" class="active">Products</a>
           </li>
         </ul>
         <!-- Product Details -->
         <div class="details">
           <h2 class="product-title">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, sed!
+            <?php echo $product['name']?>
           </h2>
           <div class="group">
-            <div class="rating">
+            <div class="rating" style="display: flex; flex-direction: row;">
               <div class="stars">
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
-                <i class="fa-regular fa-star"></i>
+                <i class="fa-solid fa-star"></i>
               </div>
               <h4 class="value">5.0</h4>
             </div>
@@ -76,7 +76,7 @@
           </div>
           <div class="price">
             <div class="discount">no discount</div>
-            <span>$575.00</span>
+            <span>$<?php echo $product['price'] ?></span>
           </div>
           <hr>
         </div>
@@ -92,7 +92,6 @@
               <button class="size-select">L</button>
               <button class="size-select">XL</button>
               <button class="size-select">XXL</button>
-
             </div>
           </div>
           <div class="group">
@@ -119,8 +118,7 @@
         <!-- Product Description -->
         <div class="description">
           <h3>Description</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quibusdam iste ratione sed, eum
-            pariatur dolore, id laborum tenetur dignissimos ex libero iusto explicabo enim.</p>
+          <p><?php echo $product['description'] ?></p>
         </div>
 
         <!-- Product Extra Details -->

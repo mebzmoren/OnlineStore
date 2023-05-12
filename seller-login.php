@@ -16,9 +16,9 @@
       $array = mysqli_fetch_array($result);
       $_SESSION['seller_name'] = $array['username'];
       $_SESSION['seller_id'] = $array['id'];
-      header('location:add-product.php?success=seller-logged');
+      header('location:seller-products.php?success=seller-logged');
     } else {
-      $error = 'Incorrect user credentials.';
+      $error = 'The email does not exist.';
     } 
   }
   

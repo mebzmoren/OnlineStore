@@ -17,7 +17,7 @@
       $_SESSION['member_name'] = $array['username'];
       header('location:shop.php?success=member-logged');
     } else {
-      $error = 'Incorrect user credentials.';
+      $error = 'There email does not exist.';
     } 
   }
   

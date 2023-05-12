@@ -136,6 +136,10 @@ hr {
   color: var(--breadcrumbs-color)
 }
 
+.breadcrumbs li.active {
+  color: var(--main-color);
+}
+
 .breadcrumbs li a:hover {
   color: var(--main-color);
 }
@@ -1468,9 +1472,9 @@ footer .bottom .group h4 {
   color: var(--text-color);
 }
 
-/* Products Page */
+/* Product Page */
 .products-container {
-  margin-top: 6em;
+  margin-top: 4em;
   padding: 2em 3em 0;
 }
 
@@ -1486,8 +1490,10 @@ footer .bottom .group h4 {
 
 .products-container .product .product-pic .img {
   background-color: var(--grey-color);
-  min-height: 100%;
+  min-width: 100%;
   font-size: 2.2rem;
+  object-fit: cover;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1521,7 +1527,7 @@ footer .bottom .group h4 {
 
 .products-container .product .product-details .details .group .rating {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   gap: 0.8em;
   color: var(--rating-color);
