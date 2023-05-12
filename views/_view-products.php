@@ -188,148 +188,7 @@
         </div>
         <div class="rating-details">
           <span class="title">Review Title Placeholder<span>
-              <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaque
-                minima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
-        </div>
-      </div>
-      <div class="user-rating">
-        <div class="heading-details">
-          <div class="left">
-            <div class="user-icon"></div>
-            <div class="group">
-              <span class="name">Godwin Duliente</span>
-              <p class="timestamp">01/13/2002</p>
-            </div>
-          </div>
-          <div class="right">
-            <div class="rate-group">
-              <div class="stars">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <span class="num">5.0</span>
-            </div>
-          </div>
-        </div>
-        <div class="rating-details">
-          <span class="title">Review Title Placeholder<span>
-              <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaque
-                minima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
-        </div>
-      </div>
-      <div class="user-rating">
-        <div class="heading-details">
-          <div class="left">
-            <div class="user-icon"></div>
-            <div class="group">
-              <span class="name">Godwin Duliente</span>
-              <p class="timestamp">01/13/2002</p>
-            </div>
-          </div>
-          <div class="right">
-            <div class="rate-group">
-              <div class="stars">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <span class="num">5.0</span>
-            </div>
-          </div>
-        </div>
-        <div class="rating-details">
-          <span class="title">Review Title Placeholder<span>
-              <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaque
-                minima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
-        </div>
-      </div>
-      <div class="user-rating">
-        <div class="heading-details">
-          <div class="left">
-            <div class="user-icon"></div>
-            <div class="group">
-              <span class="name">Godwin Duliente</span>
-              <p class="timestamp">01/13/2002</p>
-            </div>
-          </div>
-          <div class="right">
-            <div class="rate-group">
-              <div class="stars">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <span class="num">5.0</span>
-            </div>
-          </div>
-        </div>
-        <div class="rating-details">
-          <span class="title">Review Title Placeholder<span>
-              <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaque
-                minima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
-        </div>
-      </div>
-      <div class="user-rating">
-        <div class="heading-details">
-          <div class="left">
-            <div class="user-icon"></div>
-            <div class="group">
-              <span class="name">Godwin Duliente</span>
-              <p class="timestamp">01/13/2002</p>
-            </div>
-          </div>
-          <div class="right">
-            <div class="rate-group">
-              <div class="stars">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <span class="num">5.0</span>
-            </div>
-          </div>
-        </div>
-        <div class="rating-details">
-          <span class="title">Review Title Placeholder<span>
-              <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaque
-                minima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
-        </div>
-      </div>
-      <div class="user-rating">
-        <div class="heading-details">
-          <div class="left">
-            <div class="user-icon"></div>
-            <div class="group">
-              <span class="name">Godwin Duliente</span>
-              <p class="timestamp">01/13/2002</p>
-            </div>
-          </div>
-          <div class="right">
-            <div class="rate-group">
-              <div class="stars">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <span class="num">5.0</span>
-            </div>
-          </div>
-        </div>
-        <div class="rating-details">
-          <span class="title">Review Title Placeholder<span>
-              <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaque
-                minima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
+          <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nam eaqueminima temporibus, iste, possimus obcaecati non dolorem modi quasi, eligendi sapiente fuga sunt cum!</p>
         </div>
       </div>
     </div>
@@ -337,7 +196,7 @@
   <script src="assets/javascript/products.js"></script>
 
 
-           <!-- Product Options -->
+<!-- Product Options -->
           <!-- <div class="options">
             <div class="group">
               <h3>Select Size</h3>

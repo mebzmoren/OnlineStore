@@ -15,6 +15,7 @@
     if(mysqli_num_rows($result) > 0) {
       $array = mysqli_fetch_array($result);
       $_SESSION['member_name'] = $array['username'];
+      $_SESSION['member_id'] = $array['id'];
       header('location:shop.php?success=member-logged');
     } else {
       $error = 'There email does not exist.';

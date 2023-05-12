@@ -151,7 +151,7 @@
             <span class="details-group">
               <span class="detail-name">Color:</span>
               <span class="value">Black</span>
-            </span>
+            </span> 
           </div>
           <div class="cancel-group">
             <span class="price">$115.00</span>
@@ -166,111 +166,120 @@
     </div>
   </div>
 
-
-          <!-- Modal Pop Up -->
-          <div class="modal-pop">
-            <div class="wrapper">
-              <form action="#" method="post">
-                <div class="modal-header">
-                  <div class="left">
-                    <span class="title">Confirm Product Order</span>
-                    <span class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae illum nisi itaque cupiditate dignissimos.</span>
+  <!-- Modal Pop Up -->
+  <div class="modal-pop">
+    <div class="wrapper">
+      <form action="#" method="post">
+        <div class="modal-header">
+          <div class="left">
+            <span class="title">Confirm Product Order</span>
+            <span class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae illum nisi itaque cupiditate dignissimos.</span>
+          </div>
+          <div class="right">
+            <img src="assets/images/shopping_bags.svg" alt="Buy Order Picture">
+          </div>
+        </div>
+        <?php
+          if(isset($error)) {
+            echo '<span class="error-msg"> Error: ' . $error . '</span>';
+          }
+        ?>
+        <!-- Product Buy Details -->
+        <div class="product-content">
+          <div class="selected">
+            <div class="sub-header">
+              <span class="sub-title">Product Selected</span>
+              <div class="horizontal-line"></div>
+            </div>
+            <div class="product-buy-details">
+              <div class="left">
+                <img src="assets/uploads/<?php echo $product['image'] ?>" class="img"></img>
+              </div>
+              <div class="right">
+                <span class="price"><?php echo '$'. $product['price'] ?></span>
+                <input type="price" name="price" value="<?php echo $product['price'] ?>" style="display:none;">
+                <div class="product-group" style="display: flex;">
+                  <input type="id" name="id" value="<?php echo $product['id'] ?>" style="display:none;">
+                  <span class="product-name"><?php echo $product['name']?></span>
+                  <span class="quantity">x</span>
+                  <span class="quantity">01</span>
+                </div>
+                <div class="buy-details">
+                  <div class="content-col">
+                    <span class="title">Color Selected</span>
+                    <select name="colors" id="colors" required autocomplete="colors" autofocus>
+                      <option value="red">red</option>
+                      <option value="blue">blue</option>
+                      <option value="green">green</option>
+                      <option value="yellow">yellow</option>
+                      <option value="white">white</option>
+                    </select>
                   </div>
-                  <div class="right">
-                    <img src="assets/images/shopping_bags.svg" alt="Buy Order Picture">
+                  <div class="content-col">
+                    <span class="title">Size Selected</span>
+                    <select name="sizes" id="sizes" required autocomplete="sizes" autofocus>
+                      <option value="XS">xtra-small</option>
+                      <option value="S">small</option>
+                      <option value="M">medium</option>
+                      <option value="L">large</option>
+                      <option value="XL">xtra-large</option>
+                    </select>
                   </div>
                 </div>
-                <!-- Product Buy Details -->
-                <div class="product-content">
-                  <div class="selected">
-                    <div class="sub-header">
-                      <span class="sub-title">Product Selected</span>
-                      <div class="horizontal-line"></div>
-                    </div>
-                    <div class="product-buy-details">
-                      <div class="left">
-                        <img src="assets/uploads/<?php echo $product['image'] ?>" class="img"></img>
-                      </div>
-                      <div class="right">
-                        <span class="price"><?php echo '$'. $product['price'] ?></span>
-                        <div class="product-group" style="display: flex;">
-                          <span class="product-name"><?php echo $product['name']?></span>
-                          <span class="quantity">x</span>
-                          <span class="quantity">01</span>
-                        </div>
-                        <div class="buy-details">
-                          <div class="content-col">
-                            <span class="title">Color Selected</span>
-                            <select name="colors" id="colors" required autocomplete="colors" autofocus>
-                              <option value="red">red</option>
-                              <option value="blue">blue</option>
-                              <option value="green">green</option>
-                              <option value="yellow">yellow</option>
-                              <option value="white">white</option>
-                            </select>
-                          </div>
-                          <div class="content-col">
-                            <span class="title">Size Selected</span>
-                            <select name="sizes" id="sizes" required autocomplete="sizes" autofocus>
-                              <option value="XS">xtra-small</option>
-                              <option value="S">small</option>
-                              <option value="M">medium</option>
-                              <option value="L">large</option>
-                              <option value="XL">xtra-large</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Buy Product Delivery Information -->
-                <div class="delivery-information">
-                  <div class="sub-header">
-                    <span class="sub-title">Delivery Information</span>
-                    <div class="horizontal-line"></div>
-                  </div>
-                  <div class="fields">
-                    <div class="field input">
-                      <label for="address">Address*</label>
-                      <input id="address" type="address" class="form-control" name="address" required autocomplete="address" placeholder="Enter Address" autofocus>
-                    </div>
-                    <div class="group">
-                      <div class="field input">
-                        <label for="city">City/Town*</label>
-                        <input id="city" type="city" class="form-control" name="city" required autocomplete="city" placeholder="Enter City/Town" autofocus>
-                      </div>
-                      <div class="field input">
-                        <label for="pnum">Phone Number*</label>
-                        <input id="pnum" type="fname" class="form-copnum" name="fname" required autocomplete="pnum" placeholder="Enter Phone Number" autofocus>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Buy Product Payment Method -->
-                <div class="delivery-information">
-                  <div class="sub-header">
-                    <span class="sub-title">Payment Method</span>
-                    <div class="horizontal-line"></div>
-                  </div>
-                  <div class="fields">
-                    <div class="group">
-                      <div class="field input">
-                        <label for="city">Select Payment Type*</label>
-                        <input id="city" type="city" class="form-control" name="city" required autocomplete="city" placeholder="Select Payment Type" autofocus>
-                      </div>
-                      <div class="field input">
-                        <label for="zip">Input Payment Type</label>
-                        <input id="zip" type="zip" class="form-control" name="zip" autocomplete="zip" placeholder="Enter Zip Code" autofocus>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Buy Product Actions -->
-                <div class="buy-actions">
-                  <button name="buy-product" type="submit">Confirm Order</button>
-                  <button id="buy-exit">Discard Changes</button>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
+        </div>
+        <!-- Buy Product Delivery Information -->
+        <div class="delivery-information">
+          <div class="sub-header">
+            <span class="sub-title">Delivery Information</span>
+            <div class="horizontal-line"></div>
+          </div>
+          <div class="fields">
+            <div class="field input">
+              <label for="address">Address*</label>
+              <input id="address" type="address" class="form-control" name="address" required autocomplete="address" placeholder="Enter Address" autofocus>
+            </div>
+            <div class="group">
+              <div class="field input">
+                <label for="city">City/Town*</label>
+                <input id="city" type="city" class="form-control" name="city" required autocomplete="city" placeholder="Enter City/Town" autofocus>
+              </div>
+              <div class="field input">
+                <label for="phone_number">Phone Number*</label>
+                <input id="phone_number" type="phone_number" class="form-control" name="phone_number" required autocomplete="phone_number" placeholder="Enter Phone Number" autofocus>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Buy Product Payment Method -->
+        <div class="delivery-information">
+          <div class="sub-header">
+            <span class="sub-title">Payment Method</span>
+            <div class="horizontal-line"></div>
+          </div>
+          <div class="fields">
+            <div class="group">
+              <div class="field input">
+                <label for="city">Select Payment Type*</label>
+                <select name="payment_type" id="payment_type" required autocomplete="payment_type" autofocus>
+                  <option value="BPI">BPI</option>
+                  <option value="BDO">BDO</option>
+                </select>
+              </div>
+              <div class="field input">
+                <label for="zip">Input Payment Type (Optional)</label>
+                <input id="zip" type="zip" class="form-control" name="zip" autocomplete="zip" placeholder="Enter Payment Type" autofocus>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Buy Product Actions -->
+        <div class="buy-actions">
+          <button name="buy-product" type="submit">Confirm Order</button>
+          <button id="buy-exit">Discard Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>

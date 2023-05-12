@@ -117,22 +117,17 @@ hr {
 .modal-pop form {
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 1em;
 }
 
 .modal-pop .wrapper .sub-header {
   display: flex;
-  align-items: center;
-}
-
-.modal-pop .wrapper .sub-header .sub-title {
-  flex: 40%;
+  flex-direction: column;
+  gap: 1em;
 }
 
 .modal-pop .wrapper .sub-header .horizontal-line {
-  flex: 80%;
-  height: 0px;
-  background-color: var(--main-color);
+  border: 1px solid var(--grey-color);
 }
 
 .modal-pop .wrapper {
@@ -189,7 +184,7 @@ hr {
 }
 
 .modal-pop .wrapper .product-content .selected .sub-title {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 500;
 }
 
@@ -272,7 +267,7 @@ hr {
 }
 
 .modal-pop .delivery-information .sub-title {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 500;
 }
 
@@ -295,6 +290,10 @@ hr {
 .modal-pop .fields .field input {
   padding: 0.5em;
   border: 1px solid var(--grey-color-1);
+}
+
+.modal-pop .fields select {
+  padding: 0.5em 0.8em;
 }
 
 .modal-pop .fields .group {
