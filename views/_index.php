@@ -14,7 +14,7 @@
           $counter = 0;
           if (mysqli_num_rows($category) > 0) {
             foreach ($category as $item) {
-              if ($counter == 2) {
+              if ($counter == 3) {
                 break;
               }
           ?>

@@ -36,7 +36,7 @@
               <i class="fa-regular fa-user"></i>
             </div>
             <div class="icon" id="shop-btn">
-              <i class="fa-solid fa-cart-shopping"></i>
+              <i class="fa-solid fa-scroll"></i>
               <div class="item-count">
                 <h4>0</h4>
               </div>

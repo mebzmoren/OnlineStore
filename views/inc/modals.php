@@ -24,7 +24,7 @@
     </div>
     <div class="user-content">
       <div class="actions">
-        <a href="#">Member Profile</a>
+        <a href="member-profile.php">Member Profile</a>
         <a href="core/member-logout.php">Logout</a>
       </div>
     </div>

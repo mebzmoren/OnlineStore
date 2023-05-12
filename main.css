@@ -26,6 +26,7 @@
   --btn-color: #b8b8b8;
   --green-color: 	#32CD32;
   --main-color: #5E17EB;
+  --main-color-1:  #40119d;
   --body-color: #707070;
   --hover-color: #e9dfdf;
   --light-color: #fff;
@@ -1090,7 +1091,7 @@ footer .bottom .group h4 {
 /* Shop */
 .shop-container {
   display: flex;
-  margin-top: 4.5em;
+  margin-top: 1.5%;
   padding: 2em 3.5em 0;
   gap: 1em;
 }
@@ -1495,7 +1496,7 @@ footer .bottom .group h4 {
 
 /* Product Page */
 .products-container {
-  margin-top: 4em;
+  margin-top: 1.5%;
   padding: 2em 3em 0;
 }
 
@@ -1618,57 +1619,61 @@ footer .bottom .group h4 {
   gap: 1.5em;
 }
 
-.products-container .product .product-details .options .group .sizes .size-select {
-  padding: 0.2em 0.8em;
-  font-size: 1.7rem;
-  background-color: transparent;
+.products-container .product .product-details .options .group .radio {
+  display: flex;
+  gap: 1em;
+  overflow: hidden;
+}
+
+.products-container .product .product-details .options .group .radio-input {
+  display: none;
+}
+
+.products-container .product .product-details .options .group .radio-label {
+  padding: 0.5em 1.5em;
+  font-size: 1.5rem;
+  color: var(--dark-color);
   border: 1px solid var(--grey-color);
+  background-color: var(--light-color);
   border-radius: 5px;
   cursor: pointer;
+  transition: 0.1s ease;
 }
 
-.products-container .product .product-details .options .group .sizes .size-select:hover {
-  color: var(--text-color);
-  background-color: var(--dark-color);
+.products-container .product .product-details .options .group .radio-input:checked + .radio-label {
+  border-color: 1px solid var(--main-color);
+  color: var(--main-color);
 }
 
-.products-container .product .product-details .options .group .colors {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-}
+/*.products-container .product .product-details .options .group .radio__label:not(:last-of-type) {
+  border-right: 1px solid var(--main-color-1);
+} */
 
-.products-container .product .product-details .options .group .colors .select {
-  background-color: transparent;
+.products-container .product .product-details .options .group .color .radio-label {
+  padding: 1em;
   border-radius: 100%;
-  min-height: 30px;
-  min-width: 30px;
+  background-color: var(--light-color);
   border: 2px solid var(--grey-color);
-  padding: 0.2em;
-  cursor: pointer;
+  min-height: 20px;
 }
 
-.products-container .product .product-details .options .group .colors .select:hover {
-  border: 2px solid var(--dark-color);
-}
-
-.products-container .product .product-details .options .group .colors .select.red {
+.products-container .product .product-details .options .group .color .radio-label.red {
   background-color: var(--red-color);
 }
 
-.products-container .product .product-details .options .group .colors .select.blue {
+.products-container .product .product-details .options .group .color .radio-label.blue {
   background-color: var(--blue-color);
 }
 
-.products-container .product .product-details .options .group .colors .select.green {
+.products-container .product .product-details .options .group .color .radio-label.green {
   background-color: var(--green-color);
 }
 
-.products-container .product .product-details .options .group .colors .select.yellow {
+.products-container .product .product-details .options .group .color .radio-label.yellow {
   background-color: var(--yellow-color);
 }
 
-.products-container .product .product-details .options .group .colors .select.white {
+.products-container .product .product-details .options .group .color .radio-label.white {
   background-color: var(--light-color);
 }
 
@@ -1683,7 +1688,7 @@ footer .bottom .group h4 {
   display: flex;
   justify-content: space-between;
   gap: 2em;
-  width: 80%;
+  width: 90%;
 }
 
 .products-container .product .product-details .actions button {
@@ -1692,7 +1697,7 @@ footer .bottom .group h4 {
   background-color: var(--main-color);
   color: var(--text-color);
   border: none;
-  border-radius: 20px;
+  border-radius: 2px;
   padding: 1em 2em;
   border: 1px solid var(--main-color);
   transition: all .3s ease;
@@ -1745,7 +1750,7 @@ footer .bottom .group h4 {
 
 /* Checkout Page */
 .checkout-container {
-  margin-top: 8em;
+  margin-top: 6em;
   padding: 2em 3.5em;
   display: flex;
   flex-direction: column;

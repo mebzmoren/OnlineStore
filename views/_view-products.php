@@ -56,94 +56,99 @@
         </ul>
         <!-- Product Details -->
         <div class="details">
-          <h2 class="product-title">
-            <?php echo $product['name'] ?>
-          </h2>
-          <div class="group">
-            <div class="rating" style="display: flex; flex-direction: row;">
-              <div class="stars">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+          <form action="#">
+            <h2 class="product-title">
+              <?php echo $product['name'] ?>
+            </h2>
+            <div class="group">
+              <div class="rating" style="display: flex; flex-direction: row;">
+                <div class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <h4 class="value">5.0</h4>
               </div>
-              <h4 class="value">5.0</h4>
+              <h4 class="reviews">2437 Reviews</h4>
+              <h4 class="sold">4523 Sold</h4>
             </div>
-            <h4 class="reviews">2437 Reviews</h4>
-            <h4 class="sold">4523 Sold</h4>
+            <div class="price">
+              <div class="discount">no discount</div>
+              <span>$<?php echo $product['price'] ?></span>
+            </div>
+            <hr>
           </div>
-          <div class="price">
-            <div class="discount">no discount</div>
-            <span>$<?php echo $product['price'] ?></span>
-          </div>
-          <hr>
-        </div>
-        <!-- Product Options -->
-        <div class="options">
-          <div class="group">
-            <h3>Select Size</h3>
-            <div class="sizes">
-              <button class="size-select">XS</button>
-              <button class="size-select">S</button>
-              <button class="size-select">M</button>
-              <button class="size-select">L</button>
-              <button class="size-select">XL</button>
+          <!-- Product Options -->
+          <div class="options">
+            <div class="group">
+              <h3>Select Size</h3>
+              <div class="sizes">
+                <div class="radio">
+                  <input class="radio-input" checked type="radio" value="xtra-small" name="sizes[]" id="size1">
+                  <label class="radio-label"for="size1">XS</label>
+                  <input class="radio-input" type="radio" value="small" name="sizes[]" id="size2">
+                  <label class="radio-label"for="size2">S</label>
+                  <input class="radio-input" type="radio" value="medium" name="sizes[]" id="size3">
+                  <label class="radio-label"for="size3">M</label>
+                  <input class="radio-input" type="radio" value="large" name="sizes[]" id="size4">
+                  <label class="radio-label"for="size4">L</label>
+                  <input class="radio-input" type="radio" value="xtra-large" name="sizes[]" id="size5">
+                  <label class="radio-label"for="size5">XL</label>
+                </div>
+              </div>
+            </div>
+            <div class="group">
+              <h3>Select Color</h3>
+              <div class="colors">
+                <div class="color radio">
+                  <input class="radio-input" checked type="radio" value="red" name="colors[]" id="color1">
+                  <label class="radio-label red"for="color1"></label>
+                  <input class="radio-input" type="radio" value="blue" name="colors[]" id="color2">
+                  <label class="radio-label blue"for="color2"></label>
+                  <input class="radio-input" type="radio" value="green" name="colors[]" id="color3">
+                  <label class="radio-label green"for="color3"></label>
+                  <input class="radio-input" type="radio" value="yellow" name="colors[]" id="color4">
+                  <label class="radio-label yellow"for="color4"></label>
+                  <input class="radio-input" type="radio" value="white" name="colors[]" id="color5">
+                  <label class="radio-label white"for="color5"></label>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="group">
-            <h3>Select Color</h3>
-            <div class="colors">
-              <button class="select red">
-                <div class="color"></div>
-              </button>
-              <button class="select blue">
-                <div class="color"></div>
-              </button>
-              <button class="select yellow">
-                <div class="color"></div>
-              </button>
-              <button class="select green">
-                <div class="color"></div>
-              </button>
-              <button class="select white">
-                <div class="color"></div>
-              </button>
+          <!-- Product Description -->
+          <div class="description">
+            <h3>Description</h3>
+            <p><?php echo $product['description'] ?></p>
+          </div>
+  
+          <!-- Product Extra Details -->
+          <div class="extra-details">
+            <div class="content-col">
+              <div class="icon">
+                <i class="fa-regular fa-credit-card"></i>
+              </div>
+              <h3>Secure Payment</h3>
+            </div>
+            <div class="content-col">
+              <div class="icon">
+                <i class="fa-solid fa-truck"></i>
+              </div>
+              <h3>Free Shipping</h3>
+            </div>
+            <div class="content-col">
+              <div class="icon">
+                <i class="fa-solid fa-tags"></i>
+              </div>
+              <h3>Size & Fit</h3>
             </div>
           </div>
-        </div>
-        <!-- Product Description -->
-        <div class="description">
-          <h3>Description</h3>
-          <p><?php echo $product['description'] ?></p>
-        </div>
-
-        <!-- Product Extra Details -->
-        <div class="extra-details">
-          <div class="content-col">
-            <div class="icon">
-              <i class="fa-regular fa-credit-card"></i>
-            </div>
-            <h3>Secure Payment</h3>
+          <!-- Product Actions -->
+          <div class="actions">
+            <button id="">Buy Now</button>
           </div>
-          <div class="content-col">
-            <div class="icon">
-              <i class="fa-solid fa-truck"></i>
-            </div>
-            <h3>Free Shipping</h3>
-          </div>
-          <div class="content-col">
-            <div class="icon">
-              <i class="fa-solid fa-tags"></i>
-            </div>
-            <h3>Size & Fit</h3>
-          </div>
-        </div>
-        <!-- Product Actions -->
-        <div class="actions">
-          <button>Buy Now</button>
-          <button>Add to Cart</button>
-        </div>
+        </form>
       </article>
     </div>
   </main>
