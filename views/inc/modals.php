@@ -99,66 +99,48 @@
       </div>
     </div>
     <div class="shopping-cart-items">
-      <div class="item-row">
-        <span class="img"></span>
-        <div class="item-details">
-          <span class="item-name">Lorem ipsum dolor sit amet.</span>
-          <div class="group">
-            <div class="details-group">
-              <span class="detail-name">Size:</span>
-              <span class="value">XL</span>
+      <?php
+      if (isset($_SESSION['member_id']) ) {
+        $member_id = $_SESSION['member_id'];
+        $bill = getProdById('bill', $member_id);
+        global $total;
+        if (mysqli_num_rows($bill) > 0) {
+          foreach ($bill as $item) {
+            $total += $item['total'];
+        ?>
+          <div class="item-row">
+            <img src="assets/uploads/<?php echo $product['image'] ?>" class="img"></img>
+            <div class="item-details">
+              <span class="item-name"><?php echo $product['name']?></span>
+              <div class="group">
+                <div class="details-group">
+                  <span class="detail-name">Size:</span>
+                  <span class="value"><?php echo $item['size'] ?></span>
+                </div>
+                <span class="details-group">
+                  <span class="detail-name">Color:</span>
+                  <span class="value"><?php echo $item['color'] ?></span>
+                </span>
+              </div>
+              <div class="cancel-group">
+                <span class="price"><?php echo '$'. $item['total'] .'.00' ?></span>
+                <button class="cancel">Cancel Order</button>
+              </div>
             </div>
-            <span class="details-group">
-              <span class="detail-name">Color:</span>
-              <span class="value">Black</span>
-            </span>
           </div>
-          <div class="cancel-group">
-            <span class="price">$115.00</span>
-            <button class="cancel">Cancel Order</button>
-          </div>
-        </div>
-      </div>
-      <div class="item-row">
-        <span class="img"></span>
-        <div class="item-details">
-          <span class="item-name">Lorem ipsum dolor sit amet.</span>
-          <div class="group">
-            <div class="details-group">
-              <span class="detail-name">Size:</span>
-              <span class="value">XL</span>
-            </div>
-            <span class="details-group">
-              <span class="detail-name">Color:</span>
-              <span class="value">Black</span>
-            </span>
-          </div>
-          <div class="cancel-group">
-            <span class="price">$115.00</span>
-            <button class="cancel">Cancel Order</button>
-          </div>
-        </div>
-      </div>
-      <div class="item-row">
-        <span class="img"></span>
-        <div class="item-details">
-          <span class="item-name">Lorem ipsum dolor sit amet.</span>
-          <div class="group">
-            <div class="details-group">
-              <span class="detail-name">Size:</span>
-              <span class="value">XL</span>
-            </div>
-            <span class="details-group">
-              <span class="detail-name">Color:</span>
-              <span class="value">Black</span>
-            </span> 
-          </div>
-          <div class="cancel-group">
-            <span class="price">$115.00</span>
-            <button class="cancel">Cancel Order</button>
-          </div>
-        </div>
-      </div>
+        <?php
+          }
+        ?>
+        <?php
+        } else {
+          echo "You haven't bought any products yet.";
+        }
+        ?>
+      <?php
+      } else {
+        echo "You are not logged in.";
+      }
+      ?>
     </div>
     <div class="actions">
       <button id="order-exit">Back</button>

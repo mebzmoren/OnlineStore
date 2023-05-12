@@ -750,8 +750,9 @@ header .search i {
 }
 
 .shopping-cart .shopping-cart-items .item-row .img {
-  min-width: 65px;
-  min-height: 60px;
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
   background-color: var(--grey-color);
 }
 
@@ -785,6 +786,7 @@ header .search i {
 .shopping-cart .shopping-cart-items .item-row .item-details .cancel-group {
   display: flex;
   justify-content: space-between;
+  gap: 1em;
 }
 
 .shopping-cart .shopping-cart-items .item-row .item-details .cancel-group button {

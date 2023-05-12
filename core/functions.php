@@ -19,8 +19,14 @@
     return mysqli_query($conn, $mysql_stmt);
   }
 
-  function getTableByName($table, $product_name) {
+  function getTableByName($table, $name) {
     global $conn;
-    $mysql_stmt = "SELECT * FROM $table WHERE name='$product_name'";
+    $mysql_stmt = "SELECT * FROM $table WHERE name='$name'";
+    return mysqli_query($conn, $mysql_stmt);
+  }
+
+  function getProdById($table, $id) {
+    global $conn;
+    $mysql_stmt = "SELECT * FROM $table WHERE member_id='$id'";
     return mysqli_query($conn, $mysql_stmt);
   }
