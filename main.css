@@ -1340,7 +1340,7 @@ footer .bottom .group h4 {
 .product-grid {
   margin: 1.5em 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 1em;
   align-items: center;
 }
@@ -1376,6 +1376,7 @@ footer .bottom .group h4 {
 }
 
 .product-grid .product-col .top .img {
+  min-height: 100%;
   border-radius: 12px;
   max-width: 100%;
   object-fit: cover;
@@ -1500,20 +1501,25 @@ footer .bottom .group h4 {
 
 .products-container .product {
   display: flex;
-  min-height: 91.5vh;
+  max-height: 100vh;
+  gap: 2em;
 }
 
 .products-container .product .product-pic {
   flex: 60%;
-  padding: 0 10em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  max-height: 100%;
 }
 
 .products-container .product .product-pic .img {
   background-color: var(--grey-color);
   min-width: 100%;
+  min-height: 100%;
   font-size: 2.2rem;
-  object-fit: cover;
-
+  object-fit: fill;
   display: flex;
   justify-content: center;
   align-items: center;

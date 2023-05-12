@@ -38,7 +38,7 @@
   </div>
 
   <!-- Product Page -->
-  <main class="products-container" stlye="margin-top: 4em;">
+  <main class="products-container">
     <div class="product">
       <aside class="product-pic">
         <img src="assets/uploads/<?php echo $product['image'] ?>" class="img"></img>
@@ -84,13 +84,11 @@
           <div class="group">
             <h3>Select Size</h3>
             <div class="sizes">
-              <button class="size-select">XXS</button>
               <button class="size-select">XS</button>
               <button class="size-select">S</button>
               <button class="size-select">M</button>
               <button class="size-select">L</button>
               <button class="size-select">XL</button>
-              <button class="size-select">XXL</button>
             </div>
           </div>
           <div class="group">
