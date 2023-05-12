@@ -1,5 +1,6 @@
 <?php
   include 'core/database.php';
+  
   function getTable($table) {
     global $conn;
     $mysql_stmt = "SELECT * FROM $table";
@@ -23,4 +24,3 @@
     $mysql_stmt = "SELECT * FROM $table WHERE name='$product_name'";
     return mysqli_query($conn, $mysql_stmt);
   }
-?>

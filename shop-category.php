@@ -1,8 +1,7 @@
 <?php
-  session_start();
-  include 'core/database.php';
-  include 'core/functions.php';
+session_start();
+include 'core/database.php';
 
-  $title = 'Shop';
-  $contentView = 'views/_shop-category.php';
-  include('views/master.php');
+$title = 'Shop';
+$contentView = 'views/_shop-category.php';
+include('views/master.php');

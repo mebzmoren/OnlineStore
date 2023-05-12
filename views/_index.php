@@ -9,12 +9,26 @@
             officia corporis officiis!</p>
         </div>
         <div class="redirects">
-          <a href="#" class="links">
-            <h1>Jackets</h1>
-          </a>
-          <a href="#" class="links">
-            <h1>Accessories</h1>
-          </a>
+          <?php
+          $category = getTable('category');
+          $counter = 0;
+          if (mysqli_num_rows($category) > 0) {
+            foreach ($category as $item) {
+              if ($counter == 2) {
+                break;
+              }
+          ?>
+              <a href="shop-category.php?category=<?php echo $item['id']; ?>" class="links">
+                <img src="assets/images/category/<?php echo $item['image'] ?>" alt="<?php echo $item['name'] ?>">
+                <h1 class="name"><?php echo $item['name'] ?></h1>
+              </a>
+          <?php
+              $counter++;
+            }
+          } else {
+            echo "No categories found";
+          }
+          ?>
         </div>
       </article>
       <aside>
@@ -57,16 +71,25 @@
         </a>
       </div>
       <div class="gallery">
-        <a href="#" class="content-col">Category 1</a>
-        <a href="#" class="content-col">Category 2</a>
-        <a href="#" class="content-col">Category 3</a>
-        <a href="#" class="content-col">Category 4</a>
-        <a href="#" class="content-col">Category 5</a>
-        <a href="#" class="content-col">Category 6</a>
-        <a href="#" class="content-col">Category 7</a>
-        <a href="#" class="content-col">Category 8</a>
-        <a href="#" class="content-col">Category 9</a>
-        <a href="#" class="content-col">Category 10</a>
+        <?php
+        $category = getTable('category');
+
+        if (mysqli_num_rows($category) > 0) {
+          foreach ($category as $item) {
+        ?>
+            <a href="shop-category.php?category=<?= $item['id']; ?>">
+              <div class="content-col">
+                <img src="assets/images/category/<?php echo $item['image'] ?>" alt="<?php echo $item['name'] ?>">
+                <span class="name"><?php echo $item['name'] ?></span>
+              </div>
+            </a>
+          <?php
+          }
+          ?>
+
+        <?php
+        }
+        ?>
       </div>
     </section>
   </main>
