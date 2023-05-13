@@ -1,30 +1,29 @@
-
-  <!-- Seller Profile -->
-  <main class="seller-profile">
-    <!-- Seller Sidebar -->
-    <aside class="side-bar">
-      <span class="title">
-        <i class="fa-solid fa-store"></i>
-        <h3 class="name">Order</h3>
-      </span>
-      <ul class="options">
-        <li>
-          <a href="seller-products.php" class="active">My Products</a>
-        </li>
-        <li>
-          <a href="add-product.php">Add New Product</a>
-        </li>
-      </ul>
-    </aside>
-    <!-- Seller Products -->
-    <div class="sell-container list">
-      <!-- Shop Products -->
-      <section class="products">
-        <div class="header-details">
-          <h2 class="title">Your List of Products</h2>
-        </div>
-        <!-- Product Grid -->
-        <div class="product-grid">
+<!-- Seller Profile -->
+<main class="seller-profile">
+  <!-- Seller Sidebar -->
+  <aside class="side-bar">
+    <span class="title">
+      <i class="fa-solid fa-store"></i>
+      <h3 class="name">Order</h3>
+    </span>
+    <ul class="options">
+      <li>
+        <a href="seller-products.php" class="active">My Products</a>
+      </li>
+      <li>
+        <a href="add-product.php">Add New Product</a>
+      </li>
+    </ul>
+  </aside>
+  <!-- Seller Products -->
+  <div class="sell-container list">
+    <!-- Shop Products -->
+    <section class="products">
+      <div class="header-details">
+        <h2 class="title">Your List of Products</h2>
+      </div>
+      <!-- Product Grid -->
+      <div class="product-grid">
         <?php
         $products = getProdBySeller($seller_id);
 
@@ -56,11 +55,11 @@
         <?php
           }
         } else {
-          echo "There are no products found.";
+          echo '<span class="error-stmt"> There are no products found. </span>';
         }
         ?>
-        </div>
-        <!-- <div class="pagination">
+      </div>
+      <!-- <div class="pagination">
           <ul class="page-select">
             <li class="select">
               <i class="fa-solid fa-angle-left"></i>
@@ -74,6 +73,6 @@
             </li>
           </ul>
         </div> -->
-      </section>
-    </div>
-  </main>
+    </section>
+  </div>
+</main>

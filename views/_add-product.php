@@ -22,46 +22,42 @@
       <div class="product-details">
         <form action="#" method="post" enctype="multipart/form-data">
           <?php
-            if(isset($error)) {
-              echo '<span class="error-msg"> Error: ' . $error . '</span>';
-            }
+          if (isset($error)) {
+            echo '<span class="error-msg"> Error: ' . $error . '</span>';
+          }
           ?>
           <div class="field input">
             <label for="image">Image Pic*</label>
-            <input id="image" type="file" class="custom-file-input no-padding" name="image" required autocomplete="image"
-                placeholder="Select A Image" autofocus>
+            <input id="image" type="file" class="custom-file-input no-padding" name="image" required autocomplete="image" placeholder="Select A Image" autofocus>
           </div>
           <div class="field input">
             <label for="name">Product Name*</label>
-            <input id="name" type="name" class="form-control" name="name" required autocomplete="name"
-                  placeholder="Enter Product Name" autofocus>
+            <input id="name" type="name" class="form-control" name="name" required autocomplete="name" placeholder="Enter Product Name" autofocus>
           </div>
           <div class="group">
             <div class="field input">
               <label for="quantity">Product Quantity*</label>
-              <input id="quantity" type="quantity" class="form-control" name="quantity" required autocomplete="quantity"
-                placeholder="Enter Product Quantity" autofocus>
+              <input id="quantity" type="quantity" class="form-control" name="quantity" required autocomplete="quantity" placeholder="Enter Product Quantity" autofocus>
             </div>
             <div class="field input">
               <label for="price">Product Price*</label>
-              <input id="price" type="price" class="form-control" name="price" required autocomplete="price"
-                placeholder="Enter Product Price" autofocus>
+              <input id="price" type="price" class="form-control" name="price" required autocomplete="price" placeholder="Enter Product Price" autofocus>
             </div>
             <div class="field input">
               <label for="category">Category Name*</label>
               <select name="category" id="category" required autocomplete="category" autofocus>
-                <?php 
-                  $category = getTable("category");
+                <?php
+                $category = getTable("category");
 
-                  if(mysqli_num_rows($category) > 0) {
-                    foreach ($category as $item) {
-                      ?>
-                        <option value="<?php echo $item["id"]?>"><?php echo $item["name"]?></option>
-                      <?php
-                    }
-                  } else {
-                    echo "There are no categories found.";
+                if (mysqli_num_rows($category) > 0) {
+                  foreach ($category as $item) {
+                ?>
+                    <option value="<?php echo $item["id"] ?>"><?php echo $item["name"] ?></option>
+                <?php
                   }
+                } else {
+                  echo '<span class="error-stmt"> There are no categories found. </span>';
+                }
                 ?>
               </select>
             </div>

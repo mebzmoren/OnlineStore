@@ -121,7 +121,7 @@
         if (mysqli_num_rows($products) > 0) {
           foreach ($products as $item) {
         ?>
-            <div class="product-col">
+            <a href="view-products.php?product=<?php echo $item['name'] ?>" class="product-col">
               <div class="top">
                 <img src="assets/uploads/<?php echo $item["image"]; ?>" alt="<?php echo $item["name"]; ?>" class="img">
                 <div class="like">
@@ -142,7 +142,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
         <?php
           }
         } else {

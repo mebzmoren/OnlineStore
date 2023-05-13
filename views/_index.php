@@ -26,7 +26,7 @@
               $counter++;
             }
           } else {
-            echo "No categories found";
+            echo '<span class="error-stmt"> There are no categories found. </span>';
           }
           ?>
         </div>
@@ -86,8 +86,9 @@
           <?php
           }
           ?>
-
         <?php
+        } else {
+          echo '<span class="error-stmt"> There are no categories found. </span>';
         }
         ?>
       </div>

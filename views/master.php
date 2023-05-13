@@ -1,6 +1,9 @@
 <?php
 include_once 'core/functions.php';
-$seller_id = $_SESSION['seller_id'];
+
+if (isset($_SESSION['seller_id'])) {
+  $seller_id = $_SESSION['seller_id'];
+}
 
 if (isset($_GET['category'])) {
   $category_id = $_GET['category'];
@@ -8,7 +11,7 @@ if (isset($_GET['category'])) {
 
 if (isset($_GET['product'])) {
   $product_name = $_GET['product'];
-  $table_data = getTableByName('product', $product_name);
+  $table_data = getProdByName('product', $product_name);
   $product = mysqli_fetch_array($table_data);
 }
 
@@ -30,7 +33,7 @@ if (isset($_GET['product'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo $title; ?></title>
   <!-- CSS Link -->
-  <link rel="stylesheet" href="main.css" type="text/css">
+  <link rel="stylesheet" href="styles.css" type="text/css">
   <!-- Font Awesome Link -->
   <script src="https://kit.fontawesome.com/84e2199ce0.js" crossorigin="anonymous"></script>
 </head>
@@ -46,5 +49,7 @@ if (isset($_GET['product'])) {
   <script src="assets/javascript/main.js"></script>
   <script src="assets/javascript/shop.js"></script>
   <script src="assets/javascript/products.js"></script>
+  <script src="assets/javascript/selector.js"></script>
 </body>
+
 </html>

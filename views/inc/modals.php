@@ -83,68 +83,132 @@
       <?php
         }
       } else {
-        echo "There are no categories found.";
+        echo '<span class="error-stmt"> There are no categories found.. </span>';
       }
       ?>
     </div>
   </div>
 
-  <!-- Shopping Cart Hamburger -->
+  <!-- Bought Products Hamburger -->
   <div class="shopping-cart">
     <div class="shopping-cart-header">
       <span class="title">Buy Orders</span>
-      <div class="total">
+      <button class="exit" id="order-exit">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <!-- <div class="total">
         <h5>Total:</h5>
         <h5>$575.00</h5>
-      </div>
+      </div> -->
     </div>
     <div class="shopping-cart-items">
       <?php
-      if (isset($_SESSION['member_id']) ) {
+      if (isset($_SESSION['member_id'])) {
         $member_id = $_SESSION['member_id'];
-        $bill = getProdById('bill', $member_id);
+        $bill = getProdByMemberId('bill', $member_id);
         global $total;
         if (mysqli_num_rows($bill) > 0) {
           foreach ($bill as $item) {
             $total += $item['total'];
-        ?>
-          <div class="item-row">
-            <img src="assets/uploads/<?php echo $product['image'] ?>" class="img"></img>
-            <div class="item-details">
-              <span class="item-name"><?php echo $product['name']?></span>
-              <div class="group">
-                <div class="details-group">
-                  <span class="detail-name">Size:</span>
-                  <span class="value"><?php echo $item['size'] ?></span>
+      ?>
+            <div class="item-row">
+              <img src="assets/uploads/<?php echo $item['image'] ?>" class="img"></img>
+              <div class="item-details">
+                <span class="item-name"><?php echo $item['product_name'] ?></span>
+                <div class="group">
+                  <div class="details-group">
+                    <span class="detail-name">Size:</span>
+                    <span class="value"><?php echo $item['size'] ?></span>
+                  </div>
+                  <span class="details-group">
+                    <span class="detail-name">Color:</span>
+                    <span class="value"><?php echo $item['color'] ?></span>
+                  </span>
                 </div>
-                <span class="details-group">
-                  <span class="detail-name">Color:</span>
-                  <span class="value"><?php echo $item['color'] ?></span>
-                </span>
-              </div>
-              <div class="cancel-group">
-                <span class="price"><?php echo '$'. $item['total'] .'.00' ?></span>
-                <button class="cancel">Cancel Order</button>
+                <div class="cancel-group">
+                  <span class="price"><?php echo '$' . $item['total'] . '.00' ?></span>
+                  <button class="cancel">Cancel Order</button>
+                </div>
               </div>
             </div>
-          </div>
-        <?php
+          <?php
           }
-        ?>
+          ?>
         <?php
         } else {
-          echo "You haven't bought any products yet.";
+          echo '<span class="error-stmt"> You have not bought any products yet. </span>';
         }
         ?>
       <?php
       } else {
-        echo "You are not logged in.";
+        echo '<span class="error-stmt"> You are not logged in. </span>';
       }
       ?>
     </div>
-    <div class="actions">
+    <!-- <div class="actions">
       <button id="order-exit">Back</button>
-      <!-- <button>Place Order</button> -->
+      <button>Place Order</button>
+    </div> -->
+  </div>
+
+  <!-- Pop-up Rating -->
+  <div class="rating-pop">
+    <div class="wrapper">
+      <form action="#" method="post">
+        <div class="rating-header">
+          <span class="title">Rate Product</span>
+          <div class="exit" id="rating-exit">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+        <div class="rating-description">
+          <?php
+          if (isset($error)) {
+            echo '<span class="error-msg"> Error: ' . $error . '</span>';
+          }
+          ?>
+          <div class="rating-select">
+            <span class="title">What do you think of the product?</span>
+            <input type="product_id" name="product_id" value="<?php echo $product['id'] ?>" style="display:none;">
+            <div class="rate">
+              <div class="radio">
+                <input class="radio-input" type="radio" value="1" name="rating" id="star1">
+                <label class="radio-label" for="star1">
+                  <i class="fa-solid fa-star"></i>
+                </label>
+                <input class="radio-input" type="radio" value="2" name="rating" id="star2">
+                <label class="radio-label" for="star2">
+                  <i class="fa-solid fa-star"></i>
+                </label>
+                <input class="radio-input" type="radio" value="3" name="rating" id="star3">
+                <label class="radio-label" for="star3">
+                  <i class="fa-solid fa-star"></i>
+                </label>
+                <input class="radio-input" type="radio" value="4" name="rating" id="star4">
+                <label class="radio-label" for="star4">
+                  <i class="fa-solid fa-star"></i>
+                </label>
+                <input class="radio-input" checked type="radio" value="5" name="rating" id="star5">
+                <label class="radio-label" for="star5">
+                  <i class="fa-solid fa-star"></i>
+                </label>
+              </div>
+            </div>
+            <p class="rating-desc">It was awesome!</p>
+          </div>
+          <div class="field input">
+            <label for="review_title">Review Title</label>
+            <input name="review_title" id="review_title" autofocus required autocomplete="review_title" placeholder="Enter Review Title">
+          </div>
+          <div class="field description">
+            <label for="review_message">Review Message</label>
+            <textarea name="review_message" id="review_message" autofocus required autocomplete="review_message" placeholder="Enter Review Message"></textarea>
+          </div>
+          <div class="actions">
+            <button name="rate-product" type="submit">Save</button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -162,9 +226,9 @@
           </div>
         </div>
         <?php
-          if(isset($error)) {
-            echo '<span class="error-msg"> Error: ' . $error . '</span>';
-          }
+        if (isset($error)) {
+          echo '<span class="error-msg"> Error: ' . $error . '</span>';
+        }
         ?>
         <!-- Product Buy Details -->
         <div class="product-content">
@@ -176,13 +240,15 @@
             <div class="product-buy-details">
               <div class="left">
                 <img src="assets/uploads/<?php echo $product['image'] ?>" class="img"></img>
+                <input type="product_image" name="product_image" value="<?php echo $product['image'] ?>" style="display:none;">
+                <input type="product_name" name="product_name" value="<?php echo $product['name'] ?>" style="display:none;">
               </div>
               <div class="right">
-                <span class="price"><?php echo '$'. $product['price'] ?></span>
+                <span class="price"><?php echo '$' . $product['price'] ?></span>
                 <input type="price" name="price" value="<?php echo $product['price'] ?>" style="display:none;">
                 <div class="product-group" style="display: flex;">
                   <input type="id" name="id" value="<?php echo $product['id'] ?>" style="display:none;">
-                  <span class="product-name"><?php echo $product['name']?></span>
+                  <span class="product-name"><?php echo $product['name'] ?></span>
                   <span class="quantity">x</span>
                   <span class="quantity">01</span>
                 </div>

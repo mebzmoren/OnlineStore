@@ -124,9 +124,9 @@
             <a href="view-products.php?product=<?php echo $item['name'] ?>" class="product-col">
               <div class="top">
                 <img src="assets/uploads/<?php echo $item["image"]; ?>" alt="<?php echo $item["name"]; ?>" class="img">
-                <div class="like">
+                <button name="like-product" type="submit" class="like">
                   <i class="fa-regular fa-heart"></i>
-                </div>
+                </button>
               </div>
               <div class="bottom">
                 <div class="product-details">
