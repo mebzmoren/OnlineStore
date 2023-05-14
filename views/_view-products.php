@@ -57,21 +57,32 @@
           <div class="row-col">
             <span class="title">Sizes Available</span>
             <div class="group">
-              <span class="icon">XS</span>
-              <span class="icon">S</span>
-              <span class="icon">M</span>
-              <span class="icon">L</span>
-              <span class="icon">XL</span>
+              <?php
+                $product_result = getProdByName('product', $product_name);
+                $product = mysqli_fetch_assoc($product_result);
+                $product_sizes = explode(',', $product['sizes']);
+                foreach($product_sizes as $item) {
+              ?>
+                <span class="icon"><?php echo $item; ?></span>
+              <?php 
+                }
+              ?>
             </div>
           </div>
           <div class="row-col color">
             <span class="title">Colors Available</span>
             <div class="group">
-              <span class="icon red"></span>
-              <span class="icon blue"></span>
-              <span class="icon yellow"></span>
-              <span class="icon green"></span>
-              <span class="icon white"></span>
+              <?php
+                $product_result = getProdByName('product', $product_name);
+                $product = mysqli_fetch_assoc($product_result);
+                $product_colors = explode(',', $product['colors']);
+                foreach($product_colors as $item) {
+                  $lower_case_item = strtolower($item);
+              ?>
+              <span class="icon <?php echo $lower_case_item ?>"></span>
+              <?php 
+                }
+              ?>
             </div>
           </div>
         </div>

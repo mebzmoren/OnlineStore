@@ -256,21 +256,31 @@
                   <div class="content-col">
                     <span class="title">Color Selected</span>
                     <select name="colors" id="colors" required autocomplete="colors" autofocus>
-                      <option value="red">red</option>
-                      <option value="blue">blue</option>
-                      <option value="green">green</option>
-                      <option value="yellow">yellow</option>
-                      <option value="white">white</option>
+                      <?php
+                        $product_result = getProdByName('product', $product['name']);
+                        $product = mysqli_fetch_assoc($product_result);
+                        $product_colors = explode(',', $product['colors']);
+                        foreach($product_colors as $item) {
+                      ?>
+                          <option value="<?php echo $item ?>"><?php echo $item ?></option>
+                      <?php 
+                        }
+                      ?>
                     </select>
                   </div>
                   <div class="content-col">
                     <span class="title">Size Selected</span>
                     <select name="sizes" id="sizes" required autocomplete="sizes" autofocus>
-                      <option value="XS">xtra-small</option>
-                      <option value="S">small</option>
-                      <option value="M">medium</option>
-                      <option value="L">large</option>
-                      <option value="XL">xtra-large</option>
+                      <?php
+                        $product_result = getProdByName('product', $product['name']);
+                        $product = mysqli_fetch_assoc($product_result);
+                        $product_sizes = explode(',', $product['sizes']);
+                        foreach($product_sizes as $item) {
+                      ?>
+                          <option value="<?php echo $item ?>"><?php echo $item ?></option>
+                      <?php 
+                        }
+                      ?>
                     </select>
                   </div>
                 </div>

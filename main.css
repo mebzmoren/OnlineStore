@@ -1793,7 +1793,7 @@ footer .bottom .group h4 {
 
 .products-container .product {
   display: flex;
-  max-height: 90vh;
+  min-height: 90vh;
   gap: 2em;
 }
 
