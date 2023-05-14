@@ -19,61 +19,60 @@
         </ul>
       </div>
       <div class="right">
-        <form class="search">
+        <form class="search" method="get" action="shop.php">
           <input type="search" name="search" placeholder="Search Product">
           <button type="submit">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </form>
         <?php
-          if(isset($_SESSION['member_name'])) {
+        if (isset($_SESSION['member_name'])) {
         ?>
           <div class="icons">
             <?php
-              if(isset($_SESSION['member_name'])) {
+            if (isset($_SESSION['member_name'])) {
             ?>
-            <div class="icon" id="logged-btn">
-              <i class="fa-regular fa-user"></i>
-            </div>
-            <div class="icon" id="shop-btn">
-              <i class="fa-solid fa-scroll"></i>
-              <div class="item-count">
-                <h4>0</h4>
+              <div class="icon" id="logged-btn">
+                <i class="fa-regular fa-user"></i>
               </div>
-            </div>
+              <div class="icon" id="shop-btn">
+                <i class="fa-solid fa-scroll"></i>
+                <div class="item-count">
+                  <h4>0</h4>
+                </div>
+              </div>
             <?php
-              } else {
+            } else {
             ?>
               <div class="icon" id="guest-btn">
                 <i class="fa-regular fa-user"></i>
               </div>
             <?php
-              }
+            }
             ?>
           </div>
         <?php
-          }
-          elseif(isset($_SESSION['seller_name'])) {
+        } elseif (isset($_SESSION['seller_name'])) {
         ?>
           <div class="icons">
             <?php
-              if(isset($_SESSION['seller_name'])) {
+            if (isset($_SESSION['seller_name'])) {
             ?>
-            <div class="icon" id="seller-btn">
-              <i class="fa-regular fa-user"></i>
-            </div>
+              <div class="icon" id="seller-btn">
+                <i class="fa-regular fa-user"></i>
+              </div>
             <?php
-              } else {
+            } else {
             ?>
               <div class="icon" id="guest-btn">
                 <i class="fa-regular fa-user"></i>
               </div>
             <?php
-              }
+            }
             ?>
           </div>
         <?php
-          } else {
+        } else {
         ?>
           <div class="icons">
             <div class="icon" id="guest-btn">
@@ -81,7 +80,7 @@
             </div>
           </div>
         <?php
-          }
+        }
         ?>
       </div>
     </div>
@@ -103,18 +102,18 @@
 
 
 
-          <div class="icon" id="logged-btn" style="display:none;">
-            <i class="fa-regular fa-user"></i>
-          </div>
-          <div class="icon" id="seller-btn" style="display:none;">
-            <i class="fa-regular fa-user"></i>
-          </div>
-          <div class="icon" id="shop-btn" style="display:none;">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <div class="item-count">
-              <h4>0</h4>
-            </div>
-          </div>
-          <div style="display:none;"class="icon" id="guest-btn">
-            <i class="fa-regular fa-user"></i>
-          </div>
+  <div class="icon" id="logged-btn" style="display:none;">
+    <i class="fa-regular fa-user"></i>
+  </div>
+  <div class="icon" id="seller-btn" style="display:none;">
+    <i class="fa-regular fa-user"></i>
+  </div>
+  <div class="icon" id="shop-btn" style="display:none;">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <div class="item-count">
+      <h4>0</h4>
+    </div>
+  </div>
+  <div style="display:none;" class="icon" id="guest-btn">
+    <i class="fa-regular fa-user"></i>
+  </div>

@@ -58,14 +58,14 @@
             <span class="title">Sizes Available</span>
             <div class="group">
               <?php
-                $product_result = getProdByName('product', $product_name);
-                $product = mysqli_fetch_assoc($product_result);
-                $product_sizes = explode(',', $product['sizes']);
-                foreach($product_sizes as $item) {
+              $product_result = getProdByName('product', $product_name);
+              $product = mysqli_fetch_assoc($product_result);
+              $product_sizes = explode(',', $product['sizes']);
+              foreach ($product_sizes as $item) {
               ?>
                 <span class="icon"><?php echo $item; ?></span>
-              <?php 
-                }
+              <?php
+              }
               ?>
             </div>
           </div>
@@ -73,15 +73,15 @@
             <span class="title">Colors Available</span>
             <div class="group">
               <?php
-                $product_result = getProdByName('product', $product_name);
-                $product = mysqli_fetch_assoc($product_result);
-                $product_colors = explode(',', $product['colors']);
-                foreach($product_colors as $item) {
-                  $lower_case_item = strtolower($item);
+              $product_result = getProdByName('product', $product_name);
+              $product = mysqli_fetch_assoc($product_result);
+              $product_colors = explode(',', $product['colors']);
+              foreach ($product_colors as $item) {
+                $lower_case_item = strtolower($item);
               ?>
-              <span class="icon <?php echo $lower_case_item ?>"></span>
-              <?php 
-                }
+                <span class="icon <?php echo $lower_case_item ?>"></span>
+              <?php
+              }
               ?>
             </div>
           </div>

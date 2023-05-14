@@ -47,7 +47,7 @@
               <label for="category">Category Name*</label>
               <select name="category" id="category" required autocomplete="category" autofocus>
                 <?php
-                $category = getTable("category");
+                $category = getTableData("category");
 
                 if (mysqli_num_rows($category) > 0) {
                   foreach ($category as $item) {

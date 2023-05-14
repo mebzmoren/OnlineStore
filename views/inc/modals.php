@@ -72,7 +72,7 @@
     <div class="vertical-line"></div>
     <div class="right">
       <?php
-      $category = getTable("category");
+      $category = getTableData("category");
 
       if (mysqli_num_rows($category) > 0) {
         foreach ($category as $item) {
@@ -257,14 +257,14 @@
                     <span class="title">Color Selected</span>
                     <select name="colors" id="colors" required autocomplete="colors" autofocus>
                       <?php
-                        $product_result = getProdByName('product', $product['name']);
-                        $product = mysqli_fetch_assoc($product_result);
-                        $product_colors = explode(',', $product['colors']);
-                        foreach($product_colors as $item) {
+                      $product_result = getProdByName('product', $product['name']);
+                      $product = mysqli_fetch_assoc($product_result);
+                      $product_colors = explode(',', $product['colors']);
+                      foreach ($product_colors as $item) {
                       ?>
-                          <option value="<?php echo $item ?>"><?php echo $item ?></option>
-                      <?php 
-                        }
+                        <option value="<?php echo $item ?>"><?php echo $item ?></option>
+                      <?php
+                      }
                       ?>
                     </select>
                   </div>
@@ -272,14 +272,14 @@
                     <span class="title">Size Selected</span>
                     <select name="sizes" id="sizes" required autocomplete="sizes" autofocus>
                       <?php
-                        $product_result = getProdByName('product', $product['name']);
-                        $product = mysqli_fetch_assoc($product_result);
-                        $product_sizes = explode(',', $product['sizes']);
-                        foreach($product_sizes as $item) {
+                      $product_result = getProdByName('product', $product['name']);
+                      $product = mysqli_fetch_assoc($product_result);
+                      $product_sizes = explode(',', $product['sizes']);
+                      foreach ($product_sizes as $item) {
                       ?>
-                          <option value="<?php echo $item ?>"><?php echo $item ?></option>
-                      <?php 
-                        }
+                        <option value="<?php echo $item ?>"><?php echo $item ?></option>
+                      <?php
+                      }
                       ?>
                     </select>
                   </div>

@@ -10,7 +10,7 @@
         </div>
         <div class="redirects">
           <?php
-          $category = getTable('category');
+          $category = getTableData('category');
           $counter = 0;
           if (mysqli_num_rows($category) > 0) {
             foreach ($category as $item) {
@@ -72,7 +72,7 @@
       </div>
       <div class="gallery">
         <?php
-        $category = getTable('category');
+        $category = getTableData('category');
 
         if (mysqli_num_rows($category) > 0) {
           foreach ($category as $item) {
