@@ -117,32 +117,38 @@
       <div class="product-grid grid-main">
         <?php
         $products = getTable("product");
-
+        // $length = sizeof(mysqli_fetch_assoc(($products)));
         if (mysqli_num_rows($products) > 0) {
           foreach ($products as $item) {
+            $member_id = $_SESSION['member_id'];
+            $res = getLikedProduct('liked_product', $member_id, $item['id']);
+            $check = mysqli_fetch_assoc($res);
         ?>
-            <a href="view-products.php?product=<?php echo $item['name'] ?>" class="product-col">
-              <div class="top">
-                <img src="assets/uploads/<?php echo $item["image"]; ?>" alt="<?php echo $item["name"]; ?>" class="img">
-                <button name="like-product" type="submit" class="like">
-                  <i class="fa-regular fa-heart"></i>
-                </button>
-              </div>
-              <div class="bottom">
-                <div class="product-details">
-                  <div class="title">
-                    <h4><?php echo $item["name"]; ?></h4>
+            <div class="content">
+              <a href="view-products.php?product=<?php echo $item['name'] ?>">
+                <form action="" method="POST" class="product-col">
+                  <input type="hidden" name="product_id" value="<?php echo $item['id'] ?>">
+                  <button name="like-product-<?php echo $item['id'] ?>" type="submit" class="fa-solid fa-heart like <?php echo isset($check) ? 'active' : ''; ?>"></button>
+                  <div class="top">
+                    <img src="assets/uploads/<?php echo $item["image"]; ?>" alt="<?php echo $item["name"]; ?>" class="img">
                   </div>
-                  <div class="rating-group">
-                    <div class="rating">
-                      <i class="fa-solid fa-star"></i>
-                      <h5>5.0 (#)</h5>
+                  <div class="bottom">
+                    <div class="product-details">
+                      <div class="title">
+                        <h4><?php echo $item["name"]; ?></h4>
+                      </div>
+                      <div class="rating-group" style="display:flex; gap:7em;">
+                        <div class="rating">
+                          <i class="fa-solid fa-star"></i>
+                          <h5>5.0 (#)</h5>
+                        </div>
+                        <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
+                      </div>
                     </div>
-                    <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
                   </div>
-                </div>
-              </div>
-            </a>
+                </form>
+              </a>
+            </div>
         <?php
           }
         } else {

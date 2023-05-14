@@ -25,7 +25,7 @@
       if (mysqli_num_rows($bill) > 0) {
         foreach ($bill as $item) {
       ?>
-          <a href="view-products.php?product=<?php echo $item['product_name'] ?>" class="product-col">
+          <a href="view-products.php?product=<?php echo $item['product_name'] ?>" class="product-col member" style="width:240px;">
             <div class="top">
               <img src="assets/uploads/<?php echo $item['image']; ?>" alt="<?php echo $item['product_name']; ?>" class="img">
             </div>

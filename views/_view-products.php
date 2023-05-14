@@ -20,7 +20,7 @@
           </a>
         </li>
         <li>
-          <a href="shop.php" class="active">
+          <a href="view-products.php?product=<?php echo $product['name'] ?>" class="active">
             <span class="name"><?php echo $product['name'] ?></span>
           </a>
         </li>
@@ -126,11 +126,12 @@
 
 <!-- Rating System -->
 <div class="product-rating">
+  <div class="title-group">
+    <div class="title">Product Reviews</div>
+    <div class="horizontal-line"></div>
+  </div>
   <div class="rating-header">
-    <div class="title-group">
-      <div class="title">Product Reviews</div>
-      <span class="sub-header" id="rating-btn">Write a Review</span>
-    </div>
+    <button class="sub-header" id="rating-btn">Write a Review</button>
     <div class="rating-total">
       <span class="total">5.0</span>
       <div class="group">
@@ -192,42 +193,3 @@
 </div>
 <script src="assets/javascript/products.js"></script>
 <script src="selector.js"></script>
-
-
-<!-- Product Options -->
-<!-- <div class="options">
-            <div class="group">
-              <h3>Select Size</h3>
-              <div class="sizes">
-                <div class="radio">
-                  <input class="radio-input" type="radio" value="xtra-small" name="sizes" id="size1">
-                  <label class="radio-label" for="size1">XS</label>
-                  <input class="radio-input" type="radio" value="small" name="sizes" id="size2">
-                  <label class="radio-label" for="size2">S</label>
-                  <input class="radio-input" type="radio" value="medium" name="sizes" id="size3">
-                  <label class="radio-label" for="size3">M</label>
-                  <input class="radio-input" type="radio" value="large" name="sizes" id="size4">
-                  <label class="radio-label" for="size4">L</label>
-                  <input class="radio-input" type="radio" value="xtra-large" name="sizes" id="size5">
-                  <label class="radio-label" for="size5">XL</label>
-                </div>
-              </div>
-            </div>
-            <div class="group">
-              <h3>Select Color</h3>
-              <div class="colors">
-                <div class="color radio">
-                  <input class="radio-input" type="radio" value="red" name="colors" id="color1">
-                  <label class="radio-label red" for="color1"></label>
-                  <input class="radio-input" type="radio" value="blue" name="colors" id="color2">
-                  <label class="radio-label blue" for="color2"></label>
-                  <input class="radio-input" type="radio" value="green" name="colors" id="color3">
-                  <label class="radio-label green" for="color3"></label>
-                  <input class="radio-input" type="radio" value="yellow" name="colors" id="color4">
-                  <label class="radio-label yellow" for="color4"></label>
-                  <input class="radio-input" type="radio" value="white" name="colors" id="color5">
-                  <label class="radio-label white" for="color5"></label>
-                </div>
-              </div>
-            </div>
-          </div> -->

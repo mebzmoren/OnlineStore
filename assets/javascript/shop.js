@@ -18,10 +18,11 @@ const shopMain = document.querySelector('.products');
 const filterHeader = document.querySelector('.header-filter');
 const productMainGrid = document.querySelector('.grid-main');
 
-// Toggles
+// Toggles  
 const priceToggle = document.querySelector('#price-toggle');
 const colorToggle = document.querySelector('#color-toggle');
 const sizeToggle = document.querySelector('#size-toggle');
+
 
 // Filters
 filterButton.addEventListener('click', () => {
