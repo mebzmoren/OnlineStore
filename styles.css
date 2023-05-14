@@ -1693,6 +1693,10 @@ footer .bottom .group h4 {
   color: var(--grey-color-1);
 }
 
+.product-grid .product-col .like.active {
+  color: var(--red-color);
+}
+
 .product-grid .product-col .like:hover {
   color: var(--red-color);
 }

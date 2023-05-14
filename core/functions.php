@@ -43,7 +43,8 @@ function getProdById($table, $id)
   return mysqli_query($conn, $mysql_stmt);
 }
 
-function getLikedProduct($table, $product_id, $member_id) {
+function getLikedProduct($table, $member_id, $product_id)
+{
   global $conn;
   $mysql_stmt = "SELECT * FROM $table WHERE product_id='$product_id' AND member_id='$member_id'";
   return mysqli_query($conn, $mysql_stmt);

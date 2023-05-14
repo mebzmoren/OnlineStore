@@ -128,7 +128,17 @@
               <a href="view-products.php?product=<?php echo $item['name'] ?>">
                 <form action="" method="POST" class="product-col">
                   <input type="hidden" name="product_id" value="<?php echo $item['id'] ?>">
-                  <button name="like-product-<?php echo $item['id'] ?>" type="submit" class="fa-solid fa-heart like <?php echo isset($check) ? 'active' : ''; ?>"></button>
+                  <?php
+                  if (mysqli_num_rows($res) > 0) {
+                  ?>
+                    <button name="unlike-product" type="submit" class="fa-solid fa-heart like active"></button>
+                  <?php
+                  } else {
+                  ?>
+                    <button name="like-product" type="submit" class="fa-solid fa-heart like"></button>
+                  <?php
+                  }
+                  ?>
                   <div class="top">
                     <img src="assets/uploads/<?php echo $item["image"]; ?>" alt="<?php echo $item["name"]; ?>" class="img">
                   </div>
