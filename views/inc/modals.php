@@ -212,7 +212,7 @@
     </div>
   </div>
 
-  <!-- Modal Pop Up -->
+  <!-- Confirm Product Modal -->
   <div class="modal-pop">
     <div class="wrapper">
       <form action="#" method="post">
@@ -339,5 +339,41 @@
           <button id="buy-exit">Discard Changes</button>
         </div>
       </form>
+    </div>
+  </div>
+
+  <!-- Discount Modal Pop- -->
+  <div class="discount-modal modal-pop">
+    <div class="wrapper">
+      <div class="header-details">
+        <span class="title">Set Discount</span>
+        <div class="exit" id="discount-exit">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+      </div>
+      <div class="content">
+        <span class="item-name">Item Placeholder</span>
+        <div class="group">
+          <div class="counter">
+            <i class="fa-solid fa-minus"></i>
+          </div>
+          <div class="field-input">
+            <input id="discount" type="discount" class="form-control" name="discount" required autocomplete="discount" autofocus>
+            <div class="percent">%</div>
+          </div>
+          <div class="counter">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+        </div>
+        <p class="disc-set">on item price</p>
+        <p class="description">
+          By activating this discount, the item price
+          <span class="item-price">$99.00</span>
+          is now set to <span class="item-price-discount">$99.00</span>
+        </p>
+      </div>
+      <div class="actions">
+        <button name="feature-product" type="submit">Activate Discount</button>
+      </div>
     </div>
   </div>

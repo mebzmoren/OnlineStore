@@ -33,7 +33,7 @@ if (isset($_GET['product'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo $title; ?></title>
   <!-- CSS Link -->
-  <link rel="stylesheet" href="main.css" type="text/css">
+  <link rel="stylesheet" href="styles.css" type="text/css">
   <!-- Font Awesome Link -->
   <script src="https://kit.fontawesome.com/84e2199ce0.js" crossorigin="anonymous"></script>
 </head>
@@ -50,6 +50,7 @@ if (isset($_GET['product'])) {
   <script src="assets/javascript/shop.js"></script>
   <script src="assets/javascript/products.js"></script>
   <script src="assets/javascript/selector.js"></script>
+  <script src="assets/javascript/seller.js"></script>
   <!-- <script src="assets/javascript/click.js"></script> -->
 </body>
 

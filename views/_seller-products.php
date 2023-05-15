@@ -21,6 +21,7 @@
     <section class="products">
       <div class="header-details">
         <h2 class="title">Your List of Products</h2>
+        <button id="discount-btn">Discount Products</button>
       </div>
       <!-- Product Grid -->
       <div class="product-grid">
@@ -30,27 +31,29 @@
         if (mysqli_num_rows($products) > 0) {
           foreach ($products as $item) {
         ?>
-            <div class="product-col">
-              <div class="top">
-                <img src="assets/uploads/<?php echo $item["image"]; ?>" alt="<?php echo $item["name"]; ?>" class="img">
-                <div class="like">
-                  <i class="fa-regular fa-heart"></i>
-                </div>
-              </div>
-              <div class="bottom">
-                <div class="product-details">
-                  <div class="title">
-                    <h4><?php echo $item["name"]; ?></h4>
+            <div class="content">
+              <a href="view-products.php?product=<?php echo $item['name'] ?>">
+                <form action="" method="POST" class="product-col">
+                  <input type="hidden" name="product_id" value="<?php echo $item['id'] ?>">
+                  <div class="top">
+                    <img src="assets/uploads/<?php echo $item["image"]; ?>" alt="<?php echo $item["name"]; ?>" class="img">
                   </div>
-                  <div class="rating-group">
-                    <div class="rating">
-                      <i class="fa-solid fa-star"></i>
-                      <h5>5.0 (#)</h5>
+                  <div class="bottom">
+                    <div class="product-details">
+                      <div class="title">
+                        <h4><?php echo $item["name"]; ?></h4>
+                      </div>
+                      <div class="rating-group" style="display:flex; gap:7em;">
+                        <div class="rating">
+                          <i class="fa-solid fa-star"></i>
+                          <h5>5.0 (#)</h5>
+                        </div>
+                        <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
+                      </div>
                     </div>
-                    <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
                   </div>
-                </div>
-              </div>
+                </form>
+              </a>
             </div>
         <?php
           }

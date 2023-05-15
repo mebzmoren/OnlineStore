@@ -71,10 +71,6 @@
             </button>
             <div class="sizes size-filter">
               <div class="group">
-                <input class="checkbox-input" type="checkbox" name="sizes[]" value="XXS" id="size-xxs">
-                <label class="checkbox-label" for="size-xxs">XXS</label>
-              </div>
-              <div class="group">
                 <input class="checkbox-input" type="checkbox" name="sizes[]" value="XS" id="size-xs">
                 <label class="checkbox-label" for="size-xs">XS</label>
               </div>
@@ -93,10 +89,6 @@
               <div class="group">
                 <input class="checkbox-input" type="checkbox" name="sizes[]" value="XL" id="size-xl">
                 <label class="checkbox-label" for="size-xl">XL</label>
-              </div>
-              <div class="group">
-                <input class="checkbox-input" type="checkbox" name="sizes[]" value="XXL" id="size-xxl">
-                <label class="checkbox-label" for="size-xxl">XXL</label>
               </div>
             </div>
           </div>
@@ -119,81 +111,147 @@
       <!-- Product Grid -->
       <div class="product-grid grid-main">
         <?php
-        // Get the search term from the form
-        $search = isset($_GET['search']) ? trim($_GET['search']) : '';
+        if (isset($_SESSION['member_id'])) {
+          // Get the search term from the form
+          $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 
-        // Get the sorting parameter from the form
-        $sorting = isset($_GET['sorting']) ? trim($_GET['sorting']) : '';
+          // Get the sorting parameter from the form
+          $sorting = isset($_GET['sorting']) ? trim($_GET['sorting']) : '';
 
-        // Get the category_id from the form
-        $category_id = isset($_GET['category_id']) ? $_GET['category_id'] : '';
+          // Get the category_id from the form
+          $category_id = isset($_GET['category_id']) ? $_GET['category_id'] : '';
 
-        // Get the price filters from the form
-        $min_price = isset($_GET['min_price']) ? $_GET['min_price'] : '';
-        $max_price = isset($_GET['max_price']) ? $_GET['max_price'] : '';
+          // Get the price filters from the form
+          $min_price = isset($_GET['min_price']) ? $_GET['min_price'] : '';
+          $max_price = isset($_GET['max_price']) ? $_GET['max_price'] : '';
 
-        // Get the color and size filters from the form
-        $colors = isset($_GET['colors']) ? $_GET['colors'] : [];
-        $sizes = isset($_GET['sizes']) ? $_GET['sizes'] : [];
+          // Get the color and size filters from the form
+          $colors = isset($_GET['colors']) ? $_GET['colors'] : [];
+          $sizes = isset($_GET['sizes']) ? $_GET['sizes'] : [];
 
-        // Get the products that match the filters
-        $products = getTable(
-          'product',
-          $search,
-          $sorting,
-          $min_price,
-          $max_price,
-          $colors,
-          $sizes,
-          $category_id
-        );
+          // Get the products that match the filters
+          $products = getTable(
+            'product',
+            $search,
+            $sorting,
+            $min_price,
+            $max_price,
+            $colors,
+            $sizes,
+            $category_id
+          );
 
-        // $length = sizeof(mysqli_fetch_assoc(($products)));
-        if (mysqli_num_rows($products) > 0) {
-          foreach ($products as $item) {
-            $member_id = $_SESSION['member_id'];
-            $res = getLikedProduct('liked_product', $member_id, $item['id']);
-            $check = mysqli_fetch_assoc($res);
+          // $length = sizeof(mysqli_fetch_assoc(($products)));
+          if (mysqli_num_rows($products) > 0) {
+            foreach ($products as $item) {
+              $member_id = $_SESSION['member_id'];
+              $res = getLikedProduct('liked_product', $member_id, $item['id']);
+              $check = mysqli_fetch_assoc($res);
         ?>
-            <div class="content">
-              <a href="view-products.php?product=<?php echo $item['name'] ?>">
-                <form action="" method="POST" class="product-col">
-                  <input type="hidden" name="product_id" value="<?php echo $item['id'] ?>">
-                  <?php
-                  if (mysqli_num_rows($res) > 0) {
-                  ?>
-                    <button name="unlike-product" type="submit" class="fa-solid fa-heart like active"></button>
-                  <?php
-                  } else {
-                  ?>
-                    <button name="like-product" type="submit" class="fa-solid fa-heart like"></button>
-                  <?php
-                  }
-                  ?>
-                  <div class="top">
-                    <img src="assets/uploads/<?php echo $item["image"]; ?>" alt="<?php echo $item["name"]; ?>" class="img">
-                  </div>
-                  <div class="bottom">
-                    <div class="product-details">
-                      <div class="title">
-                        <h4><?php echo $item["name"]; ?></h4>
-                      </div>
-                      <div class="rating-group" style="display:flex; gap:7em;">
-                        <div class="rating">
-                          <i class="fa-solid fa-star"></i>
-                          <h5>5.0 (#)</h5>
+              <div class="content">
+                <a href="view-products.php?product=<?php echo $item['name'] ?>">
+                  <form action="" method="POST" class="product-col">
+                    <input type="hidden" name="product_id" value="<?php echo $item['id'] ?>">
+                    <?php
+                    if (mysqli_num_rows($res) > 0) {
+                    ?>
+                      <button name="unlike-product" type="submit" class="fa-solid fa-heart like active"></button>
+                    <?php
+                    } else {
+                    ?>
+                      <button name="like-product" type="submit" class="fa-solid fa-heart like"></button>
+                    <?php
+                    }
+                    ?>
+                    <div class="top">
+                      <img src="assets/uploads/<?php echo $item["image"]; ?>" alt="<?php echo $item["name"]; ?>" class="img">
+                    </div>
+                    <div class="bottom">
+                      <div class="product-details">
+                        <div class="title">
+                          <h4><?php echo $item["name"]; ?></h4>
                         </div>
-                        <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
+                        <div class="rating-group" style="display:flex; gap:7em;">
+                          <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <h5>5.0 (#)</h5>
+                          </div>
+                          <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </form>
-              </a>
-            </div>
-        <?php
+                  </form>
+                </a>
+              </div>
+            <?php
+            }
+          } else {
+            echo "There are no products found.";
           }
-        } else {
-          echo "There are no products found.";
+        }
+        if (isset($_SESSION['seller_id'])) {
+          // Get the search term from the form
+          $search = isset($_GET['search']) ? trim($_GET['search']) : '';
+
+          // Get the sorting parameter from the form
+          $sorting = isset($_GET['sorting']) ? trim($_GET['sorting']) : '';
+
+          // Get the category_id from the form
+          $category_id = isset($_GET['category_id']) ? $_GET['category_id'] : '';
+
+          // Get the price filters from the form
+          $min_price = isset($_GET['min_price']) ? $_GET['min_price'] : '';
+          $max_price = isset($_GET['max_price']) ? $_GET['max_price'] : '';
+
+          // Get the color and size filters from the form
+          $colors = isset($_GET['colors']) ? $_GET['colors'] : [];
+          $sizes = isset($_GET['sizes']) ? $_GET['sizes'] : [];
+
+          // Get the products that match the filters
+          $products = getTable(
+            'product',
+            $search,
+            $sorting,
+            $min_price,
+            $max_price,
+            $colors,
+            $sizes,
+            $category_id
+          );
+
+          // $length = sizeof(mysqli_fetch_assoc(($products)));
+          if (mysqli_num_rows($products) > 0) {
+            foreach ($products as $item) {
+            ?>
+              <div class="content">
+                <a href="view-products.php?product=<?php echo $item['name'] ?>">
+                  <form action="" method="POST" class="product-col">
+                    <input type="hidden" name="product_id" value="<?php echo $item['id'] ?>">
+                    <div class="top">
+                      <img src="assets/uploads/<?php echo $item["image"]; ?>" alt="<?php echo $item["name"]; ?>" class="img">
+                    </div>
+                    <div class="bottom">
+                      <div class="product-details">
+                        <div class="title">
+                          <h4><?php echo $item["name"]; ?></h4>
+                        </div>
+                        <div class="rating-group" style="display:flex; gap:7em;">
+                          <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <h5>5.0 (#)</h5>
+                          </div>
+                          <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </a>
+              </div>
+        <?php
+            }
+          } else {
+            echo "There are no products found.";
+          }
         }
         ?>
       </div>
