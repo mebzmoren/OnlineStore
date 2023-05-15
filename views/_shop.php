@@ -32,7 +32,7 @@
 
             <div class="price-filter">
               <input type="number" name="min_price" placeholder="Min" class="price-input">
-              <span class="price-sep">-</span>
+              <span class="price-sep"><i class="fa-solid fa-grip-lines"></i></span>
               <input type="number" name="max_price" placeholder="Max" class="price-input">
             </div>
           </div>

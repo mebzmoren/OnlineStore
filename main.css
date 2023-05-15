@@ -854,6 +854,7 @@ header .search i {
 }
 
 .error-msg {
+  margin: 1em;
   display: block;
   border-radius: 2px;
   font-size: 1.3rem;
@@ -863,6 +864,7 @@ header .search i {
 }
 
 .error-stmt {
+  margin: 1em;
   display: block;
   border-radius: 2px;
   font-size: 1.3rem;
@@ -1053,7 +1055,8 @@ header .search i {
 .landing-container .intro article  .redirects .links {
   position: relative;
   flex: 50%;
-  min-height: 170px;
+  max-height: 170px;
+  max-width: 170px;
   border-radius: 5px;
   background-color: var(--light-color);
   filter: brightness(60%);
@@ -1062,8 +1065,8 @@ header .search i {
 }
 
 .landing-container .intro article  .redirects .links img {
-  object-fit: contain;
-  min-width: 100%;
+  object-fit: cover;
+  max-height: 170px;
 }
 
 .landing-container .intro article  .redirects .links h1 {
@@ -1417,8 +1420,9 @@ footer .bottom .group h4 {
 }
 
 .shop-container .filter .price-filter .price-sep {
-  font-size: 5rem;
-  font-weight: 300;
+  font-size: 2rem;  
+  display: flex;
+  align-items: center;
 }
 
 .shop-container .filter .price-filter.active {
@@ -1518,7 +1522,7 @@ footer .bottom .group h4 {
 }
 
 .shop-container .filter .group .checkbox-label {
-  padding: 2em 2em;
+  padding: 1.5em 1.5em;
   border-radius: 15px;
   background-color: var(--light-color);
   border: 2px solid var(--grey-color);
@@ -1572,7 +1576,7 @@ footer .bottom .group h4 {
 }
 
 .shop-container .filter .sizes .group .checkbox-label {
-  padding: 0.5em 2em;
+  padding: 0.5em 1.5em;
   font-size: 1.5rem;
   color: var(--dark-color);
   border: 1px solid var(--grey-color);
@@ -1664,18 +1668,18 @@ footer .bottom .group h4 {
 /* Product Grid */
 .product-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1em;
   align-items: center;
 }
 
-.product-grid form {
+/* .product-grid form {
   margin: 1.5em 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1em;
   align-items: center;
-}
+} */
 
 .buy-order {
   display: flex;
@@ -1694,7 +1698,7 @@ footer .bottom .group h4 {
 }
 
 .grid-main.active {
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .product-grid .content {
@@ -1869,7 +1873,7 @@ footer .bottom .group h4 {
 
 .products-container .product {
   display: flex;
-  max-height: 110vh;
+  max-height: 120vh;
   gap: 2em;
 }
 

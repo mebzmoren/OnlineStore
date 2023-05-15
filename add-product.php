@@ -15,19 +15,13 @@ if (isset($_POST['submit'])) {
 
   $fileName = $_FILES['image']['name'];
   $fileTmpName = $_FILES['image']['tmp_name'];
-  $fileError = $_FILES['image']['error'];
   $fileExt = explode('.', $fileName);
   $fileActualExt = strtolower(end($fileExt));
   $allowed = array('jpg', 'jpeg', 'png', 'pdf', 'jfif');
 
   if (in_array($fileActualExt, $allowed)) {
-    if ($fileError == 0) {
-      $fileNameNew = uniqid('', true) . "." . $fileActualExt;
-      $fileDestination = "assets/uploads/" . $fileNameNew;
-      move_uploaded_file($fileTmpName, $fileDestination);
-    } else {
-      $error = "There is an error uploading your file.";
-    }
+    $fileDestination = "assets/uploads/" . $fileName;
+    move_uploaded_file($fileTmpName, $fileDestination);
   } else {
     $error = "You can not upload this type of file.";
   }
@@ -46,10 +40,10 @@ if (isset($_POST['submit'])) {
   if ($result) {
     if (mysqli_num_rows($result) > 0) {
       $error = 'Item already exists';
-    } elseif (empty($name) || empty($fileNameNew) || empty($quantity) || empty($price) || empty($sizes) || empty($colors) || empty($description)) {
+    } elseif (empty($name) || empty($fileName) || empty($quantity) || empty($price) || empty($sizes) || empty($colors) || empty($description)) {
       $error = 'Please fill the required fields.';
     } else {
-      $insert = "INSERT INTO product(seller_id, name, image, category_id, description, quantity, price, colors, sizes) VALUES('$seller_id', '$name', '$fileNameNew', '$category_id', '$description', '$quantity','$price', '$color_implode', '$sizes_implode')";
+      $insert = "INSERT INTO product(seller_id, name, image, category_id, description, quantity, price, colors, sizes) VALUES('$seller_id', '$name', '$fileName', '$category_id', '$description', '$quantity','$price', '$color_implode', '$sizes_implode')";
       mysqli_query($conn, $insert);
       header('location:add-product.php?success=product_created');
     }
