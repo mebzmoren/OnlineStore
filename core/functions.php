@@ -140,3 +140,9 @@ function checkDiscountProduct($table, $product_id) {
   $mysql_stmt = "SELECT * FROM $table WHERE product_id='$product_id'";
   return mysqli_query($conn, $mysql_stmt);
 }
+
+function getProductById($table, $id) {
+  global $conn;
+  $mysql_stmt = "SELECT * FROM $table WHERE id='$id'";
+  return mysqli_query($conn, $mysql_stmt);
+}

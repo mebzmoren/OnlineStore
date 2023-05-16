@@ -1447,16 +1447,37 @@ footer .bottom .group h4 {
   display: flex;
 }
 
-#buy-selector {
+.buy-order.active {
+  display: none;
+}
+
+.liked-grid {
+  display: none;
+}
+
+.liked-grid.active {
+  display: flex;
+}
+
+.grid-member {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.buy-selector {
   color: var(--main-color);
 }
 
-#buy-selector.active {
-  display: none;
+.buy-selector.active {
+  color: var(--dark-color);
 }
 
-.buy-order.active {
-  display: none;
+.liked-selector {
+  color: var(--dark-color);
+}
+
+.liked-selector.active {
+  color: var(--main-color);
 }
 
 .grid-main.active {
@@ -1723,7 +1744,7 @@ footer .bottom .group h4 {
 
 .products-container .product .product-details .details .price .discount {
   background-color: var(--green-color);
-  padding: 0.2em 0.4em;
+  padding: 0.5em 0.8em;
   font-size: 1.2rem;
   border-radius: 10px;
   opacity: 0.5;
