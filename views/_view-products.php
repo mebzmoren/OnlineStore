@@ -31,18 +31,48 @@
           <?php echo $product['name'] ?>
         </h2>
         <div class="group">
-          <div class="rating" style="display: flex; flex-direction: row;">
-            <div class="stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+          <?php
+          $product_id = $product['id'];
+          $reviews = getProdById("review", $product_id);
+          if (mysqli_num_rows($reviews) > 0) {
+            $total_reviews = 0;
+            $total = 0;
+            foreach ($reviews as $item) {
+              $total_reviews += 1;
+              $total += intval($item['rating']);
+            }
+            $average = $total / $total_reviews;
+          ?>
+            <div class="rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <h4 class="value"><?php echo $average ?></h4>
             </div>
-            <h4 class="value">5.0</h4>
-          </div>
-          <h4 class="reviews">2437 Reviews</h4>
-          <h4 class="sold">4523 Sold</h4>
+            <h4 class="reviews"><?php echo $total_reviews ?> Reviews</h4>
+            <h4 class="sold"># Sold</h4>
+          <?php
+          } else {
+          ?>
+            <div class="rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <h4 class="value">5.0</h4>
+            </div>
+            <h4 class="reviews">No Reviews</h4>
+            <h4 class="sold">Nothing Sold</h4>
+          <?php
+          }
+          ?>
         </div>
         <div class="price">
           <?php
