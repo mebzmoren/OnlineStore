@@ -1132,7 +1132,7 @@ footer .bottom .group h4 {
 /* Shop */
 .shop-container {
   display: flex;
-  margin: 2.4% 0 0;
+  margin: 3% 0 0;
   padding: 2em 3.5em 0;
   gap: 1em;
 }
@@ -1728,6 +1728,10 @@ footer .bottom .group h4 {
   border-radius: 10px;
   opacity: 0.5;
   border: 1px solid var(--grey-color);
+}
+
+.products-container .product .product-details .details .price .original-price {
+  text-decoration: line-through;
 }
 
 .products-container .product .product-details .details .price span {
@@ -2926,7 +2930,7 @@ footer .bottom .group h4 {
 
 .discount-modal .wrapper .header-details {
   padding: 1.5em 1em;
-  display: flex; 
+  display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--grey-color);

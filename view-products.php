@@ -15,8 +15,6 @@ if (isset($_POST['buy-product'])) {
   $city = $_POST['city'];
   $phone_number = $_POST['phone_number'];
   $payment_type = $_POST['payment_type'];
-  // echo '<script>alert("CHECK: ' . $member_id. ' ' . $product_id. ' ' . $quantity_bought. ' ' . $size. ' ' . $color. ' ' . $total. ' ' . $address. ' ' . $city. ' ' . $phone_number. $payment_type. '")</script>';
-  // die();
 
   if (empty($member_id)) {
     $error = 'You need to login to buy products.';
@@ -44,8 +42,6 @@ if (isset($_POST['buy-product'])) {
     mysqli_query($conn, $insert);
     header('location: ' . $_SERVER['REQUEST_URI']);
   }
-} else {
-  echo 'Data not inserted into database';
 }
 
 $title = 'View Products';

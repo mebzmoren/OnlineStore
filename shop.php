@@ -1,9 +1,7 @@
 <?php
 session_start();
 include 'core/database.php';
-$title = 'Shop';
-$contentView = 'views/_shop.php';
-include('views/master.php');
+include_once 'core/functions.php';
 
 if (isset($_POST['like-product'])) {
   $member_id = $_SESSION['member_id'];
@@ -40,3 +38,7 @@ if (isset($_POST['unlike-product'])) {
     header('location: ' . $_SERVER['REQUEST_URI']);
   }
 }
+
+$title = 'Shop';
+$contentView = 'views/_shop.php';
+include('views/master.php');
