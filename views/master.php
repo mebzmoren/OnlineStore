@@ -15,7 +15,24 @@ if (isset($_GET['product'])) {
   $product = mysqli_fetch_array($table_data);
 }
 
-// echo '<script>alert("CHECK: ' . $product .'")</script>';
+if (isset($_POST['cancel-order'])) {
+  $product_id = $_POST['product_id'];
+  $member_id = $_SESSION['member_id'];
+  $quantity_bought = $_POST['quantity'];
+
+  $res = getProductById('product', $product_id);
+  $check = mysqli_fetch_assoc($res);
+  $product_quantity = $check['quantity'];
+
+  $new_quantity = $check['quantity'] + $quantity_bought;
+  $update = "UPDATE product SET quantity='$new_quantity' WHERE id='$product_id'";
+  mysqli_query($conn, $update);
+
+  $delete = "DELETE FROM bill WHERE member_id = '$member_id' AND product_id = '$product_id'";
+  mysqli_query($conn, $delete);
+  header('location: ' . $_SERVER['REQUEST_URI']);
+}
+
 // echo '<script>alert("CHECK: ' . $category_id .'")</script>';
 // echo '<script>alert("CHECK: ' . $seller_id .'")</script>';
 // echo '<script>alert("CHECK: ' . $product_name .'")</script>';

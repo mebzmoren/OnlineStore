@@ -51,7 +51,7 @@
       }
       ?>
     </div>
-    <div class="liked-grid product-grid">
+    <div class="product-grid liked-grid">
       <?php
       $member_id = $_SESSION['member_id'];
       $liked_products = getProdByMemberId('liked_product', $member_id);
@@ -60,30 +60,28 @@
           $res = getProductById('product', $item_check['product_id']);
           $product = mysqli_fetch_array($res);
       ?>
-          <div class="content">
-            <a href="view-products.php?product=<?php echo $product['name'] ?>">
-              <form action="" method="POST" class="product-col grid-member">
-                <input type="hidden" name="product_id" value="<?php echo $product['id'] ?>">
-                <div class="top">
-                  <img src="assets/uploads/<?php echo $product["image"]; ?>" alt="<?php echo $product["name"]; ?>" class="img">
-                </div>
-                <div class="bottom">
-                  <div class="product-details">
-                    <div class="title">
-                      <h4><?php echo $product["name"]; ?></h4>
+          <a href="view-products.php?product=<?php echo $product['name'] ?>" class="product-col">
+            <form action="" method="POST">
+              <input type="hidden" name="product_id" value="<?php echo $product['id'] ?>">
+              <div class="top">
+                <img src="assets/uploads/<?php echo $product["image"]; ?>" alt="<?php echo $product["name"]; ?>" class="img">
+              </div>
+              <div class="bottom">
+                <div class="product-details">
+                  <div class="title">
+                    <h4><?php echo $product["name"]; ?></h4>
+                  </div>
+                  <div class="rating-group" style="display:flex; gap:7em;">
+                    <div class="rating">
+                      <i class="fa-solid fa-star"></i>
+                      <h5>5.0 (#)</h5>
                     </div>
-                    <div class="rating-group" style="display:flex; gap:7em;">
-                      <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <h5>5.0 (#)</h5>
-                      </div>
-                      <h2 class="price"><?php echo "$" . $product["price"]; ?></h2>
-                    </div>
+                    <h2 class="price"><?php echo "$" . $product["price"]; ?></h2>
                   </div>
                 </div>
-              </form>
-            </a>
-          </div>
+              </div>
+            </form>
+          </a>
         <?php
         }
         ?>

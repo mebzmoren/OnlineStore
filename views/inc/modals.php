@@ -101,50 +101,57 @@
         <h5>$575.00</h5>
       </div> -->
     </div>
-    <div class="shopping-cart-items">
-      <?php
-      if (isset($_SESSION['member_id'])) {
-        $member_id = $_SESSION['member_id'];
-        $bill = getProdByMemberId('bill', $member_id);
-        global $total;
-        if (mysqli_num_rows($bill) > 0) {
-          foreach ($bill as $item) {
-            $total += $item['total'];
-      ?>
-            <div class="item-row">
-              <img src="assets/uploads/<?php echo $item['image'] ?>" class="img"></img>
-              <div class="item-details">
-                <span class="item-name"><?php echo $item['product_name'] ?></span>
-                <div class="group">
-                  <div class="details-group">
-                    <span class="detail-name">Size:</span>
-                    <span class="value"><?php echo $item['size'] ?></span>
+    <form action="" method="post">
+      <div class="shopping-cart-items">
+        <?php
+        if (isset($_SESSION['member_id'])) {
+          $member_id = $_SESSION['member_id'];
+          $bill = getProdByMemberId('bill', $member_id);
+          global $total;
+          if (mysqli_num_rows($bill) > 0) {
+            foreach ($bill as $item) {
+              $total += $item['total'];
+        ?>
+              <div class="item-row">
+                <img src="assets/uploads/<?php echo $item['image'] ?>" class="img"></img>
+                <div class="item-details">
+                  <div class="item-name">
+                    <?php echo $item['product_name'] ?> *
+                    <span class="qty"><?php echo $item['quantity_bought'] ?></span>
                   </div>
-                  <span class="details-group">
-                    <span class="detail-name">Color:</span>
-                    <span class="value"><?php echo $item['color'] ?></span>
-                  </span>
-                </div>
-                <div class="cancel-group">
-                  <span class="price"><?php echo '$' . $item['total'] . '.00' ?></span>
-                  <button class="cancel">Cancel Order</button>
+                  <div class="group">
+                    <div class="details-group">
+                      <span class="detail-name">Size:</span>
+                      <span class="value"><?php echo $item['size'] ?></span>
+                    </div>
+                    <span class="details-group">
+                      <span class="detail-name">Color:</span>
+                      <span class="value"><?php echo $item['color'] ?></span>
+                    </span>
+                  </div>
+                  <div class="cancel-group">
+                    <input type="hidden" name="product_id" value="<?php echo $item['product_id'] ?>">
+                    <input type="hidden" name="quantity" value="<?php echo $item['quantity_bought'] ?>">
+                    <span class="price"><?php echo '$' . $item['total'] . '.00' ?></span>
+                    <button name="cancel-order" class="cancel">Cancel Order</button>
+                  </div>
                 </div>
               </div>
-            </div>
+            <?php
+            }
+            ?>
           <?php
+          } else {
+            echo '<span class="error-stmt"> You have not bought any products yet. </span>';
           }
           ?>
         <?php
         } else {
-          echo '<span class="error-stmt"> You have not bought any products yet. </span>';
+          echo '<span class="error-stmt"> You are not logged in. </span>';
         }
         ?>
-      <?php
-      } else {
-        echo '<span class="error-stmt"> You are not logged in. </span>';
-      }
-      ?>
-    </div>
+      </div>
+    </form>
     <!-- <div class="actions">
       <button id="order-exit">Back</button>
       <button>Place Order</button>
@@ -169,7 +176,7 @@
           ?>
           <div class="rating-select">
             <span class="title">What do you think of the product?</span>
-            <input type="product_id" name="product_id" value="<?php echo $product['id'] ?>" style="display:none;">
+            <input type="hidden" name="product_id" value="<?php echo $product['id'] ?>">
             <div class="rate">
               <div class="radio">
                 <input class="radio-input" type="radio" value="1" name="rating" id="star1">

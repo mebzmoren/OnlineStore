@@ -546,6 +546,10 @@ header .search i {
   font-size: 1.5rem;
 }
 
+.shopping-cart .shopping-cart-items .item-row .item-details .item-name .qty {
+  color: var(--main-color);
+}
+
 .shopping-cart .shopping-cart-items .item-row .item-details .group {
   display: flex;
   gap: 0.8em;
@@ -1430,7 +1434,7 @@ footer .bottom .group h4 {
 .product-grid {
   margin: 1em 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 1em;
   align-items: center;
 }
@@ -1456,7 +1460,7 @@ footer .bottom .group h4 {
 }
 
 .liked-grid.active {
-  display: flex;
+  display: grid;
 }
 
 .grid-member {
