@@ -1132,7 +1132,7 @@ footer .bottom .group h4 {
 /* Shop */
 .shop-container {
   display: flex;
-  margin: 2.4% 0 0;
+  margin: 3% 0 0;
   padding: 2em 3.5em 0;
   gap: 1em;
 }
@@ -1447,16 +1447,37 @@ footer .bottom .group h4 {
   display: flex;
 }
 
-#buy-selector {
+.buy-order.active {
+  display: none;
+}
+
+.liked-grid {
+  display: none;
+}
+
+.liked-grid.active {
+  display: flex;
+}
+
+.grid-member {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.buy-selector {
   color: var(--main-color);
 }
 
-#buy-selector.active {
-  display: none;
+.buy-selector.active {
+  color: var(--dark-color);
 }
 
-.buy-order.active {
-  display: none;
+.liked-selector {
+  color: var(--dark-color);
+}
+
+.liked-selector.active {
+  color: var(--main-color);
 }
 
 .grid-main.active {
@@ -1723,11 +1744,15 @@ footer .bottom .group h4 {
 
 .products-container .product .product-details .details .price .discount {
   background-color: var(--green-color);
-  padding: 0.2em 0.4em;
+  padding: 0.5em 0.8em;
   font-size: 1.2rem;
   border-radius: 10px;
   opacity: 0.5;
   border: 1px solid var(--grey-color);
+}
+
+.products-container .product .product-details .details .price .original-price {
+  text-decoration: line-through;
 }
 
 .products-container .product .product-details .details .price span {
@@ -2926,7 +2951,7 @@ footer .bottom .group h4 {
 
 .discount-modal .wrapper .header-details {
   padding: 1.5em 1em;
-  display: flex; 
+  display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--grey-color);

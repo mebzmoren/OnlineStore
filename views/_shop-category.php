@@ -71,10 +71,6 @@
             </button>
             <div class="sizes size-filter">
               <div class="group">
-                <input class="checkbox-input" type="checkbox" name="sizes[]" value="XXS" id="size-xxs">
-                <label class="checkbox-label" for="size-xxs">XXS</label>
-              </div>
-              <div class="group">
                 <input class="checkbox-input" type="checkbox" name="sizes[]" value="XS" id="size-xs">
                 <label class="checkbox-label" for="size-xs">XS</label>
               </div>
@@ -93,10 +89,6 @@
               <div class="group">
                 <input class="checkbox-input" type="checkbox" name="sizes[]" value="XL" id="size-xl">
                 <label class="checkbox-label" for="size-xl">XL</label>
-              </div>
-              <div class="group">
-                <input class="checkbox-input" type="checkbox" name="sizes[]" value="XXL" id="size-xxl">
-                <label class="checkbox-label" for="size-xxl">XXL</label>
               </div>
             </div>
           </div>

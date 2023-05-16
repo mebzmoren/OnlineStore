@@ -23,6 +23,7 @@
       header('location:member-login.php?success=user_created');
     }
   }
+
   $title = 'Member Register';
   $contentView = 'views/_member-register.php';
   include('views/master.php');
