@@ -15,7 +15,6 @@ if (isset($_GET['product'])) {
   $product = mysqli_fetch_array($table_data);
 }
 
-
 // echo '<script>alert("CHECK: ' . $product .'")</script>';
 // echo '<script>alert("CHECK: ' . $category_id .'")</script>';
 // echo '<script>alert("CHECK: ' . $seller_id .'")</script>';

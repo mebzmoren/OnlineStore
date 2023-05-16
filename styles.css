@@ -613,7 +613,7 @@ header .search i {
 }
 
 .error-msg {
-  margin: 1em;
+  margin: 0.5em;
   display: block;
   border-radius: 2px;
   font-size: 1.3rem;
@@ -623,7 +623,7 @@ header .search i {
 }
 
 .error-stmt {
-  margin: 1em;
+  margin: 0.5em;
   display: block;
   border-radius: 2px;
   font-size: 1.3rem;
@@ -2943,7 +2943,7 @@ footer .bottom .group h4 {
   border-bottom: 1px solid var(--grey-color);
 }
 
-.discount-modal .wrapper .content {
+.discount-modal .wrapper .content .form {
   padding: 1em 1.5em;
   display: flex;
   flex-direction: column;
@@ -2953,7 +2953,13 @@ footer .bottom .group h4 {
 
 .discount-modal .wrapper .content .item-name {
   font-size: 1.5rem;
+  align-self: center;
   color: var(--dark-color);
+}
+
+.discount-modal .wrapper .content .item-select {
+  padding: 0.5em;
+  margin: 0 1em;
 }
 
 .discount-modal .wrapper .content .group {
@@ -2961,6 +2967,7 @@ footer .bottom .group h4 {
   align-items: center;
   justify-content: center;
   gap: 5em;
+  margin: 2em 0;
 }
 
 .discount-modal .wrapper .content .group .counter {
@@ -2994,11 +3001,12 @@ footer .bottom .group h4 {
 
 .discount-modal .wrapper .content .disc-set {
   color: var(--grey-color-1);
+  align-self: center;
   font-size: 1.3rem;
 }
 
 .discount-modal .wrapper .content .description {
-  margin: 2em 0 0;
+  margin: 2em 1em 0;
   font-size: 1.3rem;
   color: var(--dark-color);
   text-align: center;
@@ -3035,13 +3043,20 @@ footer .bottom .group h4 {
   color: var(--main-color);
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1800px) {
+
+  .product-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 1280px) {
   html {
     font-size: 60.5%;
   }
 
   .product-grid {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -3051,16 +3066,6 @@ footer .bottom .group h4 {
   }
 
   .product-grid {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
-
-@media (max-width: 760px) {
-  html {
-    font-size: 58%;
-  }
-
-  .product-grid {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
