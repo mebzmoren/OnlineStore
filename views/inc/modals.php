@@ -212,7 +212,7 @@
     </div>
   </div>
 
-  <!-- Modal Pop Up -->
+  <!-- Confirm Product Modal -->
   <div class="modal-pop">
     <div class="wrapper">
       <form action="#" method="post">
@@ -341,3 +341,61 @@
       </form>
     </div>
   </div>
+
+  <!-- Discount Modal Pop- -->
+  <div class="discount-modal modal-pop">
+    <div class="wrapper">
+      <div class="header-details">
+        <span class="title">Set Discount</span>
+        <div class="exit" id="discount-exit">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+      </div>
+      <div class="content">
+        <form action="" method="POST">
+          <?php
+          if (isset($error)) {
+            echo '<span class="error-msg"> Error: ' . $error . '</span>';
+          }
+          ?>
+          <span class="item-name">Select an item to set discount:</span>
+          <select class="item-select" name="item_id">
+          <?php
+            $products = getProdBySeller($seller_id);
+
+            if (mysqli_num_rows($products) > 0) {
+              foreach ($products as $item) {
+            ?>
+              <option value="<?php echo $item['id'] ?>"><?php echo $item['name'] ?></option>
+            <?php
+              }
+            } else {
+              echo '<span class="error-stmt"> There are no products found. </span>';
+            }
+          ?>
+          </select>
+          <div class="group">
+            <div class="counter" id="minus-btn">
+              <i class="fa-solid fa-minus"></i>
+            </div>
+            <div class="field-input">
+              <input id="discount" type="discount" name="discount" required autocomplete="discount" autofocus class="num">
+              <div class="percent">%</div>
+            </div>
+            <div class="counter">
+              <i class="fa-solid fa-plus" id="plus-btn"></i>
+            </div>
+          </div>
+          <p class="disc-set">on item price</p>
+          <p class="description">
+            By activating this discount, the item price for this product will be based on your discount percent set.
+          </p>
+        </div>
+        <div class="actions">
+          <button name="discount-product" type="submit">Activate Discount</button>
+        </div>
+        </form>
+    </div>
+  </div>
+
+  
