@@ -172,11 +172,34 @@
                           <h4><?php echo $item["name"]; ?></h4>
                         </div>
                         <div class="rating-group" style="display:flex; gap:7em;">
-                          <div class="rating">
-                            <i class="fa-solid fa-star"></i>
-                            <h5>5.0 (#)</h5>
-                          </div>
-                          <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
+                          <?php
+                          $product_id = $item['id'];
+                          $reviews = getProdById("review", $product_id);
+                          if (mysqli_num_rows($reviews) > 0) {
+                            $total_reviews = 0;
+                            $total = 0;
+                            foreach ($reviews as $item_review) {
+                              $total_reviews += 1;
+                              $total += intval($item_review['rating']);
+                            }
+                            $average = $total / $total_reviews;
+                          ?>
+                            <div class="rating">
+                              <i class="fa-solid fa-star"></i>
+                              <h5><?php echo $average ?> (<?php echo $total_reviews ?>)</h5>
+                            </div>
+                            <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
+                          <?php
+                          } else {
+                          ?>
+                            <div class="rating">
+                              <i class="fa-solid fa-star"></i>
+                              <h5>5.0 (0)</h5>
+                            </div>
+                            <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
+                          <?php
+                          }
+                          ?>
                         </div>
                       </div>
                     </div>

@@ -160,20 +160,52 @@
     <div class="horizontal-line"></div>
   </div>
   <div class="rating-header">
-    <button class="sub-header" id="rating-btn">Write a Review</button>
-    <div class="rating-total">
-      <span class="total">5.0</span>
-      <div class="group">
-        <div class="stars">
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
+    <?php
+    $product_id = $product['id'];
+    $reviews = getProdById("review", $product_id);
+    if (mysqli_num_rows($reviews) > 0) {
+      $total_reviews = 0;
+      $total = 0;
+      foreach ($reviews as $item) {
+        $total_reviews += 1;
+        $total += intval($item['rating']);
+      }
+      $average = $total / $total_reviews;
+    ?>
+      <button class="sub-header" id="rating-btn">Write a Review</button>
+      <div class="rating-total">
+        <span class="total"><?php echo $average ?></span>
+        <div class="group">
+          <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-total"><?php echo $total_reviews ?> Reviews</p>
         </div>
-        <p class="review-total">152 Reviews</p>
       </div>
-    </div>
+    <?php
+    } else {
+    ?>
+      <button class="sub-header" id="rating-btn">Write a Review</button>
+      <div class="rating-total">
+        <span class="total">5.0</span>
+        <div class="group">
+          <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-total"> No Reviews</p>
+        </div>
+      </div>
+    <?php
+    }
+    ?>
   </div>
   <!-- Review Rating Grid -->
   <div class="rating-grid">
