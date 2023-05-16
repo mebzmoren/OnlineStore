@@ -246,7 +246,7 @@
                   </form>
                 </a>
               </div>
-        <?php
+            <?php
             }
           } else {
             echo "There are no products found.";
@@ -284,7 +284,7 @@
           // $length = sizeof(mysqli_fetch_assoc(($products)));
           if (mysqli_num_rows($products) > 0) {
             foreach ($products as $item) {
-        ?>
+            ?>
               <div class="content">
                 <a href="view-products.php?product=<?php echo $item['name'] ?>">
                   <form action="" method="POST" class="product-col">

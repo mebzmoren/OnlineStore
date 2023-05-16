@@ -47,37 +47,36 @@
         <div class="price">
           <?php
           $res = checkDiscountProduct('discount_product', $product['id']);
-          if(isset($res)) {
+          if (isset($res)) {
             $product_discount = mysqli_fetch_assoc($res);
-            if($product_discount !== null) {
+            if ($product_discount != null) {
               $discount = intval($product_discount['discount']);
               $price = $product['price'] * ($discount / 100);
-              if(mysqli_num_rows($res) > 0) {
+              if (mysqli_num_rows($res) > 0) {
           ?>
-            <div class="discount"><?php echo $discount ."% off" ?></div>
-            <span class="original-price" style="text-decoration:line-through;">$<?php echo $product['price'] ?></span>
-            <span>$<?php echo $price ?></span>
-          <?php
-              } else { 
-          ?>
-            <div class="discount">no discount</div>
-            <span>$<?php echo $product['price'] ?></span>
-          <?php
+                <div class="discount"><?php echo $discount . "% off" ?></div>
+                <span class="original-price" style="text-decoration:line-through;">$<?php echo $product['price'] ?></span>
+                <span>$<?php echo $price ?></span>
+              <?php
+              } else {
+              ?>
+                <div class="discount">no discount</div>
+                <span>$<?php echo $product['price'] ?></span>
+              <?php
               }
             } else {
-          ?>
-            <div class="discount">no discount</div>
-            <span>$<?php echo $product['price'] ?></span>
-          <?php
+              ?>
+              <div class="discount">no discount</div>
+              <span>$<?php echo $product['price'] ?></span>
+            <?php
             }
           } else {
-          ?>
+            ?>
             <div class="discount">no discount</div>
             <span>$<?php echo $product['price'] ?></span>
           <?php
           }
           ?>
-
         </div>
         <hr>
       </div>

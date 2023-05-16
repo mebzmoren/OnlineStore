@@ -240,17 +240,58 @@
             <div class="product-buy-details">
               <div class="left">
                 <img src="assets/uploads/<?php echo $product['image'] ?>" class="img"></img>
-                <input type="product_image" name="product_image" value="<?php echo $product['image'] ?>" style="display:none;">
-                <input type="product_name" name="product_name" value="<?php echo $product['name'] ?>" style="display:none;">
+                <input type="hidden" name="product_image" value="<?php echo $product['image'] ?>">
+                <input type="hidden" name="product_name" value="<?php echo $product['name'] ?>">
               </div>
               <div class="right">
-                <span class="price"><?php echo '$' . $product['price'] ?></span>
-                <input type="price" name="price" value="<?php echo $product['price'] ?>" style="display:none;">
+                <?php
+                $res = checkDiscountProduct('discount_product', $product['id']);
+                if (isset($res)) {
+                  $product_discount = mysqli_fetch_assoc($res);
+                  if ($product_discount != null) {
+                    $discount = intval($product_discount['discount']);
+                    $price = $product['price'] * ($discount / 100);
+                    if (mysqli_num_rows($res) > 0) {
+                ?>
+                      <div class="price">
+                        <span class="original-price"><?php echo '$' . $product['price'] ?></span>
+                        <span class="discount-price"><?php echo '$' . $price ?></span>
+                        <input type="hidden" name="price" value="<?php echo $price ?>">
+                      </div>
+                    <?php
+                    } else {
+                    ?>
+                      <input type="hidden" name="price" value="<?php echo $product['price'] ?>">
+                      <span class="price"><?php echo '$' . $product['price'] ?></span>
+                    <?php
+                    }
+                  } else {
+                    ?>
+                    <input type="hidden" name="price" value="<?php echo $product['price'] ?>">
+                    <span class="price"><?php echo '$' . $product['price'] ?></span>
+                  <?php
+                  }
+                } else {
+                  ?>
+                  <input type="hidden" name="price" value="<?php echo $product['price'] ?>">
+                  <span class="price"><?php echo '$' . $product['price'] ?></span>
+                <?php
+                }
+                ?>
                 <div class="product-group" style="display: flex;">
-                  <input type="id" name="id" value="<?php echo $product['id'] ?>" style="display:none;">
+                  <input type="hidden" name="id" value="<?php echo $product['id'] ?>">
                   <span class="product-name"><?php echo $product['name'] ?></span>
-                  <span class="quantity">x</span>
-                  <span class="quantity">01</span>
+                  <div class="group">
+                    <div class="counter" id="qty-minus-btn">
+                      <i class="fa-solid fa-minus"></i>
+                    </div>
+                    <div class="field-input">
+                      <input id="quantity_bought" type="quantity_bought" name="quantity_bought" required autocomplete="quantity_bought" value="1" autofocus class="buy-qty">
+                    </div>
+                    <div class="counter">
+                      <i class="fa-solid fa-plus" id="qty-plus-btn"></i>
+                    </div>
+                  </div>
                 </div>
                 <div class="buy-details">
                   <div class="content-col">
@@ -321,14 +362,14 @@
             <div class="group">
               <div class="field input">
                 <label for="city">Select Payment Type*</label>
-                <select name="payment_type" id="payment_type" required autocomplete="payment_type" autofocus>
+                <select name="payment_type" id="payment_type" autocomplete="payment_type" autofocus>
                   <option value="BPI">BPI</option>
                   <option value="BDO">BDO</option>
                 </select>
               </div>
               <div class="field input">
-                <label for="zip">Input Payment Type (Optional)</label>
-                <input id="zip" type="zip" class="form-control" name="zip" autocomplete="zip" placeholder="Enter Payment Type" autofocus>
+                <label for="payment_optional">Input Payment Type (Optional)</label>
+                <input id="payment_optional" type="payment_optional" class="form-control" name="payment_optional" placeholder="Enter Payment Type" autofocus>
               </div>
             </div>
           </div>
@@ -360,26 +401,26 @@
           ?>
           <span class="item-name">Select an item to set discount:</span>
           <select class="item-select" name="item_id">
-          <?php
+            <?php
             $products = getProdBySeller($seller_id);
 
             if (mysqli_num_rows($products) > 0) {
               foreach ($products as $item) {
             ?>
-              <option value="<?php echo $item['id'] ?>"><?php echo $item['name'] ?></option>
+                <option value="<?php echo $item['id'] ?>"><?php echo $item['name'] ?></option>
             <?php
               }
             } else {
               echo '<span class="error-stmt"> There are no products found. </span>';
             }
-          ?>
+            ?>
           </select>
           <div class="group">
             <div class="counter" id="minus-btn">
               <i class="fa-solid fa-minus"></i>
             </div>
             <div class="field-input">
-              <input id="discount" type="discount" name="discount" required autocomplete="discount" autofocus class="num">
+              <input id="discount" type="discount" name="discount" required autocomplete="discount" autofocus class="num" value="10">
               <div class="percent">%</div>
             </div>
             <div class="counter">
@@ -390,12 +431,10 @@
           <p class="description">
             By activating this discount, the item price for this product will be based on your discount percent set.
           </p>
-        </div>
-        <div class="actions">
-          <button name="discount-product" type="submit">Activate Discount</button>
-        </div>
-        </form>
+      </div>
+      <div class="actions">
+        <button name="discount-product" type="submit">Activate Discount</button>
+      </div>
+      </form>
     </div>
   </div>
-
-  

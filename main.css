@@ -475,7 +475,7 @@ header .search i {
   top: 85px;
   right: -110%;
   z-index: 5;
-  max-width: 500px;
+  max-width: 320px;
   border: 1px solid var(--grey-color);
   background-color: var(--light-color);
   padding: 1em;
@@ -1744,8 +1744,8 @@ footer .bottom .group h4 {
 
 .products-container .product .product-details .details .price .discount {
   background-color: var(--green-color);
-  padding: 0.5em 0.8em;
-  font-size: 1.2rem;
+  padding: 0.3em 0.8em;
+  font-size: 1.5rem;
   border-radius: 10px;
   opacity: 0.5;
   border: 1px solid var(--grey-color);
@@ -2816,11 +2816,53 @@ footer .bottom .group h4 {
   border: 1px solid var(--grey-color);
 }
 
+.modal-pop .product-buy-details .right .price .original-price {
+  text-decoration: line-through;
+}
+
 .modal-pop .product-buy-details .right .product-group {
   display: flex;
   align-items: center;
   gap: 1em;
   font-size: 2.5rem;
+}
+
+/* .modal-pop .product-buy-details .right .qty-bought {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+} */
+
+.modal-pop .product-buy-details .right .group {
+  display: flex;
+  align-items: center;
+}
+
+.modal-pop .product-buy-details .right .group .counter {
+  font-size: 1.5rem;
+  padding: 0.65em;
+  border: 1px solid var(--grey-color);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--main-color);
+  color: var(--light-color);
+}
+
+.modal-pop .product-buy-details .right .group .field-input {
+  display: flex;
+  align-items: center;
+}
+
+.modal-pop .product-buy-details .right .group .field-input input {
+  width: 70px;
+  padding: 0.2em 0.9em 0.25em;
+  outline: none;
+  font-size: 1.9rem;
+  border: 1px solid var(--grey-color);
+  color: var(--main-color);
+  display: flex;
+  align-items: center;
 }
 
 .modal-pop .product-buy-details .right .product-name {
