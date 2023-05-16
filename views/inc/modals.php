@@ -107,10 +107,8 @@
         if (isset($_SESSION['member_id'])) {
           $member_id = $_SESSION['member_id'];
           $bill = getProdByMemberId('bill', $member_id);
-          global $total;
           if (mysqli_num_rows($bill) > 0) {
             foreach ($bill as $item) {
-              $total += $item['total'];
         ?>
               <div class="item-row">
                 <img src="assets/uploads/<?php echo $item['image'] ?>" class="img"></img>

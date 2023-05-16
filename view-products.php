@@ -29,7 +29,7 @@ if (isset($_POST['buy-product'])) {
     $update = "UPDATE product SET quantity='$new_quantity' WHERE id='$product_id'";
     mysqli_query($conn, $update);
 
-    if (isset($payment_optional)) {
+    if ($payment_optional != NULL) {
       if (empty($member_id)) {
         $error = 'You need to login to buy products.';
         header('location: ' . $_SERVER['REQUEST_URI']);

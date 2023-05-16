@@ -65,7 +65,7 @@ if (isset($_POST['cancel-order'])) {
   <script src="assets/javascript/main.js" type="text/javascript"></script>
   <script src="assets/javascript/shop.js" type="text/javascript"></script>
   <script src="assets/javascript/products.js" type="text/javascript"></script>
-  <script src="assets/javascript/selector.js" type="text/javascript"></script>
+  <!-- <script src="assets/javascript/selector.js" type="text/javascript"></script> -->
   <script src="assets/javascript/seller.js" type="text/javascript"></script>
   <script src="assets/javascript/member.js" type="text/javascript"></script>
   <!-- <script src="assets/javascript/click.js"></script> -->
