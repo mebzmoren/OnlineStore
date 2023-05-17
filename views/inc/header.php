@@ -36,9 +36,23 @@
                 <i class="fa-regular fa-user"></i>
               </div>
               <div class="icon" id="shop-btn">
+                <?php
+                if (isset($_SESSION['member_id'])) {
+                  $member_id = $_SESSION['member_id'];
+                  $bill = getProdByMemberId('bill', $member_id);
+                  $buy_count = 0;
+                  if (mysqli_num_rows($bill) > 0) {
+                    foreach ($bill as $item) {
+                      $buy_count += 1;
+                  ?>
+                  <?php
+                    }
+                  }
+                }
+                ?>
                 <i class="fa-solid fa-scroll"></i>
                 <div class="item-count">
-                  <h4>0</h4>
+                  <h4><?php echo $buy_count ?></h4>
                 </div>
               </div>
             <?php

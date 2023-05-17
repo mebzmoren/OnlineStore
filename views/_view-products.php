@@ -31,53 +31,82 @@
           <?php echo $product['name'] ?>
         </h2>
         <div class="group">
-          <div class="rating" style="display: flex; flex-direction: row;">
-            <div class="stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+          <?php
+          $product_id = $product['id'];
+          $reviews = getProdById("review", $product_id);
+          if (mysqli_num_rows($reviews) > 0) {
+            $total_reviews = 0;
+            $total = 0;
+            foreach ($reviews as $item) {
+              $total_reviews += 1;
+              $total += intval($item['rating']);
+            }
+            $average = $total / $total_reviews;
+          ?>
+            <div class="rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <h4 class="value"><?php echo $average ?></h4>
             </div>
-            <h4 class="value">5.0</h4>
-          </div>
-          <h4 class="reviews">2437 Reviews</h4>
-          <h4 class="sold">4523 Sold</h4>
+            <h4 class="reviews"><?php echo $total_reviews ?> Reviews</h4>
+            <h4 class="sold"># Sold</h4>
+          <?php
+          } else {
+          ?>
+            <div class="rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <h4 class="value">5.0</h4>
+            </div>
+            <h4 class="reviews">No Reviews</h4>
+            <h4 class="sold">Nothing Sold</h4>
+          <?php
+          }
+          ?>
         </div>
         <div class="price">
           <?php
           $res = checkDiscountProduct('discount_product', $product['id']);
-          if(isset($res)) {
+          if (isset($res)) {
             $product_discount = mysqli_fetch_assoc($res);
-            if($product_discount !== null) {
+            if ($product_discount != null) {
               $discount = intval($product_discount['discount']);
               $price = $product['price'] * ($discount / 100);
-              if(mysqli_num_rows($res) > 0) {
+              if (mysqli_num_rows($res) > 0) {
           ?>
-            <div class="discount"><?php echo $discount ."% off" ?></div>
-            <span class="original-price" style="text-decoration:line-through;">$<?php echo $product['price'] ?></span>
-            <span>$<?php echo $price ?></span>
-          <?php
-              } else { 
-          ?>
-            <div class="discount">no discount</div>
-            <span>$<?php echo $product['price'] ?></span>
-          <?php
+                <div class="discount"><?php echo $discount . "% off" ?></div>
+                <span class="original-price" style="text-decoration:line-through;">$<?php echo $product['price'] ?></span>
+                <span>$<?php echo $price ?></span>
+              <?php
+              } else {
+              ?>
+                <div class="discount">no discount</div>
+                <span>$<?php echo $product['price'] ?></span>
+              <?php
               }
             } else {
-          ?>
-            <div class="discount">no discount</div>
-            <span>$<?php echo $product['price'] ?></span>
-          <?php
+              ?>
+              <div class="discount">no discount</div>
+              <span>$<?php echo $product['price'] ?></span>
+            <?php
             }
           } else {
-          ?>
+            ?>
             <div class="discount">no discount</div>
             <span>$<?php echo $product['price'] ?></span>
           <?php
           }
           ?>
-
         </div>
         <hr>
       </div>
@@ -161,20 +190,52 @@
     <div class="horizontal-line"></div>
   </div>
   <div class="rating-header">
-    <button class="sub-header" id="rating-btn">Write a Review</button>
-    <div class="rating-total">
-      <span class="total">5.0</span>
-      <div class="group">
-        <div class="stars">
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
+    <?php
+    $product_id = $product['id'];
+    $reviews = getProdById("review", $product_id);
+    if (mysqli_num_rows($reviews) > 0) {
+      $total_reviews = 0;
+      $total = 0;
+      foreach ($reviews as $item) {
+        $total_reviews += 1;
+        $total += intval($item['rating']);
+      }
+      $average = $total / $total_reviews;
+    ?>
+      <button class="sub-header" id="rating-btn">Write a Review</button>
+      <div class="rating-total">
+        <span class="total"><?php echo $average ?></span>
+        <div class="group">
+          <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-total"><?php echo $total_reviews ?> Reviews</p>
         </div>
-        <p class="review-total">152 Reviews</p>
       </div>
-    </div>
+    <?php
+    } else {
+    ?>
+      <button class="sub-header" id="rating-btn">Write a Review</button>
+      <div class="rating-total">
+        <span class="total">5.0</span>
+        <div class="group">
+          <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-total"> No Reviews</p>
+        </div>
+      </div>
+    <?php
+    }
+    ?>
   </div>
   <!-- Review Rating Grid -->
   <div class="rating-grid">
