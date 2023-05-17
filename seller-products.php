@@ -1,6 +1,7 @@
 <?php
   session_start();
   include 'core/database.php';
+  include_once 'core/functions.php';
 
   if (isset($_POST['discount-product'])) {
     $product_id = $_POST['item_id'];
@@ -19,6 +20,24 @@
       mysqli_query($conn, $insert);
       header('location:seller-products.php?success=discount_created');
     }
+  }
+
+  if(isset($_POST['remove-discount'])) {
+    $product_id = $_POST['product_id'];
+    $seller_id = $_SESSION['seller_id'];
+
+    $delete = "DELETE FROM discount_product WHERE product_id = '$product_id' AND seller_id = '$seller_id'";
+    mysqli_query($conn, $delete);
+    header('location: ' . $_SERVER['REQUEST_URI']);
+  }
+
+  if(isset($_POST['delete-product'])) {
+    $product_id = $_POST['product_id'];
+    $seller_id = $_SESSION['seller_id'];
+
+    $delete = "DELETE FROM product WHERE id = '$product_id' AND seller_id = '$seller_id'";
+    mysqli_query($conn, $delete);
+    header('location: ' . $_SERVER['REQUEST_URI']);
   }
   $title = 'Seller Products';
   $contentView = 'views/_seller-products.php';

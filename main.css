@@ -617,7 +617,6 @@ header .search i {
 }
 
 .error-msg {
-  margin: 0.5em;
   display: block;
   border-radius: 2px;
   font-size: 1.3rem;
@@ -627,8 +626,9 @@ header .search i {
 }
 
 .error-stmt {
-  margin: 0.5em;
+  margin: 0.5em 0;
   display: block;
+  min-width: 250px;
   border-radius: 2px;
   font-size: 1.3rem;
   padding: 1em;
@@ -1643,7 +1643,7 @@ footer .bottom .group h4 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 7em;
+  gap: 6em;
 }
 
 .product-grid .product-details .price {
@@ -2133,8 +2133,9 @@ footer .bottom .group h4 {
 .profile-actions .selectors {
   display: flex;
   gap: 3em;
-  border-bottom: 1px solid var(--grey-color-1);
-  padding: 1.5em 0;
+  border-radius: 5px;
+  border: 1px solid var(--grey-color);
+  padding: 1.5em 1em;
 }
 
 .profile-actions .selectors li:hover span {
@@ -2165,10 +2166,9 @@ footer .bottom .group h4 {
 
 /* Seller Profile */
 .seller-profile {
-  margin-top: 2.5%;
+  margin-top: 3%;
   padding: 2em 3.5em 0;
   display: flex;
-  gap: 3em;
 }
 
 /* Seller Sidebar */
@@ -2719,17 +2719,288 @@ footer .bottom .group h4 {
 
 /* Seller Products */
 .sell-container.list {
-  margin-top: 1em 0;
+  margin: 0;
+  border: none;
 }
 
 .sell-container.list .header-details {
   margin: none;
+  border: 1px solid var(--grey-color);
+  border-radius: 5px;
+}
+
+.sell-container.list .header-details button {
+  border-radius: 5px;
+}
+
+.sell-container .header-details a {
+  padding: 0.5em 0.8em;
+  font-size: 1.3rem;
+  color: var(--text-color);
+  border-radius: 5px;
+  background-color: var(--light-color);
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.sell-container .header-details a:hover {
+  background-color: var(--main-color);
+  color: var(--text-color);
+}
+
+.sell-container.list .header-details .title {
+  font-weight: 500;
+  color: var(--main-color);
 }
 
 .sell-container.list .product-col .like {
   display: none;
 }
 
+/* Product Table */
+.seller-table {
+  margin: 0.5em 0em;
+  border: 1px solid var(--grey-color);
+  border-radius: 5px;
+}
+
+.seller-table table {
+  border-collapse: collapse;
+}
+
+.seller-table tr{
+  display: flex;
+}
+
+.seller-table table img {
+  max-width: 120px;
+}
+
+.seller-table th,
+.seller-table td {
+  padding: 1em;
+  text-align: left;
+  font-size: 1.4rem;
+}
+
+.seller-table td {
+  display: flex;
+  align-items: center;
+}
+
+.seller-table tr .col1,
+.seller-table tr .col1 {
+  flex: 10%;
+}
+
+.seller-table tr .col2,
+.seller-table tr .col2 {
+  flex: 10%;
+}
+
+.seller-table tr .col3,
+.seller-table tr .col3 {
+  flex: 5%;
+}
+
+.seller-table tr .col4,
+.seller-table tr .col4 {
+  flex: 30%;
+}
+
+.seller-table tr .col5,
+.seller-table tr .col5 {
+  flex: 10%;
+}
+
+.seller-table tr .col6,
+.seller-table tr .col6 {
+  flex: 10%;
+}
+
+.seller-table tr .col7,
+.seller-table tr .col7 {
+  flex: 10%;
+}
+
+.seller-table tr .col8,
+.seller-table tr .col8 {
+  flex: 10%;
+}
+
+.seller-table .col8 .actions {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.seller-table .col8 button {
+  flex: 60%;
+  padding: 1em 0.2em;
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.seller-table .col8 button:last-child {
+  flex: 40%;
+  font-size: 1.7rem;
+}
+
+.seller-table .col8 button:hover {
+  background-color: var(--light-color);
+  color: var(--main-color);
+}
+
+.seller-table .col8 .trash {
+  padding: 1em;
+}
+
+/* Member Table */
+.member-table {
+  margin: 0.5em 0em;
+  border-radius: 5px;
+  border: 1px solid var(--grey-color);
+  width: 100%;
+}
+
+.member-table table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.member-table tr{
+  display: flex;
+}
+
+.member-table table img {
+  max-width: 120px;
+}
+
+.member-table th,
+.member-table td {
+  padding: 1em;
+  text-align: left;
+  font-size: 1.4rem;
+}
+
+.member-table td {
+  display: flex;
+  align-items: center;
+}
+
+.member-table tr .col1,
+.member-table tr .col1 {
+  flex: 10%;
+}
+
+.member-table tr .col2,
+.member-table tr .col2 {
+  flex: 10%;
+}
+
+.member-table tr .col3,
+.member-table tr .col3 {
+  flex: 10%;
+}
+
+.member-table tr .col4,
+.member-table tr .col4 {
+  flex: 10%;
+}
+
+.member-table tr .col5,
+.member-table tr .col5 {
+  flex: 10%;
+}
+
+.member-table tr .col6,
+.member-table tr .col6 {
+  flex: 10%;
+}
+
+.member-table tr .col7,
+.member-table tr .col7 {
+  flex: 10%;
+}
+
+.member-table tr .col8,
+.member-table tr .col8 {
+  flex: 10%;
+}
+
+.member-table tr .col9,
+.member-table tr .col9 {
+  flex: 10%;
+}
+
+.member-table tr .col10,
+.member-table tr .col10 {
+  flex: 10%;
+}
+
+.member-table .col10 button {
+  padding: 1em 0.2em;
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.member-table .col10 button:hover {
+  background-color: var(--light-color);
+  color: var(--main-color);
+}
+
+/* Liked Table */
+.member-table.liked tr .col1 {
+  flex: 10%;
+}
+
+.member-table.liked tr .col2 {
+  flex: 10%;
+}
+
+.member-table.liked tr .col3 {
+  flex: 30%;
+}
+
+.member-table.liked tr .col4 {
+  flex: 10%;
+}
+
+.member-table.liked tr .col5 {
+  flex: 15%;
+}
+
+.member-table.liked tr .col6 {
+  flex: 15%;
+}
+
+.member-table.liked tr .col7 {
+  flex: 10%;
+}
+
+.member-table.liked .col7 button {
+  padding: 1em 0.2em;
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.member-table.liked .col7 button:hover {
+  background-color: var(--light-color);
+  color: var(--main-color);
+}
 /* Confirm Product Modal */
 .modal-pop {
   position: fixed;
@@ -2871,6 +3142,7 @@ footer .bottom .group h4 {
 } */
 
 .modal-pop .product-buy-details .right .group {
+  flex: 40%;
   display: flex;
   align-items: center;
 }
@@ -2903,6 +3175,7 @@ footer .bottom .group h4 {
 }
 
 .modal-pop .product-buy-details .right .product-name {
+  flex: 60%;
   font-size: 2.5rem;
   color: var(--main-color);
   font-weight: 500;
