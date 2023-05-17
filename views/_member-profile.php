@@ -48,6 +48,9 @@
           if (isset($_SESSION['member_id'])) {
             $member_id = $_SESSION['member_id'];
             $bill = getProdByMemberId('bill', $member_id);
+            ?>
+              
+            <?php
             if (mysqli_num_rows($bill) > 0) {
               foreach ($bill as $item) {
             ?>
@@ -58,7 +61,7 @@
                 <td class="col3"><?php echo $item['quantity_bought'] ?></td>
                 <td class="col4"><?php echo $item['size'] ?></td>
                 <td class="col5"><?php echo $item['color'] ?></td>
-                <td class="col6"><?php echo $item['total'] ?></td>
+                <td class="col6"><?php echo '$'. $item['total'] ?></td>
                 <td class="col7"><?php echo $item['city'] ?></td>
                 <td class="col8"><?php echo $item['address'] ?></td>
                 <td class="col9"><?php echo $item['payment_type'] ?></td>
@@ -133,7 +136,7 @@
                 <td class="col1"><img src="assets/uploads/<?php echo $product['image'] ?>" alt="<?php echo $product['name'] ?>"></td>
                 <td class="col2"><?php echo $product['name']?></td>
                 <td class="col3"><?php echo limitWords($product['description'], 20) ?></td>
-                <td class="col4"><?php echo $product['price']?></td>
+                <td class="col4"><?php echo '$'. $product['price']?></td>
                 <td class="col5"><?php echo $product['sizes']?></td>
                 <td class="col6"><?php echo $product['colors']?></td>
                 <td class="col7">
@@ -146,7 +149,7 @@
             <?php
               }
             } else {
-              echo '<span class="error-stmt"> You have not bought any products yet. </span>';
+              echo '<span class="error-stmt"> You have not liked any products. </span>';
             ?>
             <?php
             }

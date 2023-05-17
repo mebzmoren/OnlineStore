@@ -24,7 +24,7 @@ function getTable($table, $search = '', $sorting = '', $min_price = '', $max_pri
       // Adding the COUNT() function to the SELECT clause
       $mysql_stmt1 = str_replace("SELECT *", "SELECT *, COUNT(product_id) as sales_count", $mysql_stmt1);
       // Join with product_bill table
-      $mysql_stmt1 .= " LEFT JOIN product_bill pb ON $table.id = pb.product_id GROUP BY $table.id ORDER BY sales_count DESC";
+      $mysql_stmt1 .= " LEFT JOIN bill pb ON $table.id = pb.product_id GROUP BY $table.id ORDER BY sales_count DESC";
       return mysqli_query($conn, $mysql_stmt1);
     }
   }
@@ -73,10 +73,6 @@ function getTable($table, $search = '', $sorting = '', $min_price = '', $max_pri
 
   return $result;
 }
-//********************************************************* */
-
-
-//***********************Functions********************************** */
 
 function getCategories()
 {
@@ -84,6 +80,9 @@ function getCategories()
   $mysql_stmt = "SELECT * FROM category";
   return mysqli_query($conn, $mysql_stmt);
 }
+
+//********************************************************* */
+
 
 //Godwin's Functions
 function getTableData($table)
@@ -156,3 +155,46 @@ function limitWords($text, $limit) {
   }
   return $text;
 }
+
+// Sam Functions
+//********************************************************* */
+
+// Count of how many products there are all in all
+$total_amount_of_products = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM product") or die(mysqli_error($conn));
+$row = mysqli_fetch_assoc($total_amount_of_products);
+$total_amount_of_products = $row['total_records'];
+
+// Max amount of products to display in one page
+$max_products_per_page = 9;
+
+// Setting and getting the page number
+if(isset($_GET['page_number']) && $_GET['page_number'] !== "") {
+  $page_number = $_GET['page_number'];
+} else {
+  $page_number = 1;
+}
+
+// Calculate offset for the max limit query
+$offset = ($page_number - 1) * $max_products_per_page;
+
+// Query string to retrieve products with limit and offset
+$sql = "SELECT * FROM product LIMIT $offset, $max_products_per_page";
+$output = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+// Get previous page
+$back = $page_number - 1;
+// Get next page 
+$next = $page_number + 1;
+
+// Total counts of records applied $output function
+$output_count = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM online_store.product") or die(mysqli_error($conn));
+
+// Total records
+$records = mysqli_fetch_array($output_count);
+$count_records = $records['total_records'];
+
+// Max pages 
+$max_amount_of_pages = ceil($count_records / $max_products_per_page);
+
+
+//********************************************************* */

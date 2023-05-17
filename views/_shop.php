@@ -144,9 +144,19 @@
           // $length = sizeof(mysqli_fetch_assoc(($products)));
           if (mysqli_num_rows($products) > 0) {
             foreach ($products as $item) {
+              if($item['quantity'] == 0) {
+                continue;
+              }
               $member_id = $_SESSION['member_id'];
               $res = getLikedProduct('liked_product', $member_id, $item['id']);
               $check = mysqli_fetch_assoc($res);
+              $discountRes = checkDiscountProduct('discount_product', $item['id']);
+              $product_discount = mysqli_fetch_assoc($discountRes);
+              $discount = 0;
+              if ($product_discount !== null) {
+                $discount = intval($product_discount['discount']);
+                $price = $item['price'] * ($discount / 100);
+              }
         ?>
               <div class="content">
                 <a href="view-products.php?product=<?php echo $item['name'] ?>">
@@ -188,7 +198,6 @@
                               <i class="fa-solid fa-star"></i>
                               <h5><?php echo $average ?> (<?php echo $total_reviews ?>)</h5>
                             </div>
-                            <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
                           <?php
                           } else {
                           ?>
@@ -196,9 +205,19 @@
                               <i class="fa-solid fa-star"></i>
                               <h5>5.0 (0)</h5>
                             </div>
-                            <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
                           <?php
                           }
+                          ?>
+                          <?php 
+                            if ($product_discount !== null) { 
+                          ?>
+                            <h2 class="price"><?php echo "$" . $price; ?></h2>
+                          <?php 
+                            } else { 
+                          ?>
+                            <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
+                          <?php 
+                            } 
                           ?>
                         </div>
                       </div>
@@ -244,6 +263,9 @@
           // $length = sizeof(mysqli_fetch_assoc(($products)));
           if (mysqli_num_rows($products) > 0) {
             foreach ($products as $item) {
+              if($item['quantity'] == 0) {
+                continue;
+              }
               $res = checkDiscountProduct('discount_product', $item['id']);
               $product_discount = mysqli_fetch_assoc($res);
               $discount = 0;
@@ -315,14 +337,6 @@
           }
         }
         ?>
-      </div>
-      <div class="pagination">
-        <ul class="page-select">
-          <li class="select">1</li>
-          <li class="select">2</li>
-          <li class="select">3</li>
-          <li class="select">4</li>
-        </ul>
       </div>
     </section>
   </main>
