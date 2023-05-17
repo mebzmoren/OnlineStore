@@ -27,6 +27,14 @@
       </ul>
       <!-- Product Details -->
       <div class="details">
+        <?php 
+          $product_id = $product['id'];
+          $products = getProdById("bill", $product_id);
+          $item_sold = 0;
+          foreach($products as $item) {
+            $item_sold += 1;
+          }
+          ?>
         <h2 class="product-title">
           <?php echo $product['name'] ?>
         </h2>
@@ -54,7 +62,7 @@
               <h4 class="value"><?php echo $average ?></h4>
             </div>
             <h4 class="reviews"><?php echo $total_reviews ?> Reviews</h4>
-            <h4 class="sold"># Sold</h4>
+            <h4 class="sold"><?php echo $item_sold ?> Sold</h4>
           <?php
           } else {
           ?>
@@ -69,7 +77,7 @@
               <h4 class="value">5.0</h4>
             </div>
             <h4 class="reviews">No Reviews</h4>
-            <h4 class="sold">Nothing Sold</h4>
+            <h4 class="sold"><?php echo $item_sold ?> Sold</h4>
           <?php
           }
           ?>
