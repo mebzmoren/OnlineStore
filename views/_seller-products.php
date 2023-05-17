@@ -21,46 +21,92 @@
     <section class="products">
       <div class="header-details">
         <h2 class="title">Your List of Products</h2>
-        <button id="discount-btn">Discount Products</button>
+        <div class="actions">
+          <button id="discount-btn">Discount Products</button>
+          <a href="add-product.php">Add New Products</a>
+        </div>
       </div>
-      <!-- Product Grid -->
-      <div class="product-grid">
-        <?php
-        $products = getProdBySeller($seller_id);
+      <!-- Product Table -->
+      <div class="seller-table">
+        <table>
+          <thead>
+            <tr>
+              <th class="col1">Image</th>
+              <th class="col2">Product Name</th>
+              <th class="col4">Description</th>
+              <th class="col5">Quantity</th>
+              <th class="col6">Price</th>
+              <th class="col7">Discount</th>
+              <th class="col8">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php
+            $products = getProdBySeller($seller_id);
 
-        if (mysqli_num_rows($products) > 0) {
-          foreach ($products as $item) {
-        ?>
-            <div class="content">
-              <a href="view-products.php?product=<?php echo $item['name'] ?>">
-                <form action="" method="POST" class="product-col">
-                  <input type="hidden" name="product_id" value="<?php echo $item['id'] ?>">
-                  <div class="top">
-                    <img src="assets/uploads/<?php echo $item["image"]; ?>" alt="<?php echo $item["name"]; ?>" class="img">
-                  </div>
-                  <div class="bottom">
-                    <div class="product-details">
-                      <div class="title">
-                        <h4><?php echo $item["name"]; ?></h4>
-                      </div>
-                      <div class="rating-group" style="display:flex; gap:7em;">
-                        <div class="rating">
-                          <i class="fa-solid fa-star"></i>
-                          <h5>5.0 (#)</h5>
+            if (mysqli_num_rows($products) > 0) {
+              foreach ($products as $item) {
+                $res = checkDiscountProduct('discount_product', $item['id']);
+                $product_discount = mysqli_fetch_assoc($res);
+                $discount = 0;
+                if ($product_discount !== null) {
+                  $discount = intval($product_discount['discount']);
+                }
+                $price = $item['price'] * ($discount / 100);
+                ?>
+                <a href="view-products.php?product=<?php echo $item['name'] ?>">
+                  <form action="" method="post">
+                    <tr>
+                      <td class="col1"><img src="assets/uploads/<?php echo $item['image'] ?>" alt="<?php echo $item['name'] ?>"></td>
+                      <td class="col2"><?php echo $item['name'] ?></td>
+                      <td class="col4"><?php echo limitWords($item['description'], 20) ?></td>
+                      <td class="col5"><?php echo $item['quantity'] ?></td>
+                      <?php 
+                        if ($product_discount !== null) { 
+                      ?>
+                        <td class="col6"><?php echo $price ?></td>
+                        <td class="col7"><?php echo $product_discount['discount'] . '%' ?></td>
+                      <?php 
+                        } else { 
+                      ?>
+                        <td class="col6"><?php echo $item['price'] ?></td>
+                        <td class="col7">No discount set</td>
+                      <?php 
+                        } 
+                      ?>
+                      <td class="col8">
+                        <input type="hidden" name="product_id" value="<?php echo $item['id'] ?>">
+                        <div class="actions">
+                        <?php 
+                          if ($product_discount !== null) { 
+                        ?>
+                          <button type="submit" name="remove-discount">Cancel Discount</button>
+                          <button type="submit" name="delete-product">
+                            <i class="fa-solid fa-trash"></i>
+                          </button>
+                        <?php 
+                          } else { 
+                        ?>
+                          <button class="trash" type="submit" name="delete-product">
+                            <i class="fa-solid fa-trash"></i>
+                          </button>
+                        <?php 
+                          } 
+                        ?>
                         </div>
-                        <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </a>
-            </div>
-        <?php
-          }
-        } else {
-          echo '<span class="error-stmt"> There are no products found. </span>';
-        }
-        ?>
+                      </td>
+                    </tr>
+                  </form>
+                </a>
+                <?php
+             }
+            } else {
+              echo '<span class="error-stmt"> There are no products found. </span>';
+            }
+            ?>
+
+          </tbody>
+        </table>
       </div>
       <!-- <div class="pagination">
           <ul class="page-select">

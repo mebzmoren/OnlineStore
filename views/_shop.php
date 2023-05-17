@@ -209,7 +209,7 @@
             <?php
             }
           } else {
-            echo "There are no products found.";
+            echo '<span class="error-stmt"> There are no products found.  </span>';
           }
         } else if (isset($_SESSION['seller_id'])) {
           // Get the search term from the form
@@ -295,7 +295,7 @@
             <?php
             }
           } else {
-            echo "There are no products found.";
+            echo '<span class="error-stmt"> There are no products found.  </span>';
           }
         } else {
           // Get the search term from the form
@@ -330,6 +330,13 @@
           // $length = sizeof(mysqli_fetch_assoc(($products)));
           if (mysqli_num_rows($products) > 0) {
             foreach ($products as $item) {
+              $res = checkDiscountProduct('discount_product', $item['id']);
+              $product_discount = mysqli_fetch_assoc($res);
+              $discount = 0;
+              if ($product_discount !== null) {
+                $discount = intval($product_discount['discount']);
+                $price = $item['price'] * ($discount / 100);
+              }
             ?>
               <div class="content">
                 <a href="view-products.php?product=<?php echo $item['name'] ?>">
@@ -343,7 +350,7 @@
                         <div class="title">
                           <h4><?php echo $item["name"]; ?></h4>
                         </div>
-                        <div class="rating-group" style="display:flex; gap:7em;">
+                        <div class="rating-group" style="display:flex; gap:6em;">
                           <?php
                           $product_id = $item['id'];
                           $reviews = getProdById("review", $product_id);
@@ -360,7 +367,17 @@
                               <i class="fa-solid fa-star"></i>
                               <h5><?php echo $average ?> (<?php echo $total_reviews ?>)</h5>
                             </div>
-                            <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
+                            <?php 
+                              if ($product_discount !== null) { 
+                            ?>
+                              <h2 class="price"><?php echo "$" . $price; ?></h2>
+                            <?php 
+                              } else { 
+                            ?>
+                              <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
+                            <?php 
+                              } 
+                            ?>
                           <?php
                           } else {
                           ?>
@@ -381,7 +398,7 @@
         <?php
             }
           } else {
-            echo "There are no products found.";
+            echo '<span class="error-stmt"> There are no products found.  </span>';
           }
         }
         ?>

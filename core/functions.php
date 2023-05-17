@@ -146,3 +146,13 @@ function getProductById($table, $id) {
   $mysql_stmt = "SELECT * FROM $table WHERE id='$id'";
   return mysqli_query($conn, $mysql_stmt);
 }
+
+function limitWords($text, $limit) {
+  $words = explode(' ', $text);
+  if (count($words) > $limit) {
+    $words = array_slice($words, 0, $limit);
+    $text = implode(' ', $words);
+    $text .= '...';
+  }
+  return $text;
+}

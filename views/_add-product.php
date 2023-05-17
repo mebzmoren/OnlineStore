@@ -18,6 +18,7 @@
     <div class="sell-container">
       <div class="header-details">
         <span class="title">Add New Product</span>
+        <a href="seller-products.php">Go Back</a>
       </div>
       <div class="product-details">
         <form action="#" method="post" enctype="multipart/form-data">

@@ -617,7 +617,7 @@ header .search i {
 }
 
 .error-msg {
-  margin: 0.5em;
+  margin: 0.5em 0;
   display: block;
   border-radius: 2px;
   font-size: 1.3rem;
@@ -627,8 +627,9 @@ header .search i {
 }
 
 .error-stmt {
-  margin: 0.5em;
+  margin: 0.5em 0;
   display: block;
+  min-width: 250px;
   border-radius: 2px;
   font-size: 1.3rem;
   padding: 1em;
@@ -1643,7 +1644,7 @@ footer .bottom .group h4 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 7em;
+  gap: 6em;
 }
 
 .product-grid .product-details .price {
@@ -2165,10 +2166,9 @@ footer .bottom .group h4 {
 
 /* Seller Profile */
 .seller-profile {
-  margin-top: 2.5%;
+  margin-top: 3%;
   padding: 2em 3.5em 0;
   display: flex;
-  gap: 3em;
 }
 
 /* Seller Sidebar */
@@ -2719,16 +2719,147 @@ footer .bottom .group h4 {
 
 /* Seller Products */
 .sell-container.list {
-  margin-top: 1em 0;
+  margin: 0;
+  border: none;
 }
 
 .sell-container.list .header-details {
   margin: none;
+  border: 1px solid var(--grey-color);
+  border-radius: 5px;
+}
+
+.sell-container.list .header-details button {
+  border-radius: 5px;
+}
+
+.sell-container .header-details a {
+  padding: 0.5em 0.8em;
+  font-size: 1.3rem;
+  color: var(--text-color);
+  border-radius: 5px;
+  background-color: var(--light-color);
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.sell-container .header-details a:hover {
+  background-color: var(--main-color);
+  color: var(--text-color);
+}
+
+.sell-container.list .header-details .title {
+  font-weight: 500;
+  color: var(--main-color);
 }
 
 .sell-container.list .product-col .like {
   display: none;
 }
+
+/* Product Table */
+.seller-table {
+  margin: 0.5em 0em;
+  border: 1px solid var(--grey-color);
+  border-radius: 5px;
+}
+
+.seller-table table {
+  border-collapse: collapse;
+}
+
+.seller-table tr{
+  display: flex;
+}
+
+.seller-table table img {
+  max-width: 120px;
+}
+
+.seller-table th,
+.seller-table td {
+  padding: 1em;
+  text-align: left;
+  font-size: 1.4rem;
+}
+
+.seller-table td {
+  display: flex;
+  align-items: center;
+}
+
+.seller-table tr .col1,
+.seller-table tr .col1 {
+  flex: 10%;
+}
+
+.seller-table tr .col2,
+.seller-table tr .col2 {
+  flex: 10%;
+}
+
+.seller-table tr .col3,
+.seller-table tr .col3 {
+  flex: 5%;
+}
+
+.seller-table tr .col4,
+.seller-table tr .col4 {
+  flex: 30%;
+}
+
+.seller-table tr .col5,
+.seller-table tr .col5 {
+  flex: 10%;
+}
+
+.seller-table tr .col6,
+.seller-table tr .col6 {
+  flex: 10%;
+}
+
+.seller-table tr .col7,
+.seller-table tr .col7 {
+  flex: 10%;
+}
+
+.seller-table tr .col8,
+.seller-table tr .col8 {
+  flex: 10%;
+}
+
+.seller-table .col8 .actions {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.seller-table .col8 button {
+  flex: 60%;
+  padding: 1em 0.2em;
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.seller-table .col8 button:last-child {
+  flex: 40%;
+  font-size: 1.7rem;
+}
+
+.seller-table .col8 button:hover {
+  background-color: var(--light-color);
+  color: var(--main-color);
+}
+
+.seller-table .col8 .trash {
+  padding: 1em;
+}
+
 
 /* Confirm Product Modal */
 .modal-pop {
