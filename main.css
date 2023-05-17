@@ -1651,7 +1651,7 @@ footer .bottom .group h4 {
 }
 
 .products .pagination {
-  display: none;
+  display: flex;
   margin: 2em 0;
 }
 

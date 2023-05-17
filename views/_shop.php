@@ -316,13 +316,5 @@
         }
         ?>
       </div>
-      <div class="pagination">
-        <ul class="page-select">
-          <li class="select">1</li>
-          <li class="select">2</li>
-          <li class="select">3</li>
-          <li class="select">4</li>
-        </ul>
-      </div>
     </section>
   </main>
