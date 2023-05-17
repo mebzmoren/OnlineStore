@@ -24,7 +24,7 @@ function getTable($table, $search = '', $sorting = '', $min_price = '', $max_pri
       // Adding the COUNT() function to the SELECT clause
       $mysql_stmt1 = str_replace("SELECT *", "SELECT *, COUNT(product_id) as sales_count", $mysql_stmt1);
       // Join with product_bill table
-      $mysql_stmt1 .= " LEFT JOIN product_bill pb ON $table.id = pb.product_id GROUP BY $table.id ORDER BY sales_count DESC";
+      $mysql_stmt1 .= " LEFT JOIN bill pb ON $table.id = pb.product_id GROUP BY $table.id ORDER BY sales_count DESC";
       return mysqli_query($conn, $mysql_stmt1);
     }
   }
