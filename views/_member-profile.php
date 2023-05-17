@@ -26,45 +26,55 @@
         <span class="count"><?php echo $total_bought ?></span>
       </li>
     </ul>
-      <form action="" method="post"  class="grid-member">
-          <?php
+    <!-- Member Table -->
+    <div class="member-table">
+      <table>
+        <thead>
+          <tr>
+            <th class="col1">Image</th>
+            <th class="col2">Product Name</th>
+            <th class="col3">Quantity Bought</th>
+            <th class="col4">Size</th>
+            <th class="col5">Color</th>
+            <th class="col6">Total</th>
+            <th class="col7">City</th>
+            <th class="col8">Address</th>
+            <th class="col9">Payment Type</th>
+            <th class="col10">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        <?php
           if (isset($_SESSION['member_id'])) {
             $member_id = $_SESSION['member_id'];
             $bill = getProdByMemberId('bill', $member_id);
             if (mysqli_num_rows($bill) > 0) {
               foreach ($bill as $item) {
-          ?>
-              <div class="item-row">
-                <img src="assets/uploads/<?php echo $item['image'] ?>" class="img"></img>
-                <div class="item-details">
-                  <div class="item-name">
-                    <?php echo $item['product_name'] ?> *
-                    <span class="qty"><?php echo $item['quantity_bought'] ?></span>
-                  </div>
-                  <div class="group">
-                    <div class="details-group">
-                      <span class="detail-name">Size:</span>
-                      <span class="value"><?php echo $item['size'] ?></span>
-                    </div>
-                    <span class="details-group">
-                      <span class="detail-name">Color:</span>
-                      <span class="value"><?php echo $item['color'] ?></span>
-                    </span>
-                  </div>
-                  <div class="cancel-group">
-                    <input type="hidden" name="product_id" value="<?php echo $item['product_id'] ?>">
-                    <input type="hidden" name="quantity" value="<?php echo $item['quantity_bought'] ?>">
-                    <span class="price"><?php echo '$' . $item['total'] . '.00' ?></span>
-                    <button name="cancel-order" class="cancel">Cancel Order</button>
-                  </div>
-                </div>
-              </div>
-              <?php
-              }
-              ?>
+            ?>
+            <form action="" method="post">
+              <tr>
+                <td class="col1"><img src="assets/uploads/<?php echo $item['image'] ?>" alt="<?php echo $item['product_name'] ?>"></td>
+                <td class="col2"><?php echo $item['product_name'] ?></td>
+                <td class="col3"><?php echo $item['quantity_bought'] ?></td>
+                <td class="col4"><?php echo $item['size'] ?></td>
+                <td class="col5"><?php echo $item['color'] ?></td>
+                <td class="col6"><?php echo $item['total'] ?></td>
+                <td class="col7"><?php echo $item['city'] ?></td>
+                <td class="col8"><?php echo $item['address'] ?></td>
+                <td class="col9"><?php echo $item['payment_type'] ?></td>
+                <td class="col10">
+                  <input type="hidden" name="product_id" value="<?php echo $item['product_id'] ?>">
+                  <input type="hidden" name="quantity" value="<?php echo $item['quantity_bought'] ?>">
+                  <button name="cancel-order" class="cancel">Cancel Order</button>
+                </td>
+              </tr>
+            </form>
             <?php
+              }
             } else {
               echo '<span class="error-stmt"> You have not bought any products yet. </span>';
+            ?>
+            <?php
             }
             ?>
           <?php
@@ -72,7 +82,8 @@
             echo '<span class="error-stmt"> You are not logged in. </span>';
           }
           ?>
-      </form>
+        </tbody>
+      </table>
     </div>
   </div>
   <div class="profile-actions">
@@ -94,46 +105,54 @@
         <span class="count"><?php echo $total_liked ?></span>
       </li>
     </ul>
-    <div class="product-grid">
-      <?php
-      $member_id = $_SESSION['member_id'];
-      $liked_products = getProdByMemberId('liked_product', $member_id);
-      if (mysqli_num_rows($liked_products) > 0) {
-        foreach ($liked_products as $item_check) {
-          $res = getProductById('product', $item_check['product_id']);
-          $product = mysqli_fetch_array($res);
-      ?>
-          <a href="view-products.php?product=<?php echo $product['name'] ?>" class="product-col">
-            <form action="" method="POST">
-              <input type="hidden" name="product_id" value="<?php echo $product['id'] ?>">
-              <div class="top">
-                <img src="assets/uploads/<?php echo $product["image"]; ?>" alt="<?php echo $product["name"]; ?>" class="img">
-              </div>
-              <div class="bottom">
-                <div class="product-details">
-                  <div class="title">
-                    <h4><?php echo $product["name"]; ?></h4>
-                  </div>
-                  <div class="rating-group" style="display:flex; gap:7em;">
-                    <div class="rating">
-                      <i class="fa-solid fa-star"></i>
-                      <h5>5.0 (#)</h5>
-                    </div>
-                    <h2 class="price"><?php echo "$" . $product["price"]; ?></h2>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </a>
+    <!-- Liked Table -->
+    <div class="member-table liked">
+      <table>
+        <thead>
+          <tr>
+            <th class="col1">Image</th>
+            <th class="col2">Product Name</th>
+            <th class="col3">Description</th>
+            <th class="col4">Price</th>
+            <th class="col5">Sizes</th>
+            <th class="col6">Colors</th>
+            <th class="col7">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
         <?php
-        }
-        ?>
-
-      <?php
-      } else {
-        echo '<span class="error-stmt"> You have not liked any products. </span>';
-      }
-      ?>
+          $member_id = $_SESSION['member_id'];
+          $liked_products = getProdByMemberId('liked_product', $member_id);
+          if (mysqli_num_rows($liked_products) > 0) {
+            foreach ($liked_products as $item_check) {
+              $res = getProductById('product', $item_check['product_id']);
+              $product = mysqli_fetch_array($res);
+         ?>
+            <form action="" method="post">
+              <tr>
+                <td class="col1"><img src="assets/uploads/<?php echo $product['image'] ?>" alt="<?php echo $product['name'] ?>"></td>
+                <td class="col2"><?php echo $product['name']?></td>
+                <td class="col3"><?php echo limitWords($product['description'], 20) ?></td>
+                <td class="col4"><?php echo $product['price']?></td>
+                <td class="col5"><?php echo $product['sizes']?></td>
+                <td class="col6"><?php echo $product['colors']?></td>
+                <td class="col7">
+                  <input type="hidden" name="member_id" value="<?php echo $member_id ?>">
+                  <input type="hidden" name="product_id" value="<?php echo $product['id'] ?>">
+                  <button name="unlike-product" class="cancel">Unlike Product</button>
+                </td>
+              </tr>
+            </form>
+            <?php
+              }
+            } else {
+              echo '<span class="error-stmt"> You have not bought any products yet. </span>';
+            ?>
+            <?php
+            }
+            ?>
+        </tbody>
+      </table>
     </div>
 </main>
   <!-- <script src="assets/javascript/selector.js" type="text/javascript"></script> -->

@@ -2134,8 +2134,9 @@ footer .bottom .group h4 {
 .profile-actions .selectors {
   display: flex;
   gap: 3em;
-  border-bottom: 1px solid var(--grey-color-1);
-  padding: 1.5em 0;
+  border-radius: 5px;
+  border: 1px solid var(--grey-color);
+  padding: 1.5em 1em;
 }
 
 .profile-actions .selectors li:hover span {
@@ -2860,7 +2861,147 @@ footer .bottom .group h4 {
   padding: 1em;
 }
 
+/* Member Table */
+.member-table {
+  margin: 0.5em 0em;
+  border-radius: 5px;
+  border: 1px solid var(--grey-color);
+  width: 100%;
+}
 
+.member-table table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.member-table tr{
+  display: flex;
+}
+
+.member-table table img {
+  max-width: 120px;
+}
+
+.member-table th,
+.member-table td {
+  padding: 1em;
+  text-align: left;
+  font-size: 1.4rem;
+}
+
+.member-table td {
+  display: flex;
+  align-items: center;
+}
+
+.member-table tr .col1,
+.member-table tr .col1 {
+  flex: 10%;
+}
+
+.member-table tr .col2,
+.member-table tr .col2 {
+  flex: 10%;
+}
+
+.member-table tr .col3,
+.member-table tr .col3 {
+  flex: 10%;
+}
+
+.member-table tr .col4,
+.member-table tr .col4 {
+  flex: 10%;
+}
+
+.member-table tr .col5,
+.member-table tr .col5 {
+  flex: 10%;
+}
+
+.member-table tr .col6,
+.member-table tr .col6 {
+  flex: 10%;
+}
+
+.member-table tr .col7,
+.member-table tr .col7 {
+  flex: 10%;
+}
+
+.member-table tr .col8,
+.member-table tr .col8 {
+  flex: 10%;
+}
+
+.member-table tr .col9,
+.member-table tr .col9 {
+  flex: 10%;
+}
+
+.member-table tr .col10,
+.member-table tr .col10 {
+  flex: 10%;
+}
+
+.member-table .col10 button {
+  padding: 1em 0.2em;
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.member-table .col10 button:hover {
+  background-color: var(--light-color);
+  color: var(--main-color);
+}
+
+/* Liked Table */
+.member-table.liked tr .col1 {
+  flex: 10%;
+}
+
+.member-table.liked tr .col2 {
+  flex: 10%;
+}
+
+.member-table.liked tr .col3 {
+  flex: 30%;
+}
+
+.member-table.liked tr .col4 {
+  flex: 10%;
+}
+
+.member-table.liked tr .col5 {
+  flex: 15%;
+}
+
+.member-table.liked tr .col6 {
+  flex: 15%;
+}
+
+.member-table.liked tr .col7 {
+  flex: 10%;
+}
+
+.member-table.liked .col7 button {
+  padding: 1em 0.2em;
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.member-table.liked .col7 button:hover {
+  background-color: var(--light-color);
+  color: var(--main-color);
+}
 /* Confirm Product Modal */
 .modal-pop {
   position: fixed;
@@ -3002,6 +3143,7 @@ footer .bottom .group h4 {
 } */
 
 .modal-pop .product-buy-details .right .group {
+  flex: 40%;
   display: flex;
   align-items: center;
 }
@@ -3034,6 +3176,7 @@ footer .bottom .group h4 {
 }
 
 .modal-pop .product-buy-details .right .product-name {
+  flex: 60%;
   font-size: 2.5rem;
   color: var(--main-color);
   font-weight: 500;

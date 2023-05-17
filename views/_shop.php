@@ -211,92 +211,6 @@
           } else {
             echo '<span class="error-stmt"> There are no products found.  </span>';
           }
-        } else if (isset($_SESSION['seller_id'])) {
-          // Get the search term from the form
-          $search = isset($_GET['search']) ? trim($_GET['search']) : '';
-
-          // Get the sorting parameter from the form
-          $sorting = isset($_GET['sorting']) ? trim($_GET['sorting']) : '';
-
-          // Get the category_id from the form
-          $category_id = isset($_GET['category_id']) ? $_GET['category_id'] : '';
-
-          // Get the price filters from the form
-          $min_price = isset($_GET['min_price']) ? $_GET['min_price'] : '';
-          $max_price = isset($_GET['max_price']) ? $_GET['max_price'] : '';
-
-          // Get the color and size filters from the form
-          $colors = isset($_GET['colors']) ? $_GET['colors'] : [];
-          $sizes = isset($_GET['sizes']) ? $_GET['sizes'] : [];
-
-          // Get the products that match the filters
-          $products = getTable(
-            'product',
-            $search,
-            $sorting,
-            $min_price,
-            $max_price,
-            $colors,
-            $sizes,
-            $category_id
-          );
-
-          // $length = sizeof(mysqli_fetch_assoc(($products)));
-          if (mysqli_num_rows($products) > 0) {
-            foreach ($products as $item) {
-            ?>
-              <div class="content">
-                <a href="view-products.php?product=<?php echo $item['name'] ?>">
-                  <form action="" method="POST" class="product-col">
-                    <input type="hidden" name="product_id" value="<?php echo $item['id'] ?>">
-                    <div class="top">
-                      <img src="assets/uploads/<?php echo $item["image"]; ?>" alt="<?php echo $item["name"]; ?>" class="img">
-                    </div>
-                    <div class="bottom">
-                      <div class="product-details">
-                        <div class="title">
-                          <h4><?php echo $item["name"]; ?></h4>
-                        </div>
-                        <div class="rating-group" style="display:flex; gap:7em;">
-                          <?php
-                          $product_id = $item['id'];
-                          $reviews = getProdById("review", $product_id);
-                          if (mysqli_num_rows($reviews) > 0) {
-                            $total_reviews = 0;
-                            $total = 0;
-                            foreach ($reviews as $item_review) {
-                              $total_reviews += 1;
-                              $total += intval($item_review['rating']);
-                            }
-                            $average = $total / $total_reviews;
-                          ?>
-                            <div class="rating">
-                              <i class="fa-solid fa-star"></i>
-                              <h5><?php echo $average ?> (<?php echo $total_reviews ?>)</h5>
-                            </div>
-                            <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
-                          <?php
-                          } else {
-                          ?>
-                            <div class="rating">
-                              <i class="fa-solid fa-star"></i>
-                              <h5>5.0 (0)</h5>
-                            </div>
-                            <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
-                          <?php
-                          }
-                          ?>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </a>
-              </div>
-            <?php
-            }
-          } else {
-            echo '<span class="error-stmt"> There are no products found.  </span>';
-          }
         } else {
           // Get the search term from the form
           $search = isset($_GET['search']) ? trim($_GET['search']) : '';
@@ -367,17 +281,6 @@
                               <i class="fa-solid fa-star"></i>
                               <h5><?php echo $average ?> (<?php echo $total_reviews ?>)</h5>
                             </div>
-                            <?php 
-                              if ($product_discount !== null) { 
-                            ?>
-                              <h2 class="price"><?php echo "$" . $price; ?></h2>
-                            <?php 
-                              } else { 
-                            ?>
-                              <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
-                            <?php 
-                              } 
-                            ?>
                           <?php
                           } else {
                           ?>
@@ -385,9 +288,19 @@
                               <i class="fa-solid fa-star"></i>
                               <h5>5.0 (0)</h5>
                             </div>
-                            <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
                           <?php
                           }
+                          ?>
+                          <?php 
+                            if ($product_discount !== null) { 
+                          ?>
+                            <h2 class="price"><?php echo "$" . $price; ?></h2>
+                          <?php 
+                            } else { 
+                          ?>
+                            <h2 class="price"><?php echo "$" . $item["price"]; ?></h2>
+                          <?php 
+                            } 
                           ?>
                         </div>
                       </div>
