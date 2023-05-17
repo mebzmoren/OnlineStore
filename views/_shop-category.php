@@ -112,34 +112,8 @@
       <div class="product-grid grid-main">
         <?php
         if (isset($_SESSION['member_id'])) {
-          // Get the search term from the form
-          $search = isset($_GET['search']) ? trim($_GET['search']) : '';
+          $products_data = getProdByCategory($category_id);
 
-          // Get the sorting parameter from the form
-          $sorting = isset($_GET['sorting']) ? trim($_GET['sorting']) : '';
-
-          // Get the category_id from the form
-          $category_id = isset($_GET['category_id']) ? $_GET['category_id'] : '';
-
-          // Get the price filters from the form
-          $min_price = isset($_GET['min_price']) ? $_GET['min_price'] : '';
-          $max_price = isset($_GET['max_price']) ? $_GET['max_price'] : '';
-
-          // Get the color and size filters from the form
-          $colors = isset($_GET['colors']) ? $_GET['colors'] : [];
-          $sizes = isset($_GET['sizes']) ? $_GET['sizes'] : [];
-
-          // Get the products that match the filters
-          $products = getTable(
-            'product',
-            $search,
-            $sorting,
-            $min_price,
-            $max_price,
-            $colors,
-            $sizes,
-            $category_id
-          );
           if (mysqli_num_rows($products_data) > 0) {
             foreach ($products_data as $item) {
               $member_id = $_SESSION['member_id'];
