@@ -32,6 +32,7 @@ if (isset($_POST['cancel-order'])) {
   mysqli_query($conn, $delete);
   header('location: ' . $_SERVER['REQUEST_URI']);
 }
+
 // echo '<script>alert("CHECK: ' . $category_id .'")</script>';
 
 ?>
