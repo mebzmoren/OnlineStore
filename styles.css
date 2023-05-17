@@ -1379,6 +1379,11 @@ footer .bottom .group h4 {
 .products {
   flex: 85%;
   margin: 2em 1em;
+  padding: 1em 0 5em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  position: relative;
 }
 
 .products.active {
@@ -1651,7 +1656,12 @@ footer .bottom .group h4 {
 }
 
 .products .pagination {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 2em 0;
 }
 
