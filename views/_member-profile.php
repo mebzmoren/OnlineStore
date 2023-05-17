@@ -146,7 +146,7 @@
             <?php
               }
             } else {
-              echo '<span class="error-stmt"> You have not bought any products yet. </span>';
+              echo '<span class="error-stmt"> You have not liked any products. </span>';
             ?>
             <?php
             }
