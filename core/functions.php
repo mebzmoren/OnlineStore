@@ -151,6 +151,13 @@ function limitWords($text, $limit)
   return $text;
 }
 
+function getBillByMemberAndId($table, $product_id, $member_id)
+{
+  global $conn;
+  $mysql_stmt = "SELECT * FROM $table WHERE product_id='$product_id' AND member_id='$member_id'";
+  return mysqli_query($conn, $mysql_stmt);
+}
+
 // Count of how many products there are all in all
 $total_amount_of_products = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM product WHERE 1+1");
 
