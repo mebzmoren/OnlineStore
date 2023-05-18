@@ -47,6 +47,14 @@ body {
   background-color: var(--light-color);
 }
 
+body .shh {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  padding: 0.2em;
+  background-color: var(--light-color);
+}
+
 #toolTip {
   cursor: pointer;
 }
@@ -1682,16 +1690,6 @@ footer .bottom .group h4 {
   align-items: center;
   justify-content: center;
   border: 1px solid var(--dark-color);
-}
-
-.products .pagination .page-select .select:hover {
-  background-color: var(--main-color);
-  color: var(--text-color);
-}
-
-.products .pagination .page-select .select:nth-child(2) {
-  background-color: var(--main-color);
-  color: var(--text-color);
 }
 
 /* Product Page */

@@ -59,6 +59,7 @@ if (isset($_POST['cancel-order'])) {
   <?php include('views/inc/header.php') ?>
   <?php include('views/inc/modals.php') ?>
   <?php include($contentView) ?>
+
   <?php include('views/inc/footer.php') ?>
 
   <!-- JS Link -->
