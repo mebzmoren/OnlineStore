@@ -199,9 +199,10 @@
   </div>
   <div class="rating-header">
     <?php
-      $res = getBillByMemberAndId('bill', $product['id'], $_SESSION['member_id']);
-      $bill = mysqli_fetch_array($res);
-      if (isset($bill)) {
+      if(isset($_SESSION['member_id'])) {
+        $res = getBillByMemberAndId('bill', $product['id'], $_SESSION['member_id']);
+        $bill = mysqli_fetch_array($res);
+        if (isset($bill)) {
     ?>
       <button class="sub-header" id="rating-btn">Write a Review</button>
     <?php
@@ -210,6 +211,11 @@
       <span class="error-stmt"> Purchase product before rating. </span>
     <?php
       }
+    } else {
+    ?>
+      <span class="error-stmt"> Login first as member to rate. </span>
+    <?php
+    }
     ?>
     <?php
     $product_id = $product['id'];
