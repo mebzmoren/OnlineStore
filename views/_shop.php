@@ -13,15 +13,15 @@
           </label> -->
         <select class="category-select" name="category_id">
           <?php
-            $categories = getCategories();
-            while ($category = mysqli_fetch_assoc($categories)) {
-            ?>
-          <option value="<?php echo $category['id']; ?>">
-            <?php echo ($category['name']); ?>
-          </option>
+          $categories = getCategories();
+          while ($category = mysqli_fetch_assoc($categories)) {
+          ?>
+            <option value="<?php echo $category['id']; ?>">
+              <?php echo ($category['name']); ?>
+            </option>
           <?php
-            }
-            ?>
+          }
+          ?>
         </select>
         <div class="filter">
           <button type="button" id="price-btn">
@@ -107,30 +107,26 @@
     </div>
     <!-- Product Grid -->
     <div class="product-grid grid-main">
-    <?php
+      <?php
       if (isset($_SESSION['member_id'])) {
         // Get the search term from the form
         $search = isset($_GET['search']) ? trim($_GET['search']) : '';
-      
+
         // Get the sorting parameter from the form
         $sorting = isset($_GET['sorting']) ? trim($_GET['sorting']) : '';
-      
+
         // Get the category_id from the form
         $category_id = isset($_GET['category_id']) ? $_GET['category_id'] : '';
-      
+
         // Get the price filters from the form
         $min_price = isset($_GET['min_price']) ? $_GET['min_price'] : '';
         $max_price = isset($_GET['max_price']) ? $_GET['max_price'] : '';
-      
+
         // Get the color and size filters from the form
         $colors = isset($_GET['colors']) ? $_GET['colors'] : [];
         $sizes = isset($_GET['sizes']) ? $_GET['sizes'] : [];
 
-        $itemsPerPage = 8;
-        $page = isset($_GET['page']) ? $_GET['page'] : 1;
-        $offset = ($page - 1) * $itemsPerPage;
-      
-        // Get the products that match the filters0
+        // Get the products that match the filters
         $products = getTable(
           'product',
           $search,
@@ -139,126 +135,267 @@
           $max_price,
           $colors,
           $sizes,
-          $category_id,
-          $offset,
-          $itemsPerPage
+          $category_id
         );
-        
-        // Calculate the offset for the current page
-        $offset = ($page - 1) * $itemsPerPage;
 
-        // Query to fetch products
-        $query = "SELECT * FROM product LIMIT $offset, $itemsPerPage";
-        $products = mysqli_query($conn, $query);
-
-        // Calculate the total number of products and pages
-        $totalProducts = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM product"));
-        $totalPages = ceil($totalProducts / $itemsPerPage);
-      
-        if (mysqli_num_rows($products) > 0) { 
-        ?>
-        <?php while ($row = mysqli_fetch_array($products)) { 
-          if($row['quantity'] == 0) {
-            continue;
-          }
-          $member_id = $_SESSION['member_id'];
-          $res = getLikedProduct('liked_product', $member_id, $row['id']);
-          $check = mysqli_fetch_assoc($res);
-          $discountRes = checkDiscountProduct('discount_product', $row['id']);
-          $product_discount = mysqli_fetch_assoc($discountRes);
-          $discount = 0;
-          if ($product_discount !== null) {
-            $discount = intval($product_discount['discount']);
-            $price = $row['price'] * ($discount / 100);
-          }
-        ?>
-        <div class="content">
-          <a href="view-products.php?product=<?php echo $row['name'] ?>">
-            <form action="" method="POST" class="product-col">
-              <input type="hidden" name="product_id" value="<?php echo $row['id'] ?>">
-              <?php 
-                if (mysqli_num_rows($res) > 0) { 
-              ?>
-                <button name="unlike-product" type="submit" class="fa-solid fa-heart like active"></button>
-              <?php 
-              } else { 
-              ?>
-                <button name="like-product" type="submit" class="fa-solid fa-heart like"></button>
-              <?php 
-              } 
-              ?>
-              <div class="top">
-                <img src="assets/uploads/<?php echo $row["image"]; ?>" alt="<?php echo $row["name"]; ?>" class="img">
-              </div>
-              <div class="bottom">
-                <div class="product-details">
-                  <div class="title">
-                    <h4><?php echo $row["name"]; ?></h4>
-                  </div>
-                  <div class="rating-group" style="display:flex; gap:7em;">
-                    <?php
-                    $product_id = $row['id'];
-                    $reviews = getProdById("review", $product_id);
-                    if (mysqli_num_rows($reviews) > 0) {
-                      $total_reviews = 0;
-                      $total = 0;
-                      foreach ($reviews as $item_review) {
-                        $total_reviews += 1;
-                        $total += intval($item_review['rating']);
-                      }
-                      $average = $total / $total_reviews;
-                    ?>
-                      <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <h5><?php echo $average ?> (<?php echo $total_reviews ?>)</h5>
-                      </div>
-                    <?php
-                    } else {
-                    ?>
-                      <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <h5>5.0 (0)</h5>
-                      </div>
-                    <?php
-                    }
-                    ?>
-                    <?php 
-                      if ($product_discount !== null) { 
-                    ?>
-                      <h2 class="price"><?php echo "$" . $price; ?></h2>
-                    <?php 
-                      } else { 
-                    ?>
-                      <h2 class="price"><?php echo "$" . $row["price"]; ?></h2>
-                    <?php 
-                      } 
-                    ?>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </a>
-        </div>
-      <?php 
-        } 
+        //PAGINATION APPLIED BY SAMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM =============================================
+        if (mysqli_num_rows($output) > 0) {
       ?>
-      <?php 
+          <?php while ($row = mysqli_fetch_array($output)) {
+            if ($row['quantity'] == 0) {
+              continue;
+            }
+            $member_id = $_SESSION['member_id'];
+            $res = getLikedProduct('liked_product', $member_id, $row['id']);
+            $check = mysqli_fetch_assoc($res);
+            $discountRes = checkDiscountProduct('discount_product', $row['id']);
+            $product_discount = mysqli_fetch_assoc($discountRes);
+            $discount = 0;
+            if ($product_discount !== null) {
+              $discount = intval($product_discount['discount']);
+              $price = $row['price'] * ($discount / 100);
+            }
+          ?>
+            <div class="content">
+              <a href="view-products.php?product=<?php echo $row['name'] ?>">
+                <form action="" method="POST" class="product-col">
+                  <input type="hidden" name="product_id" value="<?php echo $row['id'] ?>">
+                  <?php
+                  if (mysqli_num_rows($res) > 0) {
+                  ?>
+                    <button name="unlike-product" type="submit" class="fa-solid fa-heart like active"></button>
+                  <?php
+                  } else {
+                  ?>
+                    <button name="like-product" type="submit" class="fa-solid fa-heart like"></button>
+                  <?php
+                  }
+                  ?>
+                  <div class="top">
+                    <img src="assets/uploads/<?php echo $row["image"]; ?>" alt="<?php echo $row["name"]; ?>" class="img">
+                  </div>
+                  <div class="bottom">
+                    <div class="product-details">
+                      <div class="title">
+                        <h4><?php echo $row["name"]; ?></h4>
+                      </div>
+                      <div class="rating-group" style="display:flex; gap:7em;">
+                        <?php
+                        $product_id = $row['id'];
+                        $reviews = getProdById("review", $product_id);
+                        if (mysqli_num_rows($reviews) > 0) {
+                          $total_reviews = 0;
+                          $total = 0;
+                          foreach ($reviews as $item_review) {
+                            $total_reviews += 1;
+                            $total += intval($item_review['rating']);
+                          }
+                          $average = $total / $total_reviews;
+                        ?>
+                          <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <h5><?php echo $average ?> (<?php echo $total_reviews ?>)</h5>
+                          </div>
+                        <?php
+                        } else {
+                        ?>
+                          <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <h5>5.0 (0)</h5>
+                          </div>
+                        <?php
+                        }
+                        ?>
+                        <?php
+                        if ($product_discount !== null) {
+                        ?>
+                          <h2 class="price"><?php echo "$" . $price; ?></h2>
+                        <?php
+                        } else {
+                        ?>
+                          <h2 class="price"><?php echo "$" . $row["price"]; ?></h2>
+                        <?php
+                        }
+                        ?>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </a>
+            </div>
+          <?php
+          }
+          ?>
+        <?php
         } else {
           echo "There are no products found.";
-        } 
-      ?>
-    </div>
-    <div class="pagination">
-      <ul class="page-select">
-        <?php
-        for ($i = 1; $i <= $totalPages; $i++) {
-          echo '<li class="select' . ($page == $i ? ' active' : '') . '"><a href="?page=' . $i . '">' . $i . '</a></li>';
         }
         ?>
-      </ul>
-    </div>
-    <?php
-    } 
-    ?>
+        <?php
+      } else {
+        // Get the search term from the form
+        $search = isset($_GET['search']) ? trim($_GET['search']) : '';
+
+        // Get the sorting parameter from the form
+        $sorting = isset($_GET['sorting']) ? trim($_GET['sorting']) : '';
+
+        // Get the category_id from the form
+        $category_id = isset($_GET['category_id']) ? $_GET['category_id'] : '';
+
+        // Get the price filters from the form
+        $min_price = isset($_GET['min_price']) ? $_GET['min_price'] : '';
+        $max_price = isset($_GET['max_price']) ? $_GET['max_price'] : '';
+
+        // Get the color and size filters from the form
+        $colors = isset($_GET['colors']) ? $_GET['colors'] : [];
+        $sizes = isset($_GET['sizes']) ? $_GET['sizes'] : [];
+
+        // Get the products that match the filters
+        $products = getTable(
+          'product',
+          $search,
+          $sorting,
+          $min_price,
+          $max_price,
+          $colors,
+          $sizes,
+          $category_id
+        );
+
+        //PAGINATION APPLIED BY SAMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM =============================================
+        // Data on $products checker
+        if (mysqli_num_rows($output) > 0) {
+          while ($row = mysqli_fetch_array($output)) {
+            if ($row['quantity'] == 0) {
+              continue;
+            }
+            $res = checkDiscountProduct('discount_product', $row['id']);
+            $product_discount = mysqli_fetch_assoc($res);
+            $discount = 0;
+            if ($product_discount !== null) {
+              $discount = intval($product_discount['discount']);
+              $price = $row['price'] * ($discount / 100);
+            }
+        ?>
+            <div class="content">
+              <a href="view-products.php?product=<?php echo $row['name'] ?>">
+                <form action="" method="POST" class="product-col">
+                  <input type="hidden" name="product_id" value="<?php echo $row['id'] ?>">
+                  <div class="top">
+                    <img src="assets/uploads/<?php echo $row["image"]; ?>" alt="<?php echo $row["name"]; ?>" class="img">
+                  </div>
+                  <div class="bottom">
+                    <div class="product-details">
+                      <div class="title">
+                        <h4><?php echo $row["name"]; ?></h4>
+                      </div>
+                      <div class="rating-group" style="display:flex; gap:6em;">
+                        <?php
+                        $product_id = $row['id'];
+                        $reviews = getProdById("review", $product_id);
+                        if (mysqli_num_rows($reviews) > 0) {
+                          $total_reviews = 0;
+                          $total = 0;
+                          foreach ($reviews as $item_review) {
+                            $total_reviews += 1;
+                            $total += intval($item_review['rating']);
+                          }
+                          $average = $total / $total_reviews;
+                        ?>
+                          <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <h5><?php echo $average ?> (<?php echo $total_reviews ?>)</h5>
+                          </div>
+                        <?php
+                        } else {
+                        ?>
+                          <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <h5>5.0 (0)</h5>
+                          </div>
+                        <?php
+                        }
+                        ?>
+                        <?php
+                        if ($product_discount !== null) {
+                        ?>
+                          <h2 class="price"><?php echo "$" . $price; ?></h2>
+                        <?php
+                        } else {
+                        ?>
+                          <h2 class="price"><?php echo "$" . $row["price"]; ?></h2>
+                        <?php
+                        }
+                        ?>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </a>
+            </div>
+        <?php
+          }
+        } else {
+          echo '<span class="error-stmt"> There are no products found.  </span>';
+        }
+        ?>
+      <?php
+      }
+      ?>
+      <div class="pagination">
+        <ul class="page-select">
+          <!-- page conditions when page number is 1 there is no need to display a back button -->
+          <li class="select" <?= ($page_number <= 1) ? 'style="display: none;"' : ''; ?>>
+            <?php
+            if ($page_number > 1) {
+            ?>
+              <a href="?page_number=<?= $back; ?>">
+                < </a>
+                <?php
+              } else {
+                ?>
+                <?php
+              }
+                ?>
+          </li>
+          <!-- loop to add page numbers -->
+          <?php
+          for ($i = 1; $i <= $max_amount_of_pages; $i++) {
+          ?>
+            <!-- godwin change this class sa css or add a class the name shoud be this "current-page" changing the color of the box to be blue then the font to be white indicating naa ta ani na current page kay im confuse   -->
+            <li class="select <?= ($page_number == $i) ? 'current-page' : ''; ?>">
+              <?php if ($page_number != $i) { ?>
+                <a href="?page_number=<?= $i; ?>"><?= $i; ?></a>
+              <?php
+              } else {
+              ?>
+                <?= $i; ?>
+              <?php
+              }
+              ?>
+            </li>
+          <?php
+          }
+          ?>
+          <!-- page condition to add a next button if the current page isnt the last page -->
+          <li class="select" <?= ($page_number >= $max_amount_of_pages) ? 'style="display: none;"' : ''; ?>>
+            <?php
+            if ($page_number < $max_amount_of_pages) {
+            ?>
+              <a href="?page_number=<?= $next; ?>"> > </a>
+            <?php
+            } else {
+            ?>
+              >
+            <?php
+            }
+            ?>
+          </li>
+        </ul>
+        <!-- shows what current page the user is in out of all the total amount of pages -->
+        <div>
+          <span>Page <?= $page_number; ?> of <?= $max_amount_of_pages ?></span>
+        </div>
+      </div>
   </section>
 </main>
