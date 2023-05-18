@@ -300,6 +300,7 @@
     }
     ?>
   </div>
+  <button class="sub-header" id="rating-btn" style="display:none;">Write a Review</button>
 </div>
 <script src="assets/javascript/products.js"></script>
 <script src="selector.js"></script>
