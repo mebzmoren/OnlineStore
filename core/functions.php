@@ -4,24 +4,28 @@ include 'core/database.php';
 
 //***************************************************** */
 //Update the getTable function that accepts $search and $sorting. If $search is provide, it adds a WHERE clause to the SQL query to only select rows where the 'name' column contains the search string.if $sorting is provide, it will sort by last_modified Descending order
-function getTable($table, $search = '', $sorting = '', $min_price = '', $max_price = '', $colors = [], $sizes = [], $category_id = '', $offset = 0, $limit = 0)
+function getTable($table, $search = '', $sorting = '', $min_price = '', $max_price = '', $colors = [], $sizes = [], $category_id = '')
 {
   global $conn;
-  $mysql_stmt = "SELECT * FROM $table WHERE 1+1";
+  $mysql_stmt = "SELECT * FROM $table Where 1+1";
+  $mysql_stmt1 = "SELECT * FROM $table ";
 
   if ($search !== '') {
     $search = mysqli_real_escape_string($conn, $search);
-    $mysql_stmt .= " AND name LIKE '%$search%'";
+    $mysql_stmt1 .= " WHERE name LIKE '%$search%'";
+    return mysqli_query($conn, $mysql_stmt1);
   }
 
   if ($sorting !== '') {
     if ($sorting === 'new') {
-      $mysql_stmt .= " ORDER BY last_modified DESC";
+      $mysql_stmt1 .= " ORDER BY last_modified DESC";
+      return mysqli_query($conn, $mysql_stmt1);
     } elseif ($sorting === 'popular') {
       // Adding the COUNT() function to the SELECT clause
-      $mysql_stmt = str_replace("SELECT *", "SELECT *, COUNT(product_id) as sales_count", $mysql_stmt);
+      $mysql_stmt1 = str_replace("SELECT *", "SELECT *, COUNT(product_id) as sales_count", $mysql_stmt1);
       // Join with product_bill table
-      $mysql_stmt .= " LEFT JOIN bill pb ON $table.id = pb.product_id GROUP BY $table.id ORDER BY sales_count DESC";
+      $mysql_stmt1 .= " LEFT JOIN bill pb ON $table.id = pb.product_id GROUP BY $table.id ORDER BY sales_count DESC";
+      return mysqli_query($conn, $mysql_stmt1);
     }
   }
 
@@ -32,7 +36,6 @@ function getTable($table, $search = '', $sorting = '', $min_price = '', $max_pri
     $category_id = mysqli_real_escape_string($conn, $category_id);
     $mysql_stmt .= " AND category_id = $category_id";
   }
-
   // price filter
   if ($min_price !== '') {
     $min_price = mysqli_real_escape_string($conn, $min_price);
@@ -55,17 +58,12 @@ function getTable($table, $search = '', $sorting = '', $min_price = '', $max_pri
     $mysql_stmt .= " AND FIND_IN_SET('$size', sizes)";
   }
 
-  // Add sorting at the end of the query
-  if ($sorting === '') {
-    $mysql_stmt .= " ORDER BY id ASC";
-  }
+  // // Add sorting at the end of the query
 
-  // Apply limit and offset
-  if ($limit > 0) {
-    $mysql_stmt .= " LIMIT $offset, $limit";
-  }
 
   $result = mysqli_query($conn, $mysql_stmt);
+
+
 
   if ($result === false) {
     die("Error in query: " . mysqli_error($conn));
@@ -73,7 +71,6 @@ function getTable($table, $search = '', $sorting = '', $min_price = '', $max_pri
 
   return $result;
 }
-
 
 function getCategories()
 {
@@ -147,6 +144,12 @@ function getProductById($table, $id) {
   return mysqli_query($conn, $mysql_stmt);
 }
 
+function getBillByMemberAndId ($table, $product_id, $member_id) {
+  global $conn;
+  $mysql_stmt = "SELECT * FROM $table WHERE product_id='$product_id' AND member_id='$member_id'";
+  return mysqli_query($conn, $mysql_stmt);
+}
+
 function limitWords($text, $limit) {
   $words = explode(' ', $text);
   if (count($words) > $limit) {
@@ -157,8 +160,44 @@ function limitWords($text, $limit) {
   return $text;
 }
 
+
 // Sam Functions
 //********************************************************* */
 
+// Count of how many products there are all in all
+$total_amount_of_products = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM product") or die(mysqli_error($conn));
+$row = mysqli_fetch_assoc($total_amount_of_products);
+$total_amount_of_products = $row['total_records'];
 
-//********************************************************* */
+// Max amount of products to display in one page
+$max_products_per_page = 9;
+
+// Setting and getting the page number
+if(isset($_GET['page_number']) && $_GET['page_number'] !== "") {
+  $page_number = $_GET['page_number'];
+} else {
+  $page_number = 1;
+}
+
+// Calculate offset for the max limit query33
+$offset = ($page_number - 1) * $max_products_per_page;
+
+// Query string to retrieve products with limit and offset
+$sql = "SELECT * FROM product LIMIT $offset, $max_products_per_page";
+$output = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+// Get previous page
+$back = $page_number - 1;
+// Get next page 
+$next = $page_number + 1;
+
+// Total counts of records applied $output function
+$output_count = mysqli_query($conn, "SELECT COUNT(*) as total_records FROM online_store.product") or die(mysqli_error($conn));
+
+// Total records
+$records = mysqli_fetch_array($output_count);
+$count_records = $records['total_records'];
+
+// Max pages 
+$max_amount_of_pages = ceil($count_records / $max_products_per_page);
+

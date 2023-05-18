@@ -199,6 +199,19 @@
   </div>
   <div class="rating-header">
     <?php
+      $res = getBillByMemberAndId('bill', $product['id'], $_SESSION['member_id']);
+      $bill = mysqli_fetch_array($res);
+      if (isset($bill)) {
+    ?>
+      <button class="sub-header" id="rating-btn">Write a Review</button>
+    <?php
+      } else {
+    ?>
+      <span class="error-stmt"> Purchase product before rating. </span>
+    <?php
+      }
+    ?>
+    <?php
     $product_id = $product['id'];
     $reviews = getProdById("review", $product_id);
     if (mysqli_num_rows($reviews) > 0) {
@@ -210,7 +223,6 @@
       }
       $average = $total / $total_reviews;
     ?>
-      <button class="sub-header" id="rating-btn">Write a Review</button>
       <div class="rating-total">
         <span class="total"><?php echo $average ?></span>
         <div class="group">
@@ -227,7 +239,6 @@
     <?php
     } else {
     ?>
-      <button class="sub-header" id="rating-btn">Write a Review</button>
       <div class="rating-total">
         <span class="total">5.0</span>
         <div class="group">
