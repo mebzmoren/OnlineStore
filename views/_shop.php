@@ -261,7 +261,7 @@
         $sizes,
         $category_id
       );
-
+      
       if (mysqli_num_rows($products) > 0) {
         while ($row = mysqli_fetch_array($products)) {
           if($row['quantity'] == 0) {
