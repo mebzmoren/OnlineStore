@@ -139,9 +139,9 @@
         );
 
         //PAGINATION APPLIED BY SAMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM =============================================
-        if (mysqli_num_rows($products) > 0) {
+        if (mysqli_num_rows($output) > 0) {
       ?>
-          <?php while ($row = mysqli_fetch_array($products)) {
+          <?php while ($row = mysqli_fetch_array($output)) {
             if ($row['quantity'] == 0) {
               continue;
             }
@@ -231,7 +231,7 @@
           echo "There are no products found.";
         }
         ?>
-      <?php
+        <?php
       } else {
         // Get the search term from the form
         $search = isset($_GET['search']) ? trim($_GET['search']) : '';
@@ -261,10 +261,11 @@
           $sizes,
           $category_id
         );
-      ?>
-        <?php
-        if (mysqli_num_rows($products) > 0) {
-          while ($row = mysqli_fetch_array($products)) {
+
+        //PAGINATION APPLIED BY SAMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM =============================================
+        // Data on $products checker
+        if (mysqli_num_rows($output) > 0) {
+          while ($row = mysqli_fetch_array($output)) {
             if ($row['quantity'] == 0) {
               continue;
             }
@@ -332,11 +333,13 @@
                 </form>
               </a>
             </div>
-      <?php
+        <?php
           }
         } else {
           echo '<span class="error-stmt"> There are no products found.  </span>';
         }
+        ?>
+      <?php
       }
       ?>
       <div class="pagination">
